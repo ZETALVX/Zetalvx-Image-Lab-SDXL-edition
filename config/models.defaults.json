@@ -1,0 +1,35 @@
+{
+  "models": [
+    {
+      "id": "sdxl",
+      "name": "SDXL",
+      "group": "Native \u00b7 General",
+      "kind": "image",
+      "provider": "sdxl",
+      "enabled": true,
+      "status": "configure",
+      "capabilities": [
+        "generate",
+        "edit",
+        "inpaint",
+        "reference",
+        "multi_image"
+      ],
+      "config": {
+        "checkpoint": "",
+        "inpaint_checkpoint": "",
+        "vae": "",
+        "checkpoint_roots": "",
+        "lora_root": "",
+        "dtype": "float16",
+        "device": "cuda",
+        "memory_mode": "full_gpu",
+        "cpu_offload": false,
+        "default_steps": 30,
+        "default_cfg": 6.0,
+        "auto_priority": 100,
+        "supports_strength": true
+      }
+    }
+  ]
+}

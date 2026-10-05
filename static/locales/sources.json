@@ -1,0 +1,2221 @@
+{
+  "languages": [
+    {
+      "code": "en",
+      "name": "English",
+      "rtl": false
+    },
+    {
+      "code": "it",
+      "name": "Italiano",
+      "rtl": false
+    },
+    {
+      "code": "es",
+      "name": "Español",
+      "rtl": false
+    },
+    {
+      "code": "fr",
+      "name": "Français",
+      "rtl": false
+    },
+    {
+      "code": "de",
+      "name": "Deutsch",
+      "rtl": false
+    },
+    {
+      "code": "pt",
+      "name": "Português",
+      "rtl": false
+    },
+    {
+      "code": "ru",
+      "name": "Русский",
+      "rtl": false
+    },
+    {
+      "code": "zh",
+      "name": "简体中文",
+      "rtl": false
+    },
+    {
+      "code": "ja",
+      "name": "日本語",
+      "rtl": false
+    },
+    {
+      "code": "ko",
+      "name": "한국어",
+      "rtl": false
+    },
+    {
+      "code": "tr",
+      "name": "Türkçe",
+      "rtl": false
+    },
+    {
+      "code": "ar",
+      "name": "العربية",
+      "rtl": true
+    }
+  ],
+  "sources": [
+    [
+      "Home",
+      "HOME"
+    ],
+    [
+      "Create",
+      "CREATE",
+      "Genera",
+      "Generate",
+      "Generate Image",
+      "01 · Generate",
+      "2 · CREATE"
+    ],
+    [
+      "Image",
+      "IMAGE STUDIO"
+    ],
+    [
+      "Identity",
+      "IDENTITY",
+      "Face & identity"
+    ],
+    [
+      "Library",
+      "PROJECT LIBRARY",
+      "Assets"
+    ],
+    [
+      "More"
+    ],
+    [
+      "Models",
+      "Modelli",
+      "Gestione modelli",
+      "MODEL RUNTIME",
+      "Modelli e percorsi →"
+    ],
+    [
+      "Settings",
+      "Impostazioni",
+      "PREFERENZE"
+    ],
+    [
+      "Tools",
+      "TOOLS",
+      "Media Tools",
+      "Image tools",
+      "Strumenti per immagini"
+    ],
+    [
+      "Training",
+      "TRAINING",
+      "SDXL TRAINING",
+      "06 · Training",
+      "2 · SDXL TRAINING",
+      "Dataset, LoRA e fine-tuning UNet."
+    ],
+    [
+      "Train SDXL",
+      "Allena SDXL"
+    ],
+    [
+      "Projects",
+      "WORKSPACES",
+      "New project",
+      "PROJECT"
+    ],
+    [
+      "New Project",
+      "+ New Project"
+    ],
+    [
+      "Jobs",
+      "JOBS",
+      "Training jobs",
+      "Identity jobs"
+    ],
+    [
+      "Queue",
+      "QUEUE",
+      "Generation queue",
+      "Add to queue",
+      "Queue Auto Test"
+    ],
+    [
+      "History",
+      "HISTORY",
+      "Previous outputs"
+    ],
+    [
+      "Queue & history"
+    ],
+    [
+      "Language",
+      "UI language"
+    ],
+    [
+      "Save",
+      "Salva",
+      "Save captions"
+    ],
+    [
+      "Cancel",
+      "Annulla"
+    ],
+    [
+      "Close",
+      "Chiudi"
+    ],
+    [
+      "Delete",
+      "Elimina"
+    ],
+    [
+      "Remove"
+    ],
+    [
+      "Refresh",
+      "Aggiorna",
+      "Aggiorna stato",
+      "Refresh log"
+    ],
+    [
+      "Open",
+      "Apri"
+    ],
+    [
+      "Browse",
+      "Sfoglia"
+    ],
+    [
+      "Download"
+    ],
+    [
+      "Install"
+    ],
+    [
+      "Import",
+      "Import dataset"
+    ],
+    [
+      "Export"
+    ],
+    [
+      "Load"
+    ],
+    [
+      "Duplicate"
+    ],
+    [
+      "Save as new"
+    ],
+    [
+      "Update selected"
+    ],
+    [
+      "Details",
+      "DETAILS"
+    ],
+    [
+      "Reuse"
+    ],
+    [
+      "Continue",
+      "Continua"
+    ],
+    [
+      "Next"
+    ],
+    [
+      "Previous"
+    ],
+    [
+      "Edit",
+      "Modifica",
+      "02 · Img2img",
+      "Parti da una foto e controlla il denoise."
+    ],
+    [
+      "Inpaint",
+      "Modifica una zona",
+      "03 · Inpaint"
+    ],
+    [
+      "Reference",
+      "REFERENCES"
+    ],
+    [
+      "Name",
+      "Nome file"
+    ],
+    [
+      "Description"
+    ],
+    [
+      "Prompt"
+    ],
+    [
+      "Negative prompt"
+    ],
+    [
+      "Prompt / edit instruction"
+    ],
+    [
+      "Simple"
+    ],
+    [
+      "Advanced"
+    ],
+    [
+      "Custom",
+      "Custom / manual"
+    ],
+    [
+      "Manual / Clean",
+      "Manual / Clear"
+    ],
+    [
+      "Clean"
+    ],
+    [
+      "Look"
+    ],
+    [
+      "Realistic",
+      "Photoreal"
+    ],
+    [
+      "Cinematic"
+    ],
+    [
+      "Cartoon"
+    ],
+    [
+      "Anime"
+    ],
+    [
+      "Illustration"
+    ],
+    [
+      "Product"
+    ],
+    [
+      "Logo / Text"
+    ],
+    [
+      "Quality"
+    ],
+    [
+      "Balanced",
+      "Bilanciato"
+    ],
+    [
+      "Maximum"
+    ],
+    [
+      "Fast"
+    ],
+    [
+      "Width"
+    ],
+    [
+      "Height"
+    ],
+    [
+      "Resolution"
+    ],
+    [
+      "Size"
+    ],
+    [
+      "Ratio"
+    ],
+    [
+      "Steps"
+    ],
+    [
+      "Seed"
+    ],
+    [
+      "Batch"
+    ],
+    [
+      "Batch name"
+    ],
+    [
+      "Scheduler"
+    ],
+    [
+      "Checkpoint folder"
+    ],
+    [
+      "LoRA folder"
+    ],
+    [
+      "LoRA stack",
+      "Prompt + LoRA",
+      "LoRA stack + weights"
+    ],
+    [
+      "LoRA strength"
+    ],
+    [
+      "Add LoRA",
+      "+ Add LoRA"
+    ],
+    [
+      "Optional",
+      "opzionale"
+    ],
+    [
+      "Options"
+    ],
+    [
+      "Operation"
+    ],
+    [
+      "Apply preset"
+    ],
+    [
+      "Preset"
+    ],
+    [
+      "Preset type"
+    ],
+    [
+      "Workflow"
+    ],
+    [
+      "Apply workflow"
+    ],
+    [
+      "Clear workflow"
+    ],
+    [
+      "Ready",
+      "Pronto"
+    ],
+    [
+      "Missing",
+      "Manca"
+    ],
+    [
+      "Enabled"
+    ],
+    [
+      "Disabled"
+    ],
+    [
+      "Online"
+    ],
+    [
+      "Offline"
+    ],
+    [
+      "None",
+      "Nessuno",
+      "No LoRA",
+      "No user preset",
+      "Preset · None",
+      "Workflow · None",
+      "No binding selected."
+    ],
+    [
+      "Yes"
+    ],
+    [
+      "No"
+    ],
+    [
+      "Configuration",
+      "Configure",
+      "Configura",
+      "Device configuration"
+    ],
+    [
+      "Upload files"
+    ],
+    [
+      "Select LoRA"
+    ],
+    [
+      "Unload GPU"
+    ],
+    [
+      "Logout"
+    ],
+    [
+      "Login",
+      "Sign in",
+      "Login · Zetalvx Image Lab — SDXL Edition"
+    ],
+    [
+      "Username",
+      "Utente",
+      "Nome utente"
+    ],
+    [
+      "Password"
+    ],
+    [
+      "Confirm password",
+      "Conferma password"
+    ],
+    [
+      "Current password",
+      "Password attuale"
+    ],
+    [
+      "New password",
+      "Nuova password"
+    ],
+    [
+      "Account",
+      "ACCOUNT",
+      "Settings → Account"
+    ],
+    [
+      "Web access",
+      "Accesso all'app",
+      "Accesso web"
+    ],
+    [
+      "This PC only",
+      "Solo questo PC · consigliato"
+    ],
+    [
+      "Local network (LAN)",
+      "Rete locale LAN · altri dispositivi"
+    ],
+    [
+      "Dataset",
+      "1 · DATASET"
+    ],
+    [
+      "Datasets for training",
+      "DATASETS FOR TRAINING"
+    ],
+    [
+      "Prepare. Caption. Export."
+    ],
+    [
+      "Images and captions, ready for Zetalvx Image Lab — SDXL Edition."
+    ],
+    [
+      "New dataset"
+    ],
+    [
+      "Create dataset"
+    ],
+    [
+      "Choose a dataset",
+      "Choose a dataset first",
+      "Create or select a dataset."
+    ],
+    [
+      "Delete dataset"
+    ],
+    [
+      "Delete this dataset and its images?"
+    ],
+    [
+      "Dataset settings"
+    ],
+    [
+      "Create your first dataset"
+    ],
+    [
+      "Add images and captions, then export a ZIP. No GPU required for manual editing."
+    ],
+    [
+      "Import ZIP",
+      "Import dataset ZIP"
+    ],
+    [
+      "Export dataset ZIP",
+      "Export for SDXL"
+    ],
+    [
+      "Trigger word",
+      "Trigger word and captions"
+    ],
+    [
+      "Trigger placement"
+    ],
+    [
+      "Inside caption · do not insert"
+    ],
+    [
+      "Beginning · insert if missing"
+    ],
+    [
+      "End · insert if missing"
+    ],
+    [
+      "Apply trigger to missing captions"
+    ],
+    [
+      "The trigger may appear at the beginning, at the end or inside the caption. Existing occurrences are not duplicated or moved. Context mode leaves the text untouched."
+    ],
+    [
+      "Caption",
+      "Common image caption"
+    ],
+    [
+      "Save caption"
+    ],
+    [
+      "Caption checks",
+      "Check captions"
+    ],
+    [
+      "Caption check: {images} images · {empty} empty · {missing} missing trigger · {repeated} repeated trigger"
+    ],
+    [
+      "Word count is not token count. SDXL Training checks tokenizer length separately. A trigger at the end may be truncated if the caption is too long."
+    ],
+    [
+      "Images",
+      "Training images"
+    ],
+    [
+      "Add images + TXT",
+      "+ Add images"
+    ],
+    [
+      "Remove image"
+    ],
+    [
+      "Remove this image?"
+    ],
+    [
+      "Selected image",
+      "1 · INPUTS"
+    ],
+    [
+      "Describe only what is visible"
+    ],
+    [
+      "Caption text is saved exactly as written. Interface language does not translate captions."
+    ],
+    [
+      "Automatic captions · optional Vision endpoint"
+    ],
+    [
+      "Endpoint URL"
+    ],
+    [
+      "Vision model ID"
+    ],
+    [
+      "API token · optional"
+    ],
+    [
+      "Caption instructions"
+    ],
+    [
+      "Save connection"
+    ],
+    [
+      "Forget token"
+    ],
+    [
+      "Caption missing images"
+    ],
+    [
+      "Stop captioning"
+    ],
+    [
+      "Send dataset images to the Vision endpoint you configured?"
+    ],
+    [
+      "Manual editing works without an AI model. For automatic captions, configure your own compatible Vision endpoint. Images are sent only when you start captioning and confirm."
+    ],
+    [
+      "Token stored only on this server with file permissions 0600, not encrypted. Never exported in dataset ZIPs."
+    ],
+    [
+      "Caption saved"
+    ],
+    [
+      "Settings saved"
+    ],
+    [
+      "Connection saved"
+    ],
+    [
+      "Importing images…"
+    ],
+    [
+      "Images added"
+    ],
+    [
+      "Importing dataset…"
+    ],
+    [
+      "Dataset imported. Captions were preserved."
+    ],
+    [
+      "Trigger applied without duplicating existing occurrences"
+    ],
+    [
+      "Cancellation requested; the current request may finish first"
+    ],
+    [
+      "Errors"
+    ],
+    [
+      "completed"
+    ],
+    [
+      "completed_with_errors"
+    ],
+    [
+      "running"
+    ],
+    [
+      "queued"
+    ],
+    [
+      "cancelled"
+    ],
+    [
+      "interrupted"
+    ],
+    [
+      "failed"
+    ],
+    [
+      "Create your local account",
+      "Crea il tuo account locale"
+    ],
+    [
+      "Local account. No external registration."
+    ],
+    [
+      "Invalid username or password",
+      "Utente o password non corretti."
+    ],
+    [
+      "Upload limit: 120 MiB",
+      "Video limit: 120 MiB"
+    ],
+    [
+      "Select a video frame"
+    ],
+    [
+      "Selected frame",
+      "Fotogramma",
+      "Istante scelto"
+    ],
+    [
+      "Load video"
+    ],
+    [
+      "Choose a video first"
+    ],
+    [
+      "Open a project first"
+    ],
+    [
+      "Position"
+    ],
+    [
+      "Seconds",
+      "Secondi o HH:MM:SS"
+    ],
+    [
+      "First frame",
+      "Primo"
+    ],
+    [
+      "Last frame",
+      "Ultimo"
+    ],
+    [
+      "Preview frame"
+    ],
+    [
+      "Save frame to library",
+      "Estrai PNG"
+    ],
+    [
+      "Close video"
+    ],
+    [
+      "Preparing frame preview…"
+    ],
+    [
+      "Uploading video to this server…"
+    ],
+    [
+      "Preview ready. Saving uses this exact PNG."
+    ],
+    [
+      "Preview the new selection before saving"
+    ],
+    [
+      "Frame saved to the project library"
+    ],
+    [
+      "Upload once, preview the selected frame, then save that exact PNG to the library. The video stays on this server temporarily."
+    ],
+    [
+      "Extract directly by time"
+    ],
+    [
+      "Local video · maximum 120 MiB",
+      "Video locale · massimo 120 MiB"
+    ],
+    [
+      "Add",
+      "+ Aggiungi",
+      "Aggiungi i tuoi modelli →"
+    ],
+    [
+      "Add references",
+      "+ Add references"
+    ],
+    [
+      "Use active asset",
+      "Use active",
+      "+ Active asset"
+    ],
+    [
+      "Add input(s)",
+      "+ Add input(s)"
+    ],
+    [
+      "Automatic",
+      "automatic",
+      "AUTO",
+      "Rileva automaticamente"
+    ],
+    [
+      "0 = auto"
+    ],
+    [
+      "{count} jobs"
+    ],
+    [
+      "{count} variants"
+    ],
+    [
+      "{count} images"
+    ],
+    [
+      "API key",
+      "API key ↗"
+    ],
+    [
+      "Your API key",
+      "La tua API key"
+    ],
+    [
+      "Token"
+    ],
+    [
+      "My models",
+      "I miei modelli",
+      "LA TUA LIBRERIA AI"
+    ],
+    [
+      "Import a model",
+      "Importa un modello"
+    ],
+    [
+      "Import from link",
+      "+ Importa da link"
+    ],
+    [
+      "File link",
+      "Link del file"
+    ],
+    [
+      "Analyze link",
+      "Analizza link"
+    ],
+    [
+      "Download and add",
+      "Scarica e aggiungi"
+    ],
+    [
+      "Install Base 1.0",
+      "Installa Base 1.0",
+      "Oppure installa SDXL Base 1.0"
+    ],
+    [
+      "Install code only",
+      "Installa solo il codice"
+    ],
+    [
+      "Files are elsewhere",
+      "I file sono in un’altra cartella"
+    ],
+    [
+      "Custom files and folders",
+      "File e cartelle personalizzati"
+    ],
+    [
+      "Active checkpoint",
+      "Checkpoint attivo"
+    ],
+    [
+      "No checkpoint",
+      "Nessun checkpoint"
+    ],
+    [
+      "Use selected",
+      "Usa selezionato"
+    ],
+    [
+      "Show files and LoRA folder",
+      "Mostra file e cartella LoRA"
+    ],
+    [
+      "Open source and terms",
+      "Apri la fonte e i termini"
+    ],
+    [
+      "I verified that the source terms permit my intended use.",
+      "Ho verificato che i termini della fonte consentano il mio utilizzo.",
+      "Ho verificato i termini dei modelli e dispongo dei diritti per l'uso previsto."
+    ],
+    [
+      "A confirmation does not grant a license or enable external weight downloads.",
+      "La conferma non concede una licenza e non abilita download dei pesi esterni."
+    ],
+    [
+      "Downloads continue when the browser closes.",
+      "Continuano anche chiudendo il browser"
+    ],
+    [
+      "Storage and options",
+      "Archiviazione e opzioni"
+    ],
+    [
+      "Download accounts",
+      "Account per i download"
+    ],
+    [
+      "Disconnect",
+      "Scollega"
+    ],
+    [
+      "Not connected",
+      "Non collegato"
+    ],
+    [
+      "Verify and save",
+      "Verifica e salva"
+    ],
+    [
+      "Save without online verification (access is checked on download)",
+      "Salva senza verifica online (l’accesso sarà verificato al download)"
+    ],
+    [
+      "Create token ↗",
+      "Crea token ↗"
+    ],
+    [
+      "Network and access",
+      "Rete e accesso"
+    ],
+    [
+      "Save access",
+      "Salva accesso"
+    ],
+    [
+      "Update account",
+      "Aggiorna account"
+    ],
+    [
+      "Confirm new password",
+      "Conferma nuova password"
+    ],
+    [
+      "Local access",
+      "Accesso locale",
+      "Accesso locale protetto"
+    ],
+    [
+      "First setup",
+      "Prima configurazione",
+      "Primo avvio?",
+      "Prima configurazione · Zetalvx Image Lab — SDXL Edition"
+    ],
+    [
+      "Welcome",
+      "WELCOME"
+    ],
+    [
+      "Sign in to Zetalvx Image Lab — SDXL Edition",
+      "Accedi a Zetalvx Image Lab"
+    ],
+    [
+      "Sign in with the local account created on first launch.",
+      "Accedi con l'account locale creato al primo avvio."
+    ],
+    [
+      "Face consistency",
+      "Coerenza del volto",
+      "InstantID / Face Consistency",
+      "04 · InstantID",
+      "Identity preset",
+      "File Identity, sorgenti e istruzioni",
+      "Reference, posa e preset di fedeltà."
+    ],
+    [
+      "Face Swap",
+      "True Face Swap",
+      "Sostituisci il volto",
+      "05 · Face swap",
+      "Swap con rifinitura SDXL opzionale."
+    ],
+    [
+      "Face consistency · external weights",
+      "Coerenza del volto · pesi esterni"
+    ],
+    [
+      "Face Swap · external weights",
+      "Sostituzione del volto · pesi esterni"
+    ],
+    [
+      "InstantID enabled",
+      "InstantID abilitato"
+    ],
+    [
+      "Face Swap enabled",
+      "Face Swap abilitato"
+    ],
+    [
+      "InstantID code",
+      "Codice InstantID"
+    ],
+    [
+      "InstantID weights folder",
+      "Cartella pesi InstantID"
+    ],
+    [
+      "InstantID code folder",
+      "Cartella codice upstream InstantID"
+    ],
+    [
+      "Identity model folder",
+      "Cartella modelli Identity"
+    ],
+    [
+      "InsightFace root",
+      "Radice InsightFace"
+    ],
+    [
+      "Extracted antelopev2 folder",
+      "Cartella antelopev2 già estratta"
+    ],
+    [
+      "Extracted buffalo_l folder",
+      "Cartella buffalo_l già estratta"
+    ],
+    [
+      "Face Swap file (.onnx)",
+      "File Face Swap (.onnx)"
+    ],
+    [
+      "Link folder",
+      "Collega cartella"
+    ],
+    [
+      "Save Identity",
+      "Salva Identity"
+    ],
+    [
+      "Create required folders",
+      "Crea le cartelle previste"
+    ],
+    [
+      "Paths on the server",
+      "Percorsi sul server"
+    ],
+    [
+      "Use this folder",
+      "Usa questa cartella"
+    ],
+    [
+      "File check",
+      "Verifica file",
+      "Validate files",
+      "Controllo dei file…"
+    ],
+    [
+      "SDXL paths and options",
+      "Percorsi SDXL e opzioni"
+    ],
+    [
+      "Save SDXL paths",
+      "Salva percorsi SDXL"
+    ],
+    [
+      "Optional inpainting and VAE",
+      "Inpainting e VAE opzionali"
+    ],
+    [
+      "Dedicated inpainting checkpoint · optional",
+      "Inpaint checkpoint",
+      "Select a dedicated SDXL inpainting checkpoint when needed."
+    ],
+    [
+      "Custom VAE · optional"
+    ],
+    [
+      "Model",
+      "Model / checkpoint",
+      "Base + face reference"
+    ],
+    [
+      "Base SDXL checkpoint",
+      "SDXL checkpoint",
+      "Checkpoint SDXL"
+    ],
+    [
+      "Model default",
+      "Model defaults",
+      "Default checkpoint",
+      "checkpoint corrente"
+    ],
+    [
+      "Default steps"
+    ],
+    [
+      "Default CFG"
+    ],
+    [
+      "Checkpoint override"
+    ],
+    [
+      "Model default inpaint checkpoint"
+    ],
+    [
+      "Common caption"
+    ],
+    [
+      "Profile"
+    ],
+    [
+      "Mode"
+    ],
+    [
+      "Learning rate"
+    ],
+    [
+      "Gradient accumulation"
+    ],
+    [
+      "Gradient checkpointing"
+    ],
+    [
+      "LoRA rank"
+    ],
+    [
+      "LoRA alpha"
+    ],
+    [
+      "Save every"
+    ],
+    [
+      "LoRA · Recommended"
+    ],
+    [
+      "Full SDXL · Advanced"
+    ],
+    [
+      "Local 24 GB"
+    ],
+    [
+      "Server 96 GB"
+    ],
+    [
+      "Start SDXL training"
+    ],
+    [
+      "Training runtime"
+    ],
+    [
+      "Image runtime"
+    ],
+    [
+      "Identity runtime"
+    ],
+    [
+      "Training worker"
+    ],
+    [
+      "Identity worker"
+    ],
+    [
+      "Training log",
+      "Job log",
+      "LIVE / PERSISTENT LOG"
+    ],
+    [
+      "Identity log",
+      "IDENTITY LOG"
+    ],
+    [
+      "Dataset library",
+      "Saved training datasets",
+      "DATASET LIBRARY"
+    ],
+    [
+      "LoRA library",
+      "SDXL LoRA outputs",
+      "LORA LIBRARY",
+      "LoRA SDXL"
+    ],
+    [
+      "Full UNet library",
+      "Fine-tuned SDXL UNets",
+      "FULL UNET LIBRARY"
+    ],
+    [
+      "Full SDXL model library",
+      "Complete trained SDXL models",
+      "FULL SDXL MODEL LIBRARY"
+    ],
+    [
+      "Saved datasets & models",
+      "Libraries and trained outputs"
+    ],
+    [
+      "Brush"
+    ],
+    [
+      "Eraser"
+    ],
+    [
+      "Undo"
+    ],
+    [
+      "Clear"
+    ],
+    [
+      "Invert"
+    ],
+    [
+      "Mask",
+      "Inpaint mask",
+      "VISUAL MASK"
+    ],
+    [
+      "Save mask"
+    ],
+    [
+      "Upload mask"
+    ],
+    [
+      "Paint the area to replace",
+      "Dipingi la maschera e rigenera la selezione."
+    ],
+    [
+      "White = area to replace."
+    ],
+    [
+      "Change strength",
+      "Denoise / Img2Img strength"
+    ],
+    [
+      "Control start"
+    ],
+    [
+      "Control end",
+      "Control end values"
+    ],
+    [
+      "Pose control",
+      "Pose values"
+    ],
+    [
+      "Identity values"
+    ],
+    [
+      "CFG values"
+    ],
+    [
+      "Denoise values · Img2Img"
+    ],
+    [
+      "Detection size"
+    ],
+    [
+      "Target face"
+    ],
+    [
+      "Source face"
+    ],
+    [
+      "Largest"
+    ],
+    [
+      "Leftmost"
+    ],
+    [
+      "Rightmost"
+    ],
+    [
+      "Closest to center"
+    ],
+    [
+      "Swap all target faces"
+    ],
+    [
+      "Face padding"
+    ],
+    [
+      "Face region mask · experimental"
+    ],
+    [
+      "Refine denoise"
+    ],
+    [
+      "Refine steps"
+    ],
+    [
+      "Refine CFG"
+    ],
+    [
+      "Refine scheduler"
+    ],
+    [
+      "Refine seed"
+    ],
+    [
+      "InstantID generation mode"
+    ],
+    [
+      "New image · Text to Image",
+      "Free generation or editing",
+      "Reset to clean generation"
+    ],
+    [
+      "Preserve base/composition · Img2Img"
+    ],
+    [
+      "Base image · target face to replace"
+    ],
+    [
+      "Face reference(s) · first image is the primary identity"
+    ],
+    [
+      "Optional pose / landmark reference"
+    ],
+    [
+      "Actions"
+    ],
+    [
+      "Auto Test",
+      "Image Auto Test"
+    ],
+    [
+      "Guided Workflow"
+    ],
+    [
+      "Quick Preset"
+    ],
+    [
+      "User Presets"
+    ],
+    [
+      "Presets & User Presets"
+    ],
+    [
+      "Basic controls"
+    ],
+    [
+      "Complexity"
+    ],
+    [
+      "Manual Parameters"
+    ],
+    [
+      "Working mode"
+    ],
+    [
+      "Mode & preset status"
+    ],
+    [
+      "Mode · Manual / Clean"
+    ],
+    [
+      "Effective generation"
+    ],
+    [
+      "Effective prompt"
+    ],
+    [
+      "Effective negative prompt"
+    ],
+    [
+      "View effective prompt",
+      "Prompt e parametri effettivi",
+      "What will actually be sent"
+    ],
+    [
+      "Choose a look and create"
+    ],
+    [
+      "Choose preset"
+    ],
+    [
+      "Choose workflow"
+    ],
+    [
+      "Choose how you want to work"
+    ],
+    [
+      "Prompt handling"
+    ],
+    [
+      "Prompt + negative prompt",
+      "Prompt, checkpoint e LoRA."
+    ],
+    [
+      "Keep my prompt + add recipe guidance"
+    ],
+    [
+      "Replace prompt with recipe guidance"
+    ],
+    [
+      "Also apply recommended parameters"
+    ],
+    [
+      "Technical parameters",
+      "Parameters only",
+      "Use a parameter set",
+      "Technical starting point",
+      "Technical presets, saved setups and bindings"
+    ],
+    [
+      "Task recipe",
+      "Use a recipe"
+    ],
+    [
+      "Look button"
+    ],
+    [
+      "Look / workflow"
+    ],
+    [
+      "Look bindings"
+    ],
+    [
+      "Binding action"
+    ],
+    [
+      "Attach model + LoRA to a look button",
+      "Bind current model + LoRAs"
+    ],
+    [
+      "Complete · full reusable setup"
+    ],
+    [
+      "Style · look + workflow"
+    ],
+    [
+      "Technical · model + parameters"
+    ],
+    [
+      "Saved preset"
+    ],
+    [
+      "Your reusable setups"
+    ],
+    [
+      "Save settings"
+    ],
+    [
+      "Clean stuck jobs"
+    ],
+    [
+      "Compare controlled variants"
+    ],
+    [
+      "Custom lists"
+    ],
+    [
+      "Max jobs"
+    ],
+    [
+      "Vary seed per result",
+      "Vary seed per test"
+    ],
+    [
+      "Seed behaviour"
+    ],
+    [
+      "Auto-save completed variants to project Library"
+    ],
+    [
+      "Device"
+    ],
+    [
+      "Memory mode"
+    ],
+    [
+      "Offload CPU"
+    ],
+    [
+      "Runtime status",
+      "Diagnostica e configurazione runtime"
+    ],
+    [
+      "Probe runtime"
+    ],
+    [
+      "Runtime"
+    ],
+    [
+      "Waiting for runtime diagnostics…"
+    ],
+    [
+      "No datasets."
+    ],
+    [
+      "No training jobs yet."
+    ],
+    [
+      "No Identity jobs yet."
+    ],
+    [
+      "No LoRAs selected.",
+      "No Identity LoRAs selected.",
+      "No SDXL LoRAs."
+    ],
+    [
+      "No complete SDXL models."
+    ],
+    [
+      "No full UNet outputs."
+    ],
+    [
+      "No active asset",
+      "No active image yet"
+    ],
+    [
+      "No base image selected."
+    ],
+    [
+      "No face references selected.",
+      "No references."
+    ],
+    [
+      "No mask painted"
+    ],
+    [
+      "Queue empty."
+    ],
+    [
+      "Select a source image first"
+    ],
+    [
+      "Clear primary"
+    ],
+    [
+      "Primary input",
+      "SOURCE",
+      "Source / primary media"
+    ],
+    [
+      "Reference assets"
+    ],
+    [
+      "Detection and source selection"
+    ],
+    [
+      "Unload Identity GPU"
+    ],
+    [
+      "Run True Face Swap"
+    ],
+    [
+      "Refine swapped result with selected SDXL checkpoint"
+    ],
+    [
+      "Run media tool"
+    ],
+    [
+      "Resize",
+      "Ridimensiona"
+    ],
+    [
+      "Convert format",
+      "Converti formato"
+    ],
+    [
+      "Crop",
+      "Ritaglia"
+    ],
+    [
+      "Rotate",
+      "Ruota"
+    ],
+    [
+      "Flip horizontally",
+      "Rifletti orizzontalmente"
+    ],
+    [
+      "Upload an image or a short video"
+    ],
+    [
+      "Add LoRAs with individual weights. Available in Simple and Advanced.",
+      "Add one or more LoRAs and set each weight. These are used in both Simple and Advanced."
+    ],
+    [
+      "Available in Simple and Advanced.",
+      "Always available in Simple and Advanced."
+    ],
+    [
+      "Choose a task recipe; optional guidance is added to your prompt.",
+      "Apply a task-aware recipe like portrait fidelity, cinematic upgrade or product cleanup.",
+      "Choose a workflow when you want hidden recipe guidance, with optional parameter help, on top of your own prompt.",
+      "Use when you want the interface to suggest a strategy for the task, not just raw parameters.",
+      "Task recipes and hidden prompt guidance"
+    ],
+    [
+      "A technical preset changes parameters, not your prompt, seed, resolution or LoRAs.",
+      "Choose a preset when you only want a faster technical setup. Prompt, seed, resolution and LoRA stack stay untouched.",
+      "Use when you want faster setup of CFG, steps and model-aware controls, without changing the core content idea.",
+      "Keep the content idea, but load a technical starting point faster."
+    ],
+    [
+      "InstantID presets adjust identity controls. Prompt, checkpoint, LoRAs, seed and size stay unchanged; Img2Img denoise may change.",
+      "Choose a preset to auto-fill the main InstantID controls based on your tested sweet spots. Prompt, checkpoint, LoRA stack, seed and resolution stay untouched unless the preset explicitly needs Img2Img denoise."
+    ],
+    [
+      "Complete presets restore task and selected fields. Style and Technical presets preserve your current task.",
+      "Complete presets restore the task and all selected fields. Style and Technical presets can be reused without forcing you into the task they were originally saved from."
+    ],
+    [
+      "Presets store only the components you choose: model, LoRAs, workflow, parameters or prompt.",
+      "Complete presets can remember task, model, LoRAs, workflow/style, parameters and prompt. Style and Technical presets only restore the parts you choose.",
+      "Complete preset: restores the saved task plus every selected component. Use this for a full repeatable recipe."
+    ],
+    [
+      "Controlled parameter sweeps; prompt, inputs and LoRAs stay fixed.",
+      "Controlled model-aware parameter sweeps",
+      "Keeps your main setup fixed and varies only the selected identity parameters.",
+      "Prompt, resolution, LoRAs and input assets stay fixed. The selected profile varies only the parameters that matter most for comparison."
+    ],
+    [
+      "Full model: trained UNet plus frozen base components, stored in models/SDXL/trained.",
+      "Complete Diffusers model: trained UNet + frozen base VAE, text encoders and tokenizers. Stored under models/SDXL/trained."
+    ],
+    [
+      "Trained UNet component, ready for inference. Manage it separately from the full model.",
+      "Inference-ready UNet component produced by Full SDXL training. Validate, download or delete independently."
+    ],
+    [
+      "Datasets stay in shared/training/datasets across app updates.",
+      "Datasets live in shared/training/datasets and survive Zetalvx Image Lab upgrades."
+    ],
+    [
+      "Presets stay in shared/presets/user/image across app updates.",
+      "Saved under shared/presets/user/image and kept across Zetalvx Image Lab updates."
+    ],
+    [
+      "Recent results, directly in this studio.",
+      "Direct access under the Image Studio page, without going to Library."
+    ],
+    [
+      "First input is primary; extra inputs become references.",
+      "First item is primary. Extra uploaded items are appended as references."
+    ],
+    [
+      "Generate, upload an image, or select one from Library.",
+      "Generate one, upload a source image, or pick one from Library."
+    ],
+    [
+      "Face Swap preserves the target size and changes detected faces only.",
+      "Face Swap keeps the target image size and changes detected faces only."
+    ],
+    [
+      "Face Swap uses the first reference for the largest target face; it does not regenerate the whole image.",
+      "True Face Swap replaces the largest face in the base image using the first reference. It does not regenerate the whole picture.",
+      "True Face Swap uses the first face reference as source identity and replaces the selected detected face in the base image. Optional SDXL Refine runs only after the deterministic swap."
+    ],
+    [
+      "No pose reference: the primary face provides landmarks.",
+      "No pose reference selected; the primary face reference will provide landmarks."
+    ],
+    [
+      "Lower denoise preserves more; higher denoise allows larger changes.",
+      "Lower = preserve source/reference more. Higher = allow larger changes."
+    ],
+    [
+      "Img2Img starts from the base image; denoise controls how much can change.",
+      "Img2Img uses the Base image as the starting image. Denoise/strength controls how far the result may move away from it: lower preserves more, higher changes more."
+    ],
+    [
+      "Optional refinement uses SDXL after the swap. Keep denoise low to preserve identity.",
+      "The swap is performed first. SDXL then runs a low-denoise Img2Img pass to improve skin/detail/integration. Keep denoise low if identity is already good."
+    ],
+    [
+      "This checkpoint is used by InstantID and optional swap refinement. Changing it reloads the pipeline.",
+      "This checkpoint drives InstantID and, when enabled, the optional SDXL post-refine after True Face Swap. Changing checkpoint reloads the diffusion pipeline."
+    ],
+    [
+      "Up to four SDXL LoRAs; used by InstantID or optional Face Swap refinement.",
+      "Up to 4 SDXL-compatible adapters can be stacked. The same stack is used by InstantID or optional Face Swap SDXL refine."
+    ],
+    [
+      "One GPU job at a time. You can keep adding prompts.",
+      "Queue empty. New Identity jobs can be submitted while another one is running."
+    ],
+    [
+      "Painted areas are replaced. Invert also reverses brush and eraser roles.",
+      "Painted area = replaced area. Invert swaps the mask and also swaps Brush/Eraser semantics."
+    ],
+    [
+      "Per-job override; the model default is unchanged.",
+      "Per-job override. The model's default checkpoint is not changed."
+    ],
+    [
+      "A dedicated inpainting checkpoint and external VAE are optional; blank uses the main checkpoint and included VAE.",
+      "Lascia vuoto per usare il checkpoint principale e il VAE incluso. Un modello inpainting o un VAE esterno non è obbligatorio."
+    ],
+    [
+      "LoRA is the recommended starting point. Full SDXL is available in Advanced.",
+      "LoRA is the recommended first choice. Full SDXL stays available in Advanced."
+    ],
+    [
+      "Validate, download, recover or delete LoRAs.",
+      "Validate, download, recover historical outputs, inspect origin or delete LoRAs."
+    ],
+    [
+      "Your studio, locally.",
+      "Il tuo studio, in locale."
+    ],
+    [
+      "Images, editing and identity. Choose where to start.",
+      "Immagini, ritocchi e identità. Scegli da dove iniziare."
+    ],
+    [
+      "Install, import or use your existing files.",
+      "Installa, importa o usa i file che hai già."
+    ],
+    [
+      "Local account only. No external registration.",
+      "Serve solo per proteggere l'interfaccia. Nessun account online e nessuna registrazione esterna."
+    ],
+    [
+      "After account setup, choose your SDXL, LoRA and Identity model paths.",
+      "Dopo l'account apriremo automaticamente il Setup per scegliere checkpoint SDXL, LoRA e Identity."
+    ],
+    [
+      "Change username or password here, without a terminal.",
+      "Modifica utente o password senza usare il terminale."
+    ],
+    [
+      "HTTPS stays enabled. Restart after changing network mode; your account is unchanged.",
+      "HTTPS resta attivo. Dopo una modifica alla rete riavvia l’app; l’account rimane lo stesso."
+    ],
+    [
+      "Use your own read-only token with the minimum necessary permissions, not a platform password.",
+      "Non chiediamo la password della piattaforma. Usa un token personale in sola lettura, con i soli permessi necessari."
+    ],
+    [
+      "Account access is not a commercial license. Downloads require platform authorization; no access restrictions are bypassed.",
+      "Account personale ≠ licenza commerciale. Il token abilita solo i download già autorizzati dalla piattaforma. Nessun aggiramento di accessi o paywall."
+    ],
+    [
+      "Code can be installed. Model weights have separate terms: obtain authorized files and use the indicated folders or existing paths.",
+      "Il codice può essere installato. I pesi hanno termini separati: procurati quelli autorizzati per il tuo utilizzo, poi usa le cartelle indicate o collega i file esistenti."
+    ],
+    [
+      "Identity model weights have separate terms. Use only weights licensed for your intended use.",
+      "InstantID/InsightFace and face-swap model weights have separate licensing terms; use only weights licensed for your intended use."
+    ],
+    [
+      "Training uses saved captions, not just the trigger field. Prefix, suffix and in-context are all valid. Ensure intended captions include the trigger within the tokenizer limit. Context mode never inserts it automatically.",
+      "The trigger may be at the beginning, at the end or inside a caption. Training uses the saved caption text, not just the trigger field. No position is mandatory. Check that the trigger is present in each intended caption and is not lost to tokenizer truncation. Context mode never inserts a missing trigger."
+    ],
+    [
+      "Prepare images in Zetalvx Dataset Studio, export a ZIP and import it here. Captions and trigger placement are preserved.",
+      "Prepare and review images in Zetalvx Dataset Studio, export the ZIP and import it here. Captions and trigger placement are preserved."
+    ],
+    [
+      "Manual mode: no hidden workflow. Your prompt and parameters are used as entered.",
+      "No hidden style guidance. Manual parameters will be used.",
+      "No workflow guidance armed and no preset state active. Best for pure experimentation.",
+      "You are in clean/manual mode. Prompt and parameters stay fully under your control until you deliberately apply a workflow or preset.",
+      "Simple · Clean · Generate. Manual mode with no workflow or preset armed.",
+      "Manual = no hidden guidance. Workflow = task recipe. Preset = technical starting point.",
+      "Custom / manual mode. Current values are not changed automatically.",
+      "Manual mode: no technical preset selected. Use this when you want to tune CFG, steps and any supported strength controls yourself.",
+      "Manual mode: no workflow guidance selected. Use this when you want full prompt freedom or pure technical testing.",
+      "Simple · Clean · Generate Image. Manual mode with no workflow or preset armed.",
+      "You are in clean/manual mode. No workflow guidance is armed and no preset is active. Current task: {task}."
+    ],
+    [
+      "Simple shows everyday controls; Advanced opens the remaining settings.",
+      "Simple shows only everyday controls. Advanced keeps everything else one tap away."
+    ],
+    [
+      "Results are saved in the current project library.",
+      "Outputs are saved in the active project library. Advanced FFmpeg controls have been hidden in this SDXL edition."
+    ],
+    [
+      "Resize or convert images, or extract a PNG from video.",
+      "Resize or convert images, or grab a frame from a video."
+    ],
+    [
+      "Local PNG extraction requires FFmpeg and ffprobe. No external service receives the video.",
+      "Solo estrazione PNG. Il video non viene conservato né inviato a servizi esterni. Richiede FFmpeg e ffprobe installati."
+    ],
+    [
+      "Optional binding: a look can select a model and LoRA. Bindings survive updates.",
+      "Useful for things like Anime → preferred model + anime LoRA. The binding remains optional and persistent."
+    ],
+    [
+      "Source assets · multiple selection supported"
+    ],
+    [
+      "Images and videos from the active project library."
+    ],
+    [
+      "Multi-image"
+    ],
+    [
+      "Optional SDXL LoRA"
+    ],
+    [
+      "Sampling, seed and control guidance"
+    ],
+    [
+      "Resolution, seed, steps, CFG and batch"
+    ],
+    [
+      "Learning rate, rank, checkpointing and seed"
+    ],
+    [
+      "Show experimental model/task adapters"
+    ],
+    [
+      "Maximum Fidelity · closest to source"
+    ],
+    [
+      "Fidelity Soft · close, slightly looser"
+    ],
+    [
+      "Photogenic Faithful · very similar, a bit cleaner"
+    ],
+    [
+      "Expression Freedom · identity strong, expression freer"
+    ],
+    [
+      "Natural Reinterpretation · similar but less locked"
+    ],
+    [
+      "Cinematic · more photographic styling"
+    ],
+    [
+      "Cinematic Strong · strongest cinematic push"
+    ],
+    [
+      "Cinematic Range · 9 variants"
+    ],
+    [
+      "Max Fidelity Map · 9 variants"
+    ],
+    [
+      "Fidelity vs Photogenic · 8 variants"
+    ],
+    [
+      "Img2Img denoise · 12 variants"
+    ],
+    [
+      "Manual, workflow or technical preset"
+    ],
+    [
+      "Running jobs and previous Identity outputs"
+    ],
+    [
+      "Swap a face or create new images while keeping the same person."
+    ],
+    [
+      "Type of data",
+      "dtype"
+    ],
+    [
+      "Guess mode"
+    ],
+    [
+      "Tokens stay in an unencrypted local server file (0600, directory 0700), outside projects and presets. They are not returned to the GUI, logged or forwarded to CDNs. Exclude the folder",
+      "I token restano sul server Linux, in un file locale non cifrato con permessi 0600 e cartella 0700, fuori da progetti e preset. Non vengono restituiti alla GUI, scritti nei log o inoltrati ai CDN. Escludi la cartella"
+    ],
+    [
+      "from shared backups.",
+      "dai backup che condividi."
+    ],
+    [
+      "Paste a Hugging Face, Civitai or direct HTTPS file link. The importer accepts",
+      "Incolla il link di un file Hugging Face, Civitai o di un download HTTPS diretto. L’importazione guidata accetta file"
+    ],
+    [
+      "You can change username and password in",
+      "Puoi cambiare utente e password da"
+    ],
+    [
+      "contains the models/ folder",
+      "contiene la cartella models/"
+    ],
+    [
+      "Default"
+    ],
+    [
+      "Local"
+    ],
+    [
+      "Request failed"
+    ],
+    [
+      "Reload the page and try again"
+    ],
+    [
+      "Authentication required"
+    ],
+    [
+      "Enter a username and matching passwords of at least 10 characters"
+    ],
+    [
+      "An account already exists"
+    ],
+    [
+      "Captioning is busy"
+    ],
+    [
+      "No images need captions"
+    ],
+    [
+      "Use HTTPS for a remote endpoint"
+    ],
+    [
+      "Invalid Vision endpoint"
+    ],
+    [
+      "Choose a Vision model identifier"
+    ],
+    [
+      "Video session expired; upload again"
+    ],
+    [
+      "A video preview is running; retry in a moment"
+    ],
+    [
+      "Selection changed; preview again"
+    ],
+    [
+      "FFmpeg and ffprobe are required"
+    ],
+    [
+      "Main navigation"
+    ],
+    [
+      "Describe the image or the change you want..."
+    ],
+    [
+      "Search LoRAs..."
+    ],
+    [
+      "Leave blank to keep unchanged",
+      "Lascia vuoto per non cambiarla"
+    ],
+    [
+      "No hidden workflow"
+    ],
+    [
+      "No user presets yet."
+    ],
+    [
+      "No workflow / manual",
+      "No preset / manual"
+    ],
+    [
+      "Target image + source face"
+    ],
+    [
+      "Primary face + optional pose"
+    ],
+    [
+      "Optional composition image · used as pose when no separate pose image is supplied"
+    ],
+    [
+      "InstantID generation"
+    ],
+    [
+      "Add InstantID to Queue"
+    ],
+    [
+      "Add Face Swap to Queue"
+    ],
+    [
+      "Setup required",
+      "Da configurare"
+    ],
+    [
+      "{component}: offline"
+    ],
+    [
+      "{component}: online"
+    ],
+    [
+      "{count} file selected"
+    ],
+    [
+      "{count} files selected"
+    ],
+    [
+      "{count} file disponibili"
+    ],
+    [
+      "{count} media assets available. Ctrl/Cmd-click or tap selections to process multiple compatible files together."
+    ],
+    [
+      "No media in this project",
+      "No media yet. Upload one or more files.",
+      "No active media yet"
+    ],
+    [
+      "Upload files or choose one or more project assets."
+    ],
+    [
+      "No image generations yet."
+    ],
+    [
+      "No jobs."
+    ],
+    [
+      "Trash"
+    ],
+    [
+      "Trash is empty."
+    ],
+    [
+      "Move to Trash"
+    ],
+    [
+      "Configured checkpoint",
+      "Checkpoint configurato"
+    ],
+    [
+      "Select a checkpoint…",
+      "Seleziona un checkpoint…"
+    ],
+    [
+      "Code not prepared",
+      "Codice non preparato"
+    ],
+    [
+      "InstantID weights",
+      "Pesi InstantID"
+    ],
+    [
+      "Official source ↗",
+      "Fonte ufficiale ↗"
+    ],
+    [
+      "Copy path",
+      "Copia percorso"
+    ],
+    [
+      "Face encoder"
+    ],
+    [
+      "Face analysis"
+    ],
+    [
+      "Face Swap model",
+      "Modello Face Swap"
+    ],
+    [
+      "Checking source…",
+      "Controllo della fonte…"
+    ],
+    [
+      "Please wait…",
+      "Attendi…"
+    ],
+    [
+      "Verify the source and confirm to start.",
+      "Verifica la fonte e conferma per iniziare."
+    ],
+    [
+      "Download added to queue. You can keep using the app.",
+      "Download aggiunto alla coda. Puoi continuare a usare l’app."
+    ],
+    [
+      "File type",
+      "Tipo del file",
+      "Tipo"
+    ],
+    [
+      "Confirm compatibility and install",
+      "Conferma compatibilità e installa"
+    ],
+    [
+      "Format",
+      "Formato"
+    ],
+    [
+      "Steps {number}"
+    ],
+    [
+      "CFG sweep"
+    ],
+    [
+      "Steps sweep"
+    ],
+    [
+      "CFG × steps matrix"
+    ],
+    [
+      "Denoise is not used in text-to-image."
+    ],
+    [
+      "Cinematic photo upgrade"
+    ],
+    [
+      "Cartoon subject conversion"
+    ],
+    [
+      "Anime serious portrait"
+    ],
+    [
+      "Product cleanup / hero shot"
+    ],
+    [
+      "Logo / text graphic"
+    ],
+    [
+      "Store ip-adapter.bin and ControlNetModel/ containing config.json and diffusion_pytorch_model.safetensors here.",
+      "Qui: ip-adapter.bin e ControlNetModel/ con config.json + diffusion_pytorch_model.safetensors."
+    ],
+    [
+      "Extract .onnx files directly here, not inside an extra nested folder.",
+      "Estrai la cartella: i file .onnx devono essere direttamente qui, non dentro un’altra antelopev2/.",
+      "Estrai i file .onnx direttamente qui. Serve per Face Swap."
+    ],
+    [
+      "Select the inswapper_128.onnx file, not a folder or ZIP.",
+      "Qui serve il singolo file inswapper_128.onnx, non una cartella o uno ZIP."
+    ],
+    [
+      "Token saved locally. No platform password is requested.",
+      "Token salvato sul server. Nessuna password della piattaforma viene richiesta."
+    ],
+    [
+      "Neutral baseline; add style or LoRA when needed.",
+      "Neutral manual-friendly starting point for new generations. Best first pass before adding stronger style or LoRAs."
+    ],
+    [
+      "Clean default"
+    ],
+    [
+      "Realistic / photo"
+    ],
+    [
+      "Cinematic / premium"
+    ],
+    [
+      "Anime / illustration"
+    ],
+    [
+      "Product / Text"
+    ],
+    [
+      "Product hero / packshot"
+    ],
+    [
+      "Logo / text clarity"
+    ],
+    [
+      "Sharper realistic details.",
+      "Sharper realistic generation with slightly stronger adherence and cleaner detail."
+    ],
+    [
+      "More dramatic lighting and polished photographic style.",
+      "Final-render style starting point for more dramatic lighting, polish and premium photography language."
+    ],
+    [
+      "Neutral starting point for anime and illustration.",
+      "Good neutral base for anime, illustration and stylised character generation without going fully abstract."
+    ],
+    [
+      "Clean product shots for catalogs and advertising.",
+      "Optimised starting point for clean product shots, catalog images and ad-ready packshots."
+    ],
+    [
+      "Simple graphics with clearer logos and short text.",
+      "Cleaner baseline for logo-like graphics, simple branding panels and short text-heavy visuals."
+    ],
+    [
+      "Recent images",
+      "Creazioni recenti",
+      "Recent image generations",
+      "IMAGE HISTORY"
+    ],
+    [
+      "Inside caption"
+    ],
+    [
+      "Beginning"
+    ],
+    [
+      "End"
+    ],
+    [
+      "SDXL Edition"
+    ],
+    [
+      "LoRA / Full SDXL"
+    ],
+    [
+      "Technical"
+    ],
+    [
+      "Complete"
+    ],
+    [
+      "Recommended"
+    ],
+    [
+      "General"
+    ],
+    [
+      "Native"
+    ],
+    [
+      "Missing: {components}"
+    ],
+    [
+      "Current task: {task}"
+    ],
+    [
+      "{kind} preset: {name}"
+    ],
+    [
+      "Saved: {name}"
+    ],
+    [
+      "Guide",
+      "Guida"
+    ],
+    [
+      "App guide →",
+      "Guida app →"
+    ]
+  ]
+}

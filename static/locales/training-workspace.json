@@ -1,0 +1,829 @@
+[
+  {
+    "sources": [
+      "Prepare. Caption. Train."
+    ],
+    "text": {
+      "en": "Prepare. Caption. Train.",
+      "it": "Prepara. Descrivi. Allena.",
+      "es": "Prepara. Describe. Entrena.",
+      "fr": "Préparez. Décrivez. Entraînez.",
+      "de": "Vorbereiten. Beschriften. Trainieren.",
+      "pt": "Prepare. Descreva. Treine.",
+      "ru": "Подготовьте. Опишите. Обучите.",
+      "zh": "准备。描述。训练。",
+      "ja": "準備・キャプション・学習",
+      "ko": "준비. 설명. 학습.",
+      "tr": "Hazırla. Açıkla. Eğit.",
+      "ar": "حضّر. صِف. درّب."
+    }
+  },
+  {
+    "sources": [
+      "From your images to a LoRA, in this workspace."
+    ],
+    "text": {
+      "en": "From your images to a LoRA, in this workspace.",
+      "it": "Dalle tue immagini a una LoRA, senza cambiare app."
+    }
+  },
+  {
+    "sources": [
+      "Training workflow"
+    ],
+    "text": {
+      "en": "Training workflow",
+      "it": "Flusso di allenamento"
+    }
+  },
+  {
+    "sources": [
+      "Results"
+    ],
+    "text": {
+      "en": "Results",
+      "it": "Risultati"
+    }
+  },
+  {
+    "sources": [
+      "Import / export"
+    ],
+    "text": {
+      "en": "Import / export",
+      "it": "Importa / esporta",
+      "es": "Importar / exportar",
+      "fr": "Importer / exporter",
+      "de": "Import / Export",
+      "pt": "Importar / exportar",
+      "ru": "Импорт / экспорт",
+      "zh": "导入 / 导出",
+      "ja": "インポート / エクスポート",
+      "ko": "가져오기 / 내보내기",
+      "tr": "İçe / dışa aktar",
+      "ar": "استيراد / تصدير"
+    }
+  },
+  {
+    "sources": [
+      "Standalone app"
+    ],
+    "text": {
+      "en": "Standalone app",
+      "it": "App indipendente"
+    }
+  },
+  {
+    "sources": [
+      "Dataset Studio is optional. ZIP files work in both apps."
+    ],
+    "text": {
+      "en": "Dataset Studio is optional. ZIP files work in both apps.",
+      "it": "Dataset Studio è facoltativo. I file ZIP funzionano in entrambe le app."
+    }
+  },
+  {
+    "sources": [
+      "Add images and captions here. Vision is optional; no other app is required."
+    ],
+    "text": {
+      "en": "Add images and captions here. Vision is optional; no other app is required.",
+      "it": "Aggiungi qui immagini e didascalie. Vision è facoltativo; non serve un’altra app."
+    }
+  },
+  {
+    "sources": [
+      "Common caption · new images only"
+    ],
+    "text": {
+      "en": "Common caption · new images only",
+      "it": "Didascalia comune · solo nuove immagini"
+    }
+  },
+  {
+    "sources": [
+      "Apply trigger where missing"
+    ],
+    "text": {
+      "en": "Apply trigger where missing",
+      "it": "Inserisci il trigger dove manca",
+      "es": "Añadir trigger donde falte",
+      "fr": "Ajouter le trigger manquant",
+      "de": "Fehlenden Trigger ergänzen",
+      "pt": "Inserir trigger ausente",
+      "ru": "Добавить отсутствующий триггер",
+      "zh": "补充缺失触发词",
+      "ja": "不足するトリガーを追加",
+      "ko": "누락된 트리거 추가",
+      "tr": "Eksik tetikleyiciyi ekle",
+      "ar": "إضافة كلمة التحفيز الناقصة"
+    }
+  },
+  {
+    "sources": [
+      "Existing triggers are never duplicated or moved. Context mode asks Vision to include the trigger in the sentence."
+    ],
+    "text": {
+      "en": "Existing triggers are never duplicated or moved. Context mode asks Vision to include the trigger in the sentence.",
+      "it": "Il trigger già presente non viene duplicato o spostato. In modalità Contesto si chiede a Vision di inserirlo nella frase."
+    }
+  },
+  {
+    "sources": [
+      "Optional. Use a configured local Vision model or API."
+    ],
+    "text": {
+      "en": "Optional. Use a configured local Vision model or API.",
+      "it": "Facoltativo. Usa un modello Vision locale o un’API configurata."
+    }
+  },
+  {
+    "sources": [
+      "Previous caption jobs"
+    ],
+    "text": {
+      "en": "Previous caption jobs",
+      "it": "Descrizioni precedenti",
+      "es": "Trabajos anteriores",
+      "fr": "Descriptions précédentes",
+      "de": "Frühere Beschriftungsjobs",
+      "pt": "Legendas anteriores",
+      "ru": "Предыдущие задания",
+      "zh": "历史描述任务",
+      "ja": "過去のキャプション処理",
+      "ko": "이전 캡션 작업",
+      "tr": "Önceki açıklama işleri",
+      "ar": "مهام الوصف السابقة"
+    }
+  },
+  {
+    "sources": [
+      "Images & captions"
+    ],
+    "text": {
+      "en": "Images & captions",
+      "it": "Immagini e didascalie",
+      "es": "Imágenes y descripciones",
+      "fr": "Images et légendes",
+      "de": "Bilder und Beschriftungen",
+      "pt": "Imagens e legendas",
+      "ru": "Изображения и подписи",
+      "zh": "图片与描述",
+      "ja": "画像とキャプション",
+      "ko": "이미지와 캡션",
+      "tr": "Görüntüler ve açıklamalar",
+      "ar": "الصور والأوصاف"
+    }
+  },
+  {
+    "sources": [
+      "Show"
+    ],
+    "text": {
+      "en": "Show",
+      "it": "Mostra"
+    }
+  },
+  {
+    "sources": [
+      "All images"
+    ],
+    "text": {
+      "en": "All images",
+      "it": "Tutte le immagini",
+      "es": "Todas las imágenes",
+      "fr": "Toutes les images",
+      "de": "Alle Bilder",
+      "pt": "Todas as imagens",
+      "ru": "Все изображения",
+      "zh": "所有图片",
+      "ja": "すべての画像",
+      "ko": "모든 이미지",
+      "tr": "Tüm görüntüler",
+      "ar": "كل الصور"
+    }
+  },
+  {
+    "sources": [
+      "Needs caption"
+    ],
+    "text": {
+      "en": "Needs caption",
+      "it": "Da descrivere",
+      "es": "Sin descripción",
+      "fr": "Sans légende",
+      "de": "Ohne Beschriftung",
+      "pt": "Sem legenda",
+      "ru": "Без подписи",
+      "zh": "待描述",
+      "ja": "未キャプション",
+      "ko": "캡션 필요",
+      "tr": "Açıklama gerekli",
+      "ar": "بحاجة لوصف"
+    }
+  },
+  {
+    "sources": [
+      "Needs review"
+    ],
+    "text": {
+      "en": "Needs review",
+      "it": "Da controllare",
+      "es": "Por revisar",
+      "fr": "À vérifier",
+      "de": "Zu prüfen",
+      "pt": "Para revisar",
+      "ru": "На проверку",
+      "zh": "待检查",
+      "ja": "要確認",
+      "ko": "검토 필요",
+      "tr": "Kontrol gerekli",
+      "ar": "بحاجة لمراجعة"
+    }
+  },
+  {
+    "sources": [
+      "Dataset images"
+    ],
+    "text": {
+      "en": "Dataset images",
+      "it": "Immagini del dataset"
+    }
+  },
+  {
+    "sources": [
+      "Previous page"
+    ],
+    "text": {
+      "en": "Previous page",
+      "it": "Pagina precedente"
+    }
+  },
+  {
+    "sources": [
+      "Next page"
+    ],
+    "text": {
+      "en": "Next page",
+      "it": "Pagina successiva"
+    }
+  },
+  {
+    "sources": [
+      "Reload saved caption"
+    ],
+    "text": {
+      "en": "Reload saved caption",
+      "it": "Ricarica la didascalia salvata"
+    }
+  },
+  {
+    "sources": [
+      "Word count is not token count. Training uses saved captions; a trigger at the end of a long caption may be truncated."
+    ],
+    "text": {
+      "en": "Word count is not token count. Training uses saved captions; a trigger at the end of a long caption may be truncated.",
+      "it": "Il numero di parole non è il numero di token. Il training usa le didascalie salvate; un trigger in fondo a una caption lunga può essere troncato."
+    }
+  },
+  {
+    "sources": [
+      "Ready for training?"
+    ],
+    "text": {
+      "en": "Ready for training?",
+      "it": "Pronto per allenare?"
+    }
+  },
+  {
+    "sources": [
+      "No ZIP, no copy, no second application."
+    ],
+    "text": {
+      "en": "No ZIP, no copy, no second application.",
+      "it": "Nessuno ZIP, nessuna copia, nessuna seconda app."
+    }
+  },
+  {
+    "sources": [
+      "Use for training"
+    ],
+    "text": {
+      "en": "Use for training",
+      "it": "Usa per allenamento",
+      "es": "Usar para entrenar",
+      "fr": "Utiliser pour l’entraînement",
+      "de": "Für Training verwenden",
+      "pt": "Usar no treinamento",
+      "ru": "Использовать для обучения",
+      "zh": "用于训练",
+      "ja": "学習に使用",
+      "ko": "학습에 사용",
+      "tr": "Eğitim için kullan",
+      "ar": "استخدام للتدريب"
+    }
+  },
+  {
+    "sources": [
+      "Edit dataset"
+    ],
+    "text": {
+      "en": "Edit dataset",
+      "it": "Modifica dataset",
+      "es": "Editar dataset",
+      "fr": "Modifier le dataset",
+      "de": "Datensatz bearbeiten",
+      "pt": "Editar dataset",
+      "ru": "Изменить датасет",
+      "zh": "编辑数据集",
+      "ja": "データセットを編集",
+      "ko": "데이터셋 편집",
+      "tr": "Veri kümesini düzenle",
+      "ar": "تعديل مجموعة البيانات"
+    }
+  },
+  {
+    "sources": [
+      "Optional trigger; start, end or within the caption."
+    ],
+    "text": {
+      "en": "Optional trigger; start, end or within the caption.",
+      "it": "Trigger facoltativo: all’inizio, alla fine o dentro la frase."
+    }
+  },
+  {
+    "sources": [
+      "Unsaved caption"
+    ],
+    "text": {
+      "en": "Unsaved caption",
+      "it": "Didascalia non salvata",
+      "es": "Descripción sin guardar",
+      "fr": "Légende non enregistrée",
+      "de": "Ungespeicherte Beschriftung",
+      "pt": "Legenda não salva",
+      "ru": "Подпись не сохранена",
+      "zh": "描述未保存",
+      "ja": "未保存のキャプション",
+      "ko": "저장되지 않은 캡션",
+      "tr": "Kaydedilmemiş açıklama",
+      "ar": "وصف غير محفوظ"
+    }
+  },
+  {
+    "sources": [
+      "Saved model unavailable"
+    ],
+    "text": {
+      "en": "Saved model unavailable",
+      "it": "Modello salvato non disponibile"
+    }
+  },
+  {
+    "sources": [
+      "{n} images"
+    ],
+    "text": {
+      "en": "{n} images",
+      "it": "{n} immagini",
+      "es": "{n} imágenes",
+      "fr": "{n} images",
+      "de": "{n} Bilder",
+      "pt": "{n} imagens",
+      "ru": "{n} изображений",
+      "zh": "{n} 张图片",
+      "ja": "{n} 枚の画像",
+      "ko": "이미지 {n}개",
+      "tr": "{n} görüntü",
+      "ar": "{n} صور"
+    }
+  },
+  {
+    "sources": [
+      "{n} captions ready"
+    ],
+    "text": {
+      "en": "{n} captions ready",
+      "it": "{n} didascalie pronte",
+      "es": "{n} descripciones listas",
+      "fr": "{n} légendes prêtes",
+      "de": "{n} Beschriftungen bereit",
+      "pt": "{n} legendas prontas",
+      "ru": "{n} подписей готовы",
+      "zh": "{n} 条描述就绪",
+      "ja": "{n} 件のキャプション準備完了",
+      "ko": "캡션 {n}개 준비됨",
+      "tr": "{n} açıklama hazır",
+      "ar": "{n} أوصاف جاهزة"
+    }
+  },
+  {
+    "sources": [
+      "{n} need a caption"
+    ],
+    "text": {
+      "en": "{n} need a caption",
+      "it": "{n} da descrivere",
+      "es": "{n} por describir",
+      "fr": "{n} sans légende",
+      "de": "{n} ohne Beschriftung",
+      "pt": "{n} sem legenda",
+      "ru": "{n} без подписи",
+      "zh": "{n} 张待描述",
+      "ja": "{n} 件が未キャプション",
+      "ko": "캡션 {n}개 필요",
+      "tr": "{n} açıklama gerekli",
+      "ar": "{n} بحاجة لوصف"
+    }
+  },
+  {
+    "sources": [
+      "This dataset is in training. Editing is locked until the job ends."
+    ],
+    "text": {
+      "en": "This dataset is in training. Editing is locked until the job ends.",
+      "it": "Questo dataset è in allenamento. Le modifiche sono bloccate fino al termine del lavoro."
+    }
+  },
+  {
+    "sources": [
+      "Captioning is running. You can still edit captions; image changes wait until it finishes."
+    ],
+    "text": {
+      "en": "Captioning is running. You can still edit captions; image changes wait until it finishes.",
+      "it": "Descrizione in corso. Puoi correggere le didascalie; aggiunta e rimozione immagini attendono la fine."
+    }
+  },
+  {
+    "sources": [
+      "Wait or stop captioning before starting training."
+    ],
+    "text": {
+      "en": "Wait or stop captioning before starting training.",
+      "it": "Attendi o ferma la descrizione prima di avviare il training."
+    }
+  },
+  {
+    "sources": [
+      "No images match this filter"
+    ],
+    "text": {
+      "en": "No images match this filter",
+      "it": "Nessuna immagine corrisponde a questo filtro"
+    }
+  },
+  {
+    "sources": [
+      "Add images to begin"
+    ],
+    "text": {
+      "en": "Add images to begin",
+      "it": "Aggiungi immagini per iniziare"
+    }
+  },
+  {
+    "sources": [
+      "Page {page} of {pages}"
+    ],
+    "text": {
+      "en": "Page {page} of {pages}",
+      "it": "Pagina {page} di {pages}",
+      "es": "Página {page} de {pages}",
+      "fr": "Page {page} sur {pages}",
+      "de": "Seite {page} von {pages}",
+      "pt": "Página {page} de {pages}",
+      "ru": "Страница {page} из {pages}",
+      "zh": "第 {page} 页，共 {pages} 页",
+      "ja": "{page} / {pages} ページ",
+      "ko": "{page} / {pages} 페이지",
+      "tr": "Sayfa {page} / {pages}",
+      "ar": "صفحة {page} من {pages}"
+    }
+  },
+  {
+    "sources": [
+      "Empty caption"
+    ],
+    "text": {
+      "en": "Empty caption",
+      "it": "Didascalia vuota"
+    }
+  },
+  {
+    "sources": [
+      "Missing trigger"
+    ],
+    "text": {
+      "en": "Missing trigger",
+      "it": "Trigger mancante"
+    }
+  },
+  {
+    "sources": [
+      "Repeated trigger"
+    ],
+    "text": {
+      "en": "Repeated trigger",
+      "it": "Trigger ripetuto"
+    }
+  },
+  {
+    "sources": [
+      "Check token length"
+    ],
+    "text": {
+      "en": "Check token length",
+      "it": "Verifica lunghezza in token"
+    }
+  },
+  {
+    "sources": [
+      "Manual edit preserved"
+    ],
+    "text": {
+      "en": "Manual edit preserved",
+      "it": "Modifica manuale conservata"
+    }
+  },
+  {
+    "sources": [
+      "Dataset settings changed"
+    ],
+    "text": {
+      "en": "Dataset settings changed",
+      "it": "Impostazioni dataset modificate"
+    }
+  },
+  {
+    "sources": [
+      "Finish editing, then retry. Your changes are kept."
+    ],
+    "text": {
+      "en": "Finish editing, then retry. Your changes are kept.",
+      "it": "Termina la modifica e riprova. Le tue modifiche restano disponibili."
+    }
+  },
+  {
+    "sources": [
+      "Conflict: your draft has not been replaced."
+    ],
+    "text": {
+      "en": "Conflict: your draft has not been replaced.",
+      "it": "Conflitto: la tua bozza non è stata sostituita."
+    }
+  },
+  {
+    "sources": [
+      "Some captions need review. Continue with the saved captions?"
+    ],
+    "text": {
+      "en": "Some captions need review. Continue with the saved captions?",
+      "it": "Alcune didascalie richiedono un controllo. Continuare con quelle salvate?",
+      "es": "Algunas descripciones requieren revisión. ¿Continuar con las guardadas?",
+      "fr": "Certaines légendes doivent être vérifiées. Continuer avec les légendes enregistrées?",
+      "de": "Einige Beschriftungen müssen geprüft werden. Mit den gespeicherten fortfahren?",
+      "pt": "Algumas legendas precisam de revisão. Continuar com as salvas?",
+      "ru": "Некоторые подписи требуют проверки. Продолжить с сохранёнными?",
+      "zh": "部分描述需要检查。使用已保存的描述继续？",
+      "ja": "確認が必要なキャプションがあります。保存済みの内容で続行しますか？",
+      "ko": "일부 캡션을 검토해야 합니다. 저장된 캡션으로 계속할까요?",
+      "tr": "Bazı açıklamalar kontrol edilmeli. Kaydedilenlerle devam edilsin mi?",
+      "ar": "بعض الأوصاف تحتاج مراجعة. هل تريد المتابعة بالأوصاف المحفوظة؟"
+    }
+  },
+  {
+    "sources": [
+      "Review the captions before training."
+    ],
+    "text": {
+      "en": "Review the captions before training.",
+      "it": "Controlla le didascalie prima dell’allenamento."
+    }
+  },
+  {
+    "sources": [
+      "Dataset created. Add your images."
+    ],
+    "text": {
+      "en": "Dataset created. Add your images.",
+      "it": "Dataset creato. Aggiungi le tue immagini."
+    }
+  },
+  {
+    "sources": [
+      "Dataset settings saved"
+    ],
+    "text": {
+      "en": "Dataset settings saved",
+      "it": "Impostazioni dataset salvate"
+    }
+  },
+  {
+    "sources": [
+      "Discard this draft and load the saved caption?"
+    ],
+    "text": {
+      "en": "Discard this draft and load the saved caption?",
+      "it": "Scartare questa bozza e caricare la didascalia salvata?"
+    }
+  },
+  {
+    "sources": [
+      "Saved caption loaded"
+    ],
+    "text": {
+      "en": "Saved caption loaded",
+      "it": "Didascalia salvata caricata"
+    }
+  },
+  {
+    "sources": [
+      "Updated"
+    ],
+    "text": {
+      "en": "Updated",
+      "it": "Aggiornato"
+    }
+  },
+  {
+    "sources": [
+      "Adding images…"
+    ],
+    "text": {
+      "en": "Adding images…",
+      "it": "Aggiunta immagini…"
+    }
+  },
+  {
+    "sources": [
+      "Added {added} images · {duplicates} duplicates skipped"
+    ],
+    "text": {
+      "en": "Added {added} images · {duplicates} duplicates skipped",
+      "it": "Aggiunte {added} immagini · ignorati {duplicates} duplicati"
+    }
+  },
+  {
+    "sources": [
+      "Dataset deleted"
+    ],
+    "text": {
+      "en": "Dataset deleted",
+      "it": "Dataset eliminato"
+    }
+  },
+  {
+    "sources": [
+      "Image removed"
+    ],
+    "text": {
+      "en": "Image removed",
+      "it": "Immagine rimossa"
+    }
+  },
+  {
+    "sources": [
+      "Context mode never rewrites existing captions. Vision inserts the trigger in its sentence."
+    ],
+    "text": {
+      "en": "Context mode never rewrites existing captions. Vision inserts the trigger in its sentence.",
+      "it": "La modalità Contesto non riscrive le didascalie esistenti. Vision inserisce il trigger nella frase generata."
+    }
+  },
+  {
+    "sources": [
+      "Add the trigger only to captions where it is missing?"
+    ],
+    "text": {
+      "en": "Add the trigger only to captions where it is missing?",
+      "it": "Aggiungere il trigger solo nelle didascalie dove manca?"
+    }
+  },
+  {
+    "sources": [
+      "Updated {n} captions"
+    ],
+    "text": {
+      "en": "Updated {n} captions",
+      "it": "Aggiornate {n} didascalie"
+    }
+  },
+  {
+    "sources": [
+      "Captioning started. You may close the browser."
+    ],
+    "text": {
+      "en": "Captioning started. You may close the browser.",
+      "it": "Descrizione avviata. Puoi chiudere il browser."
+    }
+  },
+  {
+    "sources": [
+      "Dataset selected. Review settings, then start training."
+    ],
+    "text": {
+      "en": "Dataset selected. Review settings, then start training.",
+      "it": "Dataset selezionato. Controlla i parametri, poi avvia il training."
+    }
+  },
+  {
+    "sources": [
+      "Dataset is used by an active training job: {jobs}"
+    ],
+    "text": {
+      "en": "Dataset is used by an active training job: {jobs}",
+      "it": "Dataset utilizzato da un allenamento in corso: {jobs}"
+    }
+  },
+  {
+    "sources": [
+      "Caption changed elsewhere. Your draft is kept; reload before replacing it."
+    ],
+    "text": {
+      "en": "Caption changed elsewhere. Your draft is kept; reload before replacing it.",
+      "it": "La didascalia è cambiata in un’altra sessione. La tua bozza è conservata; ricarica prima di sostituirla."
+    }
+  },
+  {
+    "sources": [
+      "Stop captioning before adding or removing dataset images"
+    ],
+    "text": {
+      "en": "Stop captioning before adding or removing dataset images",
+      "it": "Ferma la descrizione prima di aggiungere o rimuovere immagini dal dataset"
+    }
+  },
+  {
+    "sources": [
+      "Wait or stop captioning before using this dataset for training"
+    ],
+    "text": {
+      "en": "Wait or stop captioning before using this dataset for training",
+      "it": "Attendi o ferma la descrizione prima di usare questo dataset per l’allenamento"
+    }
+  },
+  {
+    "sources": [
+      "Dataset settings changed elsewhere. Reload before saving."
+    ],
+    "text": {
+      "en": "Dataset settings changed elsewhere. Reload before saving.",
+      "it": "Le impostazioni del dataset sono cambiate altrove. Ricarica prima di salvare."
+    }
+  },
+  {
+    "sources": [
+      "Trigger placement changed elsewhere. Reload before saving."
+    ],
+    "text": {
+      "en": "Trigger placement changed elsewhere. Reload before saving.",
+      "it": "La posizione del trigger è cambiata altrove. Ricarica prima di salvare."
+    }
+  },
+  {
+    "sources": [
+      "Vision model"
+    ],
+    "text": {
+      "en": "Vision model",
+      "it": "Modello Vision",
+      "es": "Modelo de visión",
+      "fr": "Modèle de vision",
+      "de": "Vision-Modell",
+      "pt": "Modelo de visão",
+      "ru": "Модель зрения",
+      "zh": "视觉模型",
+      "ja": "視覚モデル",
+      "ko": "비전 모델",
+      "tr": "Görsel model",
+      "ar": "نموذج الرؤية"
+    }
+  },
+  {
+    "sources": [
+      "imported"
+    ],
+    "text": {
+      "en": "imported",
+      "it": "importata"
+    }
+  },
+  {
+    "sources": [
+      "manual"
+    ],
+    "text": {
+      "en": "manual",
+      "it": "manuale"
+    }
+  },
+  {
+    "sources": [
+      "vision"
+    ],
+    "text": {
+      "en": "Vision",
+      "it": "Vision"
+    }
+  }
+]

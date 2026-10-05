@@ -1,0 +1,13 @@
+'use strict';
+const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert/strict');
+const src=fs.readFileSync(path.join(__dirname,'../static/app.js'),'utf8');
+const block=src.slice(src.indexOf('const creatorViewKey='),src.indexOf('function showView(name)'));
+const data=new Map(),ctx={URL,URLSearchParams,document:{getElementById:id=>['view-home','view-identity','view-image','view-settings'].includes(id)?{}:null},sessionStorage:{getItem:k=>data.get(k),setItem:(k,v)=>data.set(k,v)},window:{location:{href:'https://creator.test/?onboarding=1&network_restart=1&keep=yes#panel',search:'?onboarding=1&network_restart=1&keep=yes'}},history:{state:{untouched:true},replaceState:(s,t,u)=>{ctx.replaced=[s,t,u]}}};
+vm.createContext(ctx);vm.runInContext(block,ctx);
+assert.equal(ctx.rememberedCreatorView(),'home');
+ctx.rememberCreatorView('identity');assert.equal(ctx.rememberedCreatorView(),'identity');
+assert.equal(ctx.validCreatorView('../../bad'),false);
+ctx.rememberCreatorView('unknown');assert.equal(ctx.rememberedCreatorView(),'home');
+ctx.consumeCreatorOnboarding();assert.equal(ctx.replaced[2],'/?keep=yes#panel');assert.equal(ctx.replaced[0].untouched,true);
+ctx.sessionStorage.getItem=()=>{throw Error('blocked')};assert.equal(ctx.rememberedCreatorView(),'home');
+console.log(JSON.stringify({passed:7}));

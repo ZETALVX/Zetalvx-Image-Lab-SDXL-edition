@@ -1,0 +1,10 @@
+# Identity runtime libraries only. No model weights are downloaded or bundled.
+# InsightFace code has its own license; user-supplied model weights keep their own terms.
+# ONNX Runtime is selected by the installer: onnxruntime-gpu for CUDA, onnxruntime for CPU.
+insightface==1.0.1
+onnx==1.22.0
+opencv-python-headless==4.12.0.88
+tqdm==4.67.1
+scipy==1.14.1
+scikit-image==0.24.0
+einops==0.8.0

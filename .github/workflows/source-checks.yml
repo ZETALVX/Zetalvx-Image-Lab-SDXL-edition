@@ -1,0 +1,41 @@
+name: Source checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  source-checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source syntax and manifest
+        run: python tools/check_source.py --javascript --report release-reports/source-check.json
+      - name: Public source boundary tests
+        run: python -B -m unittest tests.test_source_distribution -v
+      - name: Windows PowerShell atomic-write regression
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: powershell.exe -NoProfile -ExecutionPolicy Bypass -File tests/test_windows_uninstall_atomic_116.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: source-checks-${{ matrix.os }}
+          path: release-reports/

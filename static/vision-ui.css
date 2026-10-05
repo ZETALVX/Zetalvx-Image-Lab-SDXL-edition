@@ -1,0 +1,53 @@
+.vision-hub{max-width:1100px;margin-inline:auto}.vision-hub [hidden]{display:none!important}.vision-toolbar,.vision-actions{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.vision-toolbar p{margin:6px 0;color:var(--muted,#a5b4af)}.vision-actions{justify-content:flex-start}.vision-hub>details{margin-block:14px;padding:14px 0;border-top:1px solid #42504b}.vision-model-row{border-bottom:1px solid #42504b;padding:18px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}.vision-model-row strong,.vision-model-row small{display:block}.vision-model-row small{margin-top:4px;opacity:.7}.vision-inspection{flex-basis:100%;font-size:13px;overflow-wrap:anywhere}.vision-message,.vision-action{white-space:pre-wrap;overflow-wrap:anywhere}.vision-action{padding:8px 0;border-bottom:1px solid #42504b}.vision-dialog{color:var(--text,#e8f0ec);background:var(--bg,#111917);border:1px solid #52645b;border-radius:20px;padding:22px;width:min(780px,94vw);max-height:88dvh;overflow:auto;margin:auto;box-sizing:border-box}.vision-dialog::backdrop{background:#000b}.vision-dialog label{display:flex;flex-direction:column;gap:6px;margin:12px 0}.vision-dialog input,.vision-dialog select,.vision-dialog textarea{width:100%;min-width:0;box-sizing:border-box;font-size:16px}.vision-dialog .vision-check{flex-direction:row;align-items:center}.vision-check input{width:20px;height:20px;flex:0 0 20px}.vision-dialog details{padding:12px 0;border-bottom:1px solid #42504b}.vision-dialog summary{cursor:pointer}.vision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.vision-path{display:flex;gap:8px}.vision-path input{flex:1;min-width:0}.vision-path button{flex-shrink:0}.vision-files{display:grid;gap:4px;padding-top:14px}.vision-files button{text-align:start;overflow-wrap:anywhere}.vision-hub button,.vision-dialog button{min-height:40px}.vision-hub h3{margin:0}.vision-caption-bar{padding:16px 0;border-block:1px solid #42504b;margin-block:16px}.vision-caption-bar label{display:flex;flex-direction:column;gap:8px}.vision-caption-bar select{min-width:0;max-width:100%}.vision-caption-bar .vision-actions{margin-top:12px}.vision-path-report code{display:block;white-space:pre-wrap;overflow-wrap:anywhere}.vision-path-report div{border-bottom:1px solid #42504b;padding-block:8px}.vision-nav{display:flex;gap:8px;margin:14px 0;flex-wrap:wrap}.vision-page[hidden]{display:none!important}@media(max-width:680px){.vision-grid{grid-template-columns:1fr;gap:0}.vision-dialog{padding:16px;width:96vw}.vision-model-row{align-items:flex-start}.vision-model-row>.vision-actions{width:100%}.vision-actions button{flex:1 1 auto}.vision-toolbar{align-items:flex-start}.vision-path{flex-wrap:wrap}.vision-path input{flex-basis:70%}}
+
+/* Current action is separate from history; keep long local paths inside the panel. */
+.vision-action strong,.vision-action small{display:block}.vision-action small{color:var(--muted);margin-top:5px;font-size:12px}
+.vision-action pre,.vision-dialog pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-width:100%}
+.vision-current{margin-top:16px}.vision-current h4{font-size:14px;margin:0}.vision-current p{margin:7px 0}
+.vision-current .vision-action{border-bottom:0}.vision-history{border-top:1px solid #42504b}
+.vision-model-row .vision-actions{gap:8px}.vision-dialog [hidden]{display:none!important}
+
+/* 0.1.0.19 · Vision file chooser polish + device upload for GGUF/mmproj. */
+.vision-file-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center}
+.vision-file-actions{display:flex;gap:8px;flex-wrap:wrap}
+.vision-file-actions button,.vision-path-action{white-space:nowrap}
+.vision-upload-state{margin:10px 0 4px;padding:12px;border:1px solid #42504b;border-radius:14px;background:rgba(255,255,255,.025)}
+.vision-upload-state progress{width:100%;height:8px;accent-color:#8ed7bf}
+.vision-upload-line{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:8px}
+.vision-upload-line span{font-size:13px;color:var(--muted,#a5b4af);overflow-wrap:anywhere}
+.vision-browser-dialog .vision-toolbar{margin-bottom:14px}
+.vision-browser-controls{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center}
+.vision-browser-controls input{min-width:0}
+.vision-up-button{min-width:48px;padding-inline:14px;font-size:20px;line-height:1}
+.vision-use-folder{margin:12px 0 4px;width:auto}
+.vision-files{gap:8px}
+.vision-files .vision-file-entry{width:100%;min-height:48px;padding:11px 14px;border:1px solid #3d4a45;border-radius:12px;background:#121a18;color:var(--text,#e8f0ec);text-align:left;box-shadow:none}
+.vision-files .vision-file-entry:hover,.vision-files .vision-file-entry:focus-visible{border-color:#76bca6;background:#17231f;outline:none}
+.vision-dialog button.ghost,.vision-dialog .ghost{background:#121a18!important;color:var(--text,#e8f0ec)!important;border:1px solid #46564f!important;border-radius:12px!important;box-shadow:none!important}
+.vision-dialog button.ghost:hover,.vision-dialog .ghost:hover{background:#17231f!important;border-color:#76bca6!important}
+.vision-dialog button.primary{border-radius:12px!important;box-shadow:none!important}
+@media(max-width:680px){
+ .vision-file-row{grid-template-columns:1fr}
+ .vision-file-actions{display:grid;grid-template-columns:1fr 1fr}
+ .vision-file-actions button{width:100%}
+ .vision-browser-controls{grid-template-columns:minmax(0,1fr) auto}
+ .vision-browser-controls [data-browser-go]{grid-column:1/2}
+ .vision-browser-controls .vision-up-button{grid-column:2/3;grid-row:1/3;align-self:stretch}
+ .vision-use-folder{width:100%}
+ .vision-upload-line{align-items:flex-start;flex-direction:column}
+}
+
+/* 0.1.0.41 · explicit Vision link imports. */
+.vision-link-import{margin:14px 0;padding:14px;border:1px solid #42504b;border-radius:14px;background:rgba(255,255,255,.025)}
+.vision-link-import>b{display:block;margin-bottom:5px}.vision-link-import>.hint{margin:0 0 10px;color:var(--muted,#a5b4af);line-height:1.5}
+.vision-link-status{min-height:1.4em;margin:8px 0 0;color:var(--muted,#a5b4af);overflow-wrap:anywhere}
+.vision-link-import .vision-check{margin-top:12px}
+@media(max-width:680px){.vision-link-import{padding:12px}.vision-link-import .vision-actions{display:grid;grid-template-columns:1fr}.vision-link-import .vision-actions button{width:100%}}
+
+/* 0.1.0.41 managed GGUF runtime */
+.vision-managed-runtime{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);margin:12px 0}.vision-managed-runtime>div{min-width:0}.vision-managed-runtime p{margin:5px 0 0}.vision-managed-runtime button{flex:0 0 auto}@media(max-width:650px){.vision-managed-runtime{align-items:stretch;flex-direction:column}.vision-managed-runtime button{width:100%}}
+
+/* 0.1.0.48 · managed llama.cpp preparation progress/status. */
+.vision-runtime-copy{flex:1;min-width:0}.vision-runtime-copy progress{display:block;width:100%;height:8px;margin-top:9px;accent-color:var(--accent,#80b9ff)}.vision-runtime-copy small{display:block;margin-top:7px;overflow-wrap:anywhere}
+
+#identityResolvedReport>button.ghost{display:block;width:100%;max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:break-word;text-align:center;box-sizing:border-box}

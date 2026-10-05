@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Zetalvx Image Lab — SDXL Edition</title>
+<link href="/static/zetalvx-logo.png?v=1.0.18-source" rel="icon" type="image/png"/>
+<link href="/static/style.css?v=1.0.18-source" rel="stylesheet"/>
+<link href="/static/model-hub.css?v=1.0.18-source" rel="stylesheet"/><script src="/static/locale-catalog.js?v=1.0.18-source"></script><script src="/static/vision-locale.js?v=1.0.18-source"></script><script src="/static/vision-runtime-locale.js?v=1.0.18-source"></script><script src="/static/fixes-locale.js?v=1.0.18-source"></script><script src="/static/training-locale.js?v=1.0.18-source"></script><script src="/static/release-locale.js?v=1.0.18-source"></script><script src="/static/ui-locale.js?v=1.0.18-source"></script><script src="/static/lab-locale.js?v=1.0.18-source"></script><script src="/static/workspace-locale.js?v=1.0.18-source"></script><script src="/static/product-locale.js?v=1.0.18-source"></script><script src="/static/theme-init.js?v=1.0.18-source"></script><script src="/static/maintenance-locale.js?v=1.0.18-source"></script><script src="/static/network-locale.js?v=1.0.18-source"></script><script src="/static/identity-request-locale.js?v=1.0.18-source"></script><script src="/static/identity-input-locale.js?v=1.0.18-source"></script><script src="/static/i18n.js?v=1.0.18-source"></script><link href="/static/studio-additions.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/vision-ui.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/training-workspace.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/release-polish.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/ui-refinement.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/preset-lab.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/workspace.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/product-ui.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/download-manager.css?v=1.0.18-source" rel="stylesheet"/><link href="/static/maintenance-ui.css?v=1.0.18-source" rel="stylesheet"/></head>
+<body><div class="app-update-banner" data-no-i18n="" hidden="" id="appUpdateBanner" role="status"></div>
+<header class="topbar">
+<div class="brand"><button aria-label="Home" class="brand-logo-link brand-home-link" data-goto="home" type="button"><img alt="Zetalvx" src="/static/zetalvx-logo.png?v=1.0.18-source"/></button><div class="brand-copy" title="Zetalvx Labs"><b data-no-i18n="">ZETALVX IMAGE LAB</b><small data-no-i18n="">SDXL Edition · 1.0.18</small></div></div>
+<div class="project-chip"><span>PROJECT</span><b id="topProjectName">—</b></div>
+<div class="top-actions"><label class="language-picker top-language-picker"><span>Language</span><select aria-label="Language" data-language-picker=""></select></label><span class="status-pill" id="runtimeState">Image runtime · ?</span><button class="ghost" id="unloadBtn">Unload GPU</button><a class="ghost auth-logout" href="/logout">Logout</a></div>
+</header>
+<div class="app-shell">
+<aside class="sidebar">
+<button class="nav active" data-view="home">⌂<span>Home</span></button>
+<button class="nav" data-view="image">▣<span>Image</span></button>
+<button class="nav" data-view="training">◈<span>Training</span></button>
+<button class="nav" data-view="identity">◎<span>Identity</span></button>
+<button class="nav" data-view="media-tools">✂<span>Media Tools</span></button>
+<button class="nav" data-view="library">▦<span>Library</span></button>
+<button class="nav" data-view="user-presets">☷<span>User presets</span></button>
+<button class="nav" data-view="projects">◫<span>Projects</span></button>
+<button class="nav" data-view="jobs">↻<span>Jobs</span></button>
+<button class="nav" data-view="models">◉<span>Modelli</span></button>
+<div class="nav-spacer"></div>
+<button class="nav" data-view="guide">❔<span>Guide</span></button>
+<button class="nav" data-view="settings">⚙<span>Impostazioni</span></button>
+</aside>
+<div aria-label="Main navigation" class="mobile-dock" role="navigation">
+<button class="nav" data-view="home">⌂<span>Home</span></button>
+<button class="nav" data-view="image">▣<span>Create</span></button>
+<button class="nav" data-view="identity">◎<span>Identity</span></button>
+<button class="nav" data-view="library">▦<span>Library</span></button>
+<button aria-controls="mobileMoreMenu" aria-expanded="false" class="mobile-more-toggle" id="mobileMoreToggle" type="button">•••<span>More</span></button>
+</div>
+<div class="mobile-more-menu hidden" id="mobileMoreMenu">
+<div class="mobile-more-sheet">
+<div class="mobile-more-head"><b>More</b><button class="ghost" id="mobileMoreClose" type="button">Close</button></div><label class="language-picker mobile-language-picker"><span>Language</span><select aria-label="Language" data-language-picker=""></select></label>
+<button class="nav" data-view="training">◈<span>Training</span></button>
+<button class="nav" data-view="models">◉<span>Modelli</span></button>
+<button class="nav" data-view="media-tools">✂<span>Tools</span></button>
+<button class="nav" data-view="user-presets">☷<span>User presets</span></button>
+<button class="nav" data-view="projects">◫<span>Projects</span></button>
+<button class="nav" data-view="jobs">↻<span>Jobs</span></button>
+<button class="nav" data-view="guide">❔<span>Guide</span></button>
+<button class="nav" data-view="settings">⚙<span>Impostazioni</span></button>
+<button class="ghost mobile-action" id="mobileUnloadBtn" type="button">Unload GPU</button>
+<a class="ghost mobile-action auth-logout" href="/logout">Logout</a>
+</div>
+</div>
+<main class="workspace">
+<section class="view active" id="view-home">
+<div class="hero release-hero"><div><span class="eyebrow">LOCAL · SDXL</span><h1>Il tuo studio, in locale.</h1><p>Immagini, ritocchi e identità. Scegli da dove iniziare.</p></div><span class="edition-mark">SDXL</span></div>
+<div class="home-action-grid sdxl-launch-grid">
+<button class="home-launch-card" data-clean="1" data-goto="image" data-task="generate"><small>01 · Generate</small><b>Genera</b><span>Prompt, checkpoint e LoRA.</span></button>
+<button class="home-launch-card" data-clean="1" data-goto="image" data-task="edit"><small>02 · Img2img</small><b>Modifica</b><span>Parti da una foto e controlla il denoise.</span></button>
+<button class="home-launch-card" data-clean="1" data-goto="image" data-task="inpaint"><small>03 · Inpaint</small><b>Modifica una zona</b><span>Dipingi la maschera e rigenera la selezione.</span></button>
+<button class="home-launch-card" data-goto="identity" data-identity-mode="instantid"><small>04 · InstantID</small><b>Coerenza del volto</b><span>Reference, posa e preset di fedeltà.</span></button>
+<button class="home-launch-card" data-goto="identity" data-identity-mode="face_swap"><small>05 · Face swap</small><b>Sostituisci il volto</b><span>Swap con rifinitura SDXL opzionale.</span></button>
+<button class="home-launch-card" data-goto="training"><small>06 · Training</small><b>Allena SDXL</b><span>Dataset, LoRA e fine-tuning UNet.</span></button>
+</div>
+<div class="notice-inline compact-notice">Primo avvio? <button class="text-button" data-goto="models">Aggiungi i tuoi modelli →</button> · <button class="text-button" data-goto="guide">App guide →</button></div>
+<div class="section-head"><h2>Creazioni recenti</h2></div><div class="asset-grid" id="homeRecent"></div>
+</section>
+<section class="view" id="view-image">
+<div class="section-head">
+<div><span class="eyebrow">IMAGE STUDIO</span><h2 id="taskTitle">Generate Image</h2></div>
+
+<div class="create-heading-actions"><div class="task-tabs task-tabs-labeled">
+<button class="active" data-task="generate">Generate</button>
+<button data-task="edit">Edit</button>
+<button data-task="inpaint">Inpaint</button>
+<button data-task="reference">Reference</button>
+<button data-task="multi_image">Multi-image</button>
+</div><div class="image-layout-toolbar"><button aria-controls="imageCreatorLayout" aria-pressed="false" class="ghost" id="imageLayoutSwapBtn" type="button"><span aria-hidden="true">⇆</span><span data-no-i18n="" id="imageLayoutSwapLabel">Preview: left</span></button></div></div></div>
+<div class="image-start-panel" id="imageStartPanel">
+<div class="section-head compact image-start-head">
+<div><span class="eyebrow">CREATE</span><h3>Choose a look and create</h3><small class="muted">Simple shows only everyday controls. Advanced keeps everything else one tap away.</small></div>
+</div>
+<div class="image-start-grid">
+<div class="start-block">
+<span class="mini-label">Complexity</span>
+<div class="compact-toggle" id="imageComplexityToggle">
+<button class="active" id="imageModeSimpleBtn" type="button">Simple</button>
+<button id="imageModeAdvancedBtn" type="button">Advanced</button>
+</div>
+</div>
+<div class="start-block grow-block">
+<span class="mini-label">Look</span>
+<div class="quick-style-grid" id="imageQuickStyleGrid">
+<button class="active" data-quick-style="clean" type="button">Clean</button>
+<button data-quick-style="realistic" type="button">Realistic</button>
+<button data-quick-style="cinematic" type="button">Cinematic</button>
+<button data-quick-style="anime" type="button">Anime</button>
+<button data-quick-style="cartoon" type="button">Cartoon</button>
+<button data-quick-style="product" type="button">Product</button>
+<button data-quick-style="logo" type="button">Logo / Text</button>
+</div>
+</div>
+</div>
+
+<details class="hub-details prompt-inspect"><summary>Prompt e parametri effettivi</summary><div class="hub-details-body" id="promptInspectBody"><p class="ui-mode-help" data-no-i18n="" id="imageModeHelp" role="status"></p><div class="quick-summary-box compact-state-line" id="imageQuickSummary">Simple · Clean · Generate. Manual mode with no workflow or preset armed.</div><div class="effective-strip">
+<div><span class="mini-label">Effective generation</span><b id="imageEffectiveState">No hidden style guidance. Manual parameters will be used.</b></div>
+<button class="ghost" id="viewEffectivePromptBtn" type="button">View effective prompt</button>
+</div></div></details>
+</div>
+<div class="creator-layout" id="imageCreatorLayout">
+<div class="preview-column" id="imagePreviewColumn">
+<div class="preview-card">
+<div class="dropzone" id="mainPreview">
+<div class="preview-empty"><span>✦</span><b>No active image yet</b><small>Generate one, upload a source image, or pick one from Library.</small></div>
+</div>
+<div class="preview-footer"><span id="activeAssetLabel">No active asset</span><button class="ghost" id="openLibraryBtn">Library</button></div>
+</div>
+<div class="input-panel" id="inputPanel">
+<div class="input-card" id="sourceCard">
+<div><span class="eyebrow">PRIMARY INPUT</span><b>Source / primary media</b><small>First item is primary. Extra uploaded items are appended as references.</small></div>
+<button class="ghost" id="useActiveSource">Use active</button>
+<label class="upload-btn">+ Add input(s)<input accept="image/*" hidden="" id="sourceUpload" multiple="" type="file"/></label>
+<button class="ghost" id="clearSource">Clear primary</button>
+<div class="asset-chip muted" id="sourceChip">None</div>
+</div>
+<div class="input-card" id="maskCard">
+<div><span class="eyebrow">MASK</span><b>Inpaint mask</b><small>White = area to replace.</small></div>
+<label class="upload-btn">Upload mask<input accept="image/*" hidden="" id="maskUpload" type="file"/></label>
+<button class="ghost" id="clearMask">Remove</button>
+<div class="asset-chip muted" id="maskChip">None</div>
+</div>
+<div class="input-card wide" id="refsCard">
+<div><span class="eyebrow">REFERENCES</span><b>Reference assets</b><small id="referencePolicy">Reference assets</small></div>
+<label class="upload-btn">+ Add references<input accept="image/*" hidden="" id="referenceUpload" multiple="" type="file"/></label>
+<button class="ghost" id="addActiveReference">+ Active asset</button>
+<div class="reference-list" id="referenceChips"><span class="muted">No references.</span></div>
+</div>
+</div>
+<div class="mask-editor-panel hidden" id="maskEditorPanel">
+<div class="section-head compact">
+<div><span class="eyebrow">VISUAL MASK</span><h3>Paint the area to replace</h3></div>
+<span class="status-pill" id="maskPaintStatus">No mask painted</span>
+</div>
+<div class="mask-toolbar">
+<button class="ghost active" id="maskBrushBtn" type="button">Brush</button>
+<button class="ghost" id="maskEraseBtn" type="button">Eraser</button>
+<label>Size <input id="maskBrushSize" max="180" min="5" type="range" value="55"/></label>
+<button class="ghost" id="maskUndoBtn" type="button">Undo</button>
+<button class="ghost" id="maskClearBtn" type="button">Clear</button>
+<button class="ghost" id="maskInvertBtn" type="button">Invert</button>
+<button class="primary" id="maskSaveBtn" type="button">Save mask</button>
+</div>
+<div class="mask-stage">
+<img alt="Inpaint source" id="maskSourceImage"/>
+<canvas id="maskCanvas"></canvas>
+<div class="preview-empty" id="maskEditorEmpty"><b>Select a source image first</b></div>
+</div>
+<small class="muted" id="maskSemanticHelp">Painted area = replaced area. Invert swaps the mask and also swaps Brush/Eraser semantics.</small>
+</div>
+</div>
+<div class="controls-card" id="imageControlsColumn">
+<label>Prompt / edit instruction<textarea id="prompt" placeholder="Describe the image or the change you want..."></textarea></label>
+<div class="simple-basics-panel">
+<div class="section-head compact"><div><span class="eyebrow">BASIC CONTROLS</span><h3>Prompt + LoRA</h3><small class="muted">Always available in Simple and Advanced.</small></div></div>
+<label>Negative prompt<textarea class="small-textarea" id="negativePrompt" placeholder="Optional"></textarea></label>
+<div class="lora-head"><div><b>LoRA stack</b><small>Add one or more LoRAs and set each weight. These are used in both Simple and Advanced.</small></div><button class="ghost" id="addLoraBtn" type="button">+ Add LoRA</button></div>
+<div class="lora-stack" id="loraStack"><div class="empty-mini">No LoRAs selected.</div></div>
+</div>
+<details class="advanced-group preset-center" id="workflowPresetSuite">
+<summary><span><b data-no-i18n="" id="presetSummaryTitle">Presets</b><small data-no-i18n="" id="presetSummaryHelp">Choose a setup, apply it, or save your own</small></span></summary>
+<div class="advanced-group-body lab-body">
+<p class="lab-active" data-no-i18n="" id="presetActiveSummary" role="status"></p>
+<div aria-label="Preset actions" class="lab-tabs" role="tablist">
+<button aria-controls="presetPaneUse" aria-selected="true" class="active" data-preset-tab="use" id="presetTabUse" role="tab" type="button">Use</button>
+<button aria-controls="presetPaneSave" aria-selected="false" data-preset-tab="save" id="presetTabSave" role="tab" tabindex="-1" type="button">Save</button>
+<button aria-controls="presetPaneManage" aria-selected="false" data-preset-tab="manage" id="presetTabManage" role="tab" tabindex="-1" type="button">Manage</button>
+</div>
+<section aria-labelledby="presetTabUse" data-preset-pane="use" id="presetPaneUse" role="tabpanel">
+<label for="presetChoice">Available presets</label><select data-no-i18n="" id="presetChoice"></select>
+<div class="lab-info" data-no-i18n="" id="presetChoiceInfo"></div>
+<section hidden="" id="recipeOptions"><h4>Recipe options</h4><p class="muted">A recipe can add instructions to the effective prompt. Preview them before generating.</p><div class="advanced-only" id="recipeFields"><label><span class="field-label">Prompt handling</span><select id="imageWorkflowPromptMode"><option selected="" value="append">Keep my prompt + add recipe guidance</option><option value="replace">Replace prompt with recipe guidance</option><option value="params_only">Parameters only</option></select></label><label class="check-row compact"><input checked="" id="imageWorkflowApplyParams" type="checkbox"/> Also apply recommended parameters</label></div><p class="lab-note simple-only">Recipe options are available in Advanced. Applying uses the choices already set.</p></section>
+<div class="lab-actions"><button class="primary" id="presetApply" type="button">Apply selected preset</button><button class="ghost" id="presetManual" type="button">Remove recipe / style</button></div>
+<p class="lab-note">Selecting a preset changes nothing until you press Apply. No generation starts automatically.</p>
+<button class="text-button" id="presetInspect" type="button">Show effective prompt and parameters</button>
+</section>
+<section aria-labelledby="presetTabSave" data-preset-pane="save" hidden="" id="presetPaneSave" role="tabpanel">
+<p class="lab-note">Save the current form, not the item merely selected in the list. Images and model files are not copied into presets.</p>
+<label for="presetSaveName">Preset name</label><input autocomplete="off" id="presetSaveName" maxlength="120" placeholder="e.g. Product photos"/>
+<label for="presetSaveDescription">Description (optional)</label><textarea class="small-textarea" id="presetSaveDescription" maxlength="500"></textarea>
+<div id="presetSaveTypeField"><label><span class="field-label">Preset type</span><select id="userPresetType"><option value="style">Style and recipe only</option><option value="technical">Technical settings only</option><option selected="" value="complete">Complete setup</option></select></label></div>
+<details class="lab-inner" id="presetSaveDetails"><summary>Choose what to include</summary><div id="presetSaveIncludes"><label class="check-row compact"><input checked="" id="userPresetSaveModel" type="checkbox"/> Model / checkpoint</label><label class="check-row compact"><input checked="" id="userPresetSaveLoras" type="checkbox"/> LoRA stack + weights</label><label class="check-row compact"><input checked="" id="userPresetSaveParams" type="checkbox"/> Technical parameters</label><label class="check-row compact"><input checked="" id="userPresetSaveStyle" type="checkbox"/> Look / workflow</label><label class="check-row compact"><input checked="" id="userPresetIncludePrompt" type="checkbox"/> Prompt + negative prompt</label></div></details>
+<p class="lab-info" data-no-i18n="" id="presetSaveScope"></p>
+<button class="primary" id="presetSaveNew" type="button">Save as a new preset</button>
+</section>
+<section aria-labelledby="presetTabManage" data-preset-pane="manage" hidden="" id="presetPaneManage" role="tabpanel">
+<p class="lab-note">Built-in presets are read-only. Apply one, adjust the form and use Save to make your own version.</p>
+<label for="presetManageChoice">Your presets</label><select data-no-i18n="" id="presetManageChoice"></select>
+<p class="lab-info" data-no-i18n="" id="presetManageInfo"></p>
+<div class="lab-actions"><button class="ghost" id="presetManageApply" type="button">Use this preset</button><button class="ghost" id="presetManageDuplicate" type="button">Duplicate</button><button class="ghost" id="presetManageExport" type="button">Export JSON</button></div>
+<details class="lab-inner"><summary>Edit or replace this preset</summary>
+<label for="presetRename">Name</label><input id="presetRename" maxlength="120"/>
+<label for="presetRedescribe">Description</label><textarea class="small-textarea" id="presetRedescribe" maxlength="500"></textarea>
+<div class="lab-actions"><button class="ghost" id="presetRenameSave" type="button">Save name / description</button><button class="ghost" id="presetReplace" type="button">Replace with current form…</button></div>
+<p class="lab-note">Replace uses the inclusion options in the Save tab and requires confirmation. Renaming does not change saved parameters.</p>
+</details>
+<div class="lab-actions"><label class="upload-btn">Import JSON<input accept="application/json,.json" hidden="" id="presetImport" type="file"/></label><button class="ghost danger" id="presetManageDelete" type="button">Delete preset…</button></div>
+<details class="lab-inner" id="presetBindings"><summary>Advanced: shortcuts for look buttons</summary><div id="presetBindingBody"><div class="style-binding-panel style-binding-polished">
+<div class="section-head compact"><div><span class="eyebrow">LOOK BINDINGS</span><h3>Attach model + LoRA to a look button</h3><small class="muted">Useful for things like Anime → preferred model + anime LoRA. The binding remains optional and persistent.</small></div></div>
+<div class="style-binding-grid">
+<label class="style-binding-select">Look button<select id="styleBindingTarget"><option value="realistic">Realistic</option><option value="cinematic">Cinematic</option><option value="anime">Anime</option><option value="cartoon">Cartoon</option><option value="product">Product</option><option value="logo">Logo / Text</option></select></label>
+<div class="style-binding-action"><span class="mini-label">Binding action</span><div class="style-binding-buttons"><button class="primary" id="saveStyleBinding" type="button">Bind current model + LoRAs</button><button class="ghost danger" id="clearStyleBinding" type="button">Clear</button></div></div>
+</div>
+<div class="ops-help-box style-binding-help" id="styleBindingHelp">No binding selected.</div>
+</div></div></details>
+</section>
+<p class="ui-status" data-no-i18n="" id="presetFeedback" role="status"></p>
+<button class="text-button" data-guide-topic="presets" type="button">Preset guide</button>
+<div aria-hidden="true" hidden="" id="legacyPresetControls"><details class="image-work-mode-panel advanced-only advanced-group advanced-suite" id="legacyPresetSuite" open="">
+<summary><span><b>Presets, assistente e salvataggi</b><small>Stato attivo, flusso guidato, preset base e preset utente</small></span></summary>
+<div class="advanced-group-body">
+<div class="section-head compact"><div><span class="eyebrow">PRESET E ASSISTENTE</span><h3>Organizza il lavoro in un solo punto</h3><small class="muted">Preset = configurazioni salvate. Assistente guidato = aiuto alla scelta. Tutto il flusso avanzato è raccolto qui.</small></div></div>
+<section class="suite-block" id="imageWorkModePanel">
+<div class="section-head compact"><div><span class="eyebrow">STATO ATTIVO</span><h3>Come stai lavorando ora</h3><small class="muted">Controlla subito se stai usando modalità manuale, un workflow o un preset.</small></div></div>
+<div class="work-mode-grid">
+<button class="mode-choice-card" id="setManualImageMode" type="button"><small>Manual / Clean</small><b>Free generation or editing</b><span>No workflow guidance armed and no preset state active. Best for pure experimentation.</span></button>
+<button class="mode-choice-card" id="focusWorkflowMode" type="button"><small>Guided Workflow</small><b>Use a recipe</b><span>Apply a task-aware recipe like portrait fidelity, cinematic upgrade or product cleanup.</span></button>
+<button class="mode-choice-card" id="focusPresetMode" type="button"><small>Quick Preset</small><b>Use a parameter set</b><span>Keep the content idea, but load a technical starting point faster.</span></button>
+</div>
+<div class="mode-status-strip">
+<span class="status-pill" id="imageModeBadge">Mode · Manual / Clean</span>
+<span class="status-pill" id="imageWorkflowBadge">Workflow · None</span>
+<span class="status-pill" id="imagePresetBadge">Preset · None</span>
+</div>
+<div class="ops-help-box" id="imageModeSummary">You are in clean/manual mode. Prompt and parameters stay fully under your control until you deliberately apply a workflow or preset.</div>
+<div class="inline-actions">
+<button class="ghost" id="activateCleanImageMode" type="button">Reset to clean generation</button>
+<button class="ghost" id="imageGoToWorkflow" type="button">Jump to guided workflow</button>
+<button class="ghost" id="imageGoToPreset" type="button">Jump to presets</button>
+</div>
+</section>
+<section class="suite-block" id="guidedWorkflowPanel">
+<div class="section-head compact"><div><span class="eyebrow">ASSISTENTE GUIDATO</span><h3>Task recipe</h3><small class="muted">Use when you want the interface to suggest a strategy for the task, not just raw parameters.</small></div></div>
+<div class="control-grid">
+<label><span class="field-label">Workflow</span><select id="imageWorkflowSelect"></select></label>
+<label><span class="field-label">Options</span><div class="inline-checks"></div></label>
+</div>
+<div class="inline-actions">
+<button class="ghost" id="applyImageWorkflow" type="button">Apply workflow</button>
+<button class="ghost" id="clearImageWorkflow" type="button">Clear workflow</button>
+</div>
+<div class="ops-help-box" id="imageWorkflowHelp">Choose a workflow when you want hidden recipe guidance, with optional parameter help, on top of your own prompt.</div>
+</section>
+<section class="suite-block" id="quickPresetPanel">
+<div class="section-head compact"><div><span class="eyebrow">PRESET</span><h3>Preset base e preset utente</h3><small class="muted">In questa area puoi applicare preset tecnici, salvare i tuoi setup e gestire i look binding.</small></div></div>
+<div class="control-grid">
+<label><span class="field-label">Preset base</span><select id="imagePresetSelect"></select></label>
+<label><span class="field-label">Azioni rapide</span><div class="inline-actions"><button class="ghost" id="applyImagePreset" type="button">Apply preset</button><button class="ghost" id="resetImagePreset" type="button">Model defaults</button></div></label>
+</div>
+<div class="ops-help-box" id="imagePresetHelp">Choose a preset when you only want a faster technical setup. Prompt, seed, resolution and LoRA stack stay untouched.</div>
+<div class="preset-catalog" id="imagePresetCatalog"></div>
+<div class="user-preset-panel"><button class="ghost" data-goto="user-presets" type="button">Open preset manager</button>
+<div class="section-head compact"><div><span class="eyebrow">PRESET UTENTE</span><h3>Your reusable setups</h3><small class="muted">Saved under shared/presets/user/image and kept across Zetalvx Image Lab updates.</small></div></div>
+<div class="control-grid">
+<label><span class="field-label">Saved preset</span><select data-no-i18n="" id="userImagePresetSelect"><option value="">No user preset</option></select></label>
+</div>
+<div class="user-preset-includes">
+</div>
+<div class="ops-help-box" id="userPresetTypeHelp">Complete presets restore the task and all selected fields. Style and Technical presets can be reused without forcing you into the task they were originally saved from.</div>
+<div class="user-preset-cards" id="userPresetCards"></div>
+<div class="inline-actions user-preset-actions">
+<button class="ghost" id="loadUserImagePreset" type="button">Load</button>
+<button class="primary" id="saveUserImagePreset" type="button">Save as new</button>
+<button class="ghost" id="updateUserImagePreset" type="button">Update selected</button>
+<button class="ghost" id="duplicateUserImagePreset" type="button">Duplicate</button>
+<button class="ghost danger" id="deleteUserImagePreset" type="button">Delete</button>
+<button class="ghost" id="exportUserImagePreset" type="button">Export</button>
+<label class="ghost import-preset-label">Import<input accept="application/json,.json" hidden="" id="importUserImagePreset" type="file"/></label>
+</div>
+<div class="ops-help-box" id="userImagePresetHelp">Complete presets can remember task, model, LoRAs, workflow/style, parameters and prompt. Style and Technical presets only restore the parts you choose.</div>
+</div>
+</section>
+</div>
+</details></div>
+<button class="text-button simple-only" id="openAdvancedPresets" type="button">Save and manage presets in Advanced →</button></div></details>
+<details class="image-auto-test advanced-group advanced-only" id="imageTestPanel">
+<summary><span><b>Compare variations</b><small>Automatic profiles or custom parameter ranges</small></span></summary>
+<div class="lab-body">
+<p class="lab-note">One image per combination, queued one at a time. The regular Batch field is not multiplied. Maximum: 24 images per test.</p>
+<div aria-label="Test mode" class="lab-tabs">
+<button aria-pressed="true" class="active" data-test-mode="automatic" id="testModeAutomatic" type="button">Automatic</button>
+<button aria-pressed="false" data-test-mode="custom" id="testModeCustom" type="button">Custom</button></div>
+<div id="testAutomaticFields"><label for="imageAutoTestProfile">Comparison profile</label><select id="imageAutoTestProfile"></select><p class="lab-note">Profiles use the current form values as a starting point.</p></div>
+<div hidden="" id="testCustomFields"><p class="lab-note">Enable only the parameters to vary. Values are evenly spaced, including both ends. One value uses the minimum only.</p><div id="testRangeRows"></div></div>
+<label class="check-row lab-seed-option"><input id="imageAutoTestVarySeed" type="checkbox"/> Different seed for each combination</label>
+<p class="lab-note" id="testSeedHelp">Leave this off for a fair comparison with the same seed. A random seed (-1) is fixed when you open the preview.</p>
+<div class="lab-info" data-no-i18n="" id="imageAutoTestSummary"></div>
+<div class="lab-total"><span data-no-i18n="" id="imageAutoTestCount"></span><button class="primary" id="runImageAutoTestBtn" type="button">Preview tests…</button></div>
+<p class="ui-status" data-no-i18n="" id="testFeedback" role="status"></p>
+<button class="text-button" data-guide-topic="tests" type="button">Comparison guide</button>
+</div></details>
+<div class="control-grid">
+<label><span class="field-label">Model
+          </span><div class="model-picker">
+<button class="model-picker-button" id="modelPickerButton" type="button">
+<span id="modelPickerName">AUTO</span><small id="modelPickerStatus">automatic</small>
+</button>
+<div class="model-picker-menu hidden" id="modelPickerMenu"></div>
+<select aria-hidden="true" class="hidden" data-no-i18n="" id="modelSelect"></select>
+</div>
+</label>
+<label><span class="field-label">Ratio</span><select id="ratio"><option>1:1</option><option selected="">16:9</option><option>9:16</option><option>4:3</option><option>3:2</option><option>2:3</option><option>Custom</option></select></label>
+<label><span class="field-label">Quality</span><select id="quality"><option>Fast</option><option selected="">Balanced</option><option>Maximum</option></select></label>
+<label id="strengthWrap"><span class="field-label"><span id="strengthLabel">Change strength</span>
+</span><input id="strength" max="1" min="0" step=".05" type="range" value=".35"/>
+<span id="strengthValue">0.35</span>
+<small id="strengthHelp">Lower = preserve source/reference more. Higher = allow larger changes.</small>
+</label>
+</div>
+<div class="source-resolution-note hidden" id="sourceResolutionNote"></div>
+<div class="control-grid image-size-controls"><label><span class="field-label">Width</span><input id="width" inputmode="numeric" type="number" value="1344"/></label><label><span class="field-label">Height</span><input id="height" inputmode="numeric" type="number" value="768"/></label></div><div class="control-grid checkpoint-grid">
+<label class="hidden" id="checkpointWrap"><span class="field-label">Checkpoint override
+          </span><select data-no-i18n="" id="checkpointSelect"><option value="">Model default</option></select>
+<small>Per-job override. The model's default checkpoint is not changed.</small>
+</label>
+<label class="hidden" id="inpaintCheckpointWrap"><span class="field-label">Inpaint checkpoint
+          </span><select data-no-i18n="" id="inpaintCheckpointSelect"><option value="">Model default inpaint checkpoint</option></select>
+<small>Select a dedicated SDXL inpainting checkpoint when needed.</small>
+</label>
+</div>
+<details class="advanced advanced-only advanced-group">
+<summary><span><b>Manual Parameters</b><small>Resolution, seed, steps, CFG and batch</small></span></summary>
+<div class="control-grid">
+<label><span class="field-label">Seed</span><input id="seed" type="number" value="-1"/></label>
+<label><span class="field-label">Steps</span><input id="steps" type="number" value="30"/></label>
+<label><span class="field-label">CFG</span><input id="cfg" step=".1" type="number" value="7"/></label>
+<label><span class="field-label">Batch</span><input id="batch" max="8" min="1" type="number" value="1"/></label>
+<label><span class="field-label">Scheduler</span><select id="scheduler"><option value="default">Default checkpoint</option><option value="dpmpp_2m_karras">DPM++ 2M Karras</option><option value="dpmpp_2m">DPM++ 2M</option><option value="euler">Euler</option><option value="euler_a">Euler a</option><option value="unipc">UniPC</option><option value="ddim">DDIM</option></select></label></div>
+</details>
+<div class="experimental-toggle advanced-only" hidden=""><label><input checked="" id="showExperimental" type="checkbox"/> Show experimental model/task adapters</label></div>
+<div class="capability-note" id="capabilityNote"></div>
+<button class="primary generate-btn" id="runImageBtn">Add to queue</button>
+</div>
+</div><section aria-label="Queue and recent images" class="image-output-section" id="imageOutputs"><div class="live-queue-panel">
+<div class="lora-head"><div><b>Generation queue</b><small>One GPU job at a time. You can keep adding prompts.</small></div><span class="status-pill" id="queueCount">0 jobs</span></div>
+<div id="liveQueue"></div>
+</div><div class="studio-history-panel">
+<div class="section-head compact"><div><span class="eyebrow">IMAGE HISTORY</span><h3>Recent image generations</h3><small class="muted">Direct access under the Image Studio page, without going to Library.</small></div></div>
+<div class="asset-grid" id="imageHistoryGrid"></div>
+</div></section>
+</section>
+<section class="view" id="view-identity">
+<div class="section-head">
+<div><span class="eyebrow">IDENTITY</span><h2>Face &amp; identity</h2><small class="muted">Swap a face or create new images while keeping the same person.</small></div>
+<div class="identity-head-actions"><span class="status-pill" id="identityRuntimeState">Identity runtime · ?</span><button class="ghost" id="identityUnload">Unload Identity GPU</button></div>
+</div>
+<details class="compact-runtime"><summary>Runtime status</summary><div class="training-runtime-details" id="identityRuntimeDetails"><b>Identity worker</b><small>Waiting for runtime diagnostics…</small></div></details>
+<div class="identity-mode-tabs">
+<button class="active" data-identity-mode="face_swap">True Face Swap</button>
+<button data-identity-mode="instantid">InstantID / Face Consistency</button>
+</div>
+<div class="identity-grid">
+<div class="controls-card">
+<div class="section-head compact"><div><span class="eyebrow">1 · INPUTS</span><h3 id="identityInputTitle">Base + face reference</h3></div></div>
+<div id="identityInputSlots">
+<div class="identity-input-slot" id="identityBaseWrap">
+<label id="identityBaseLabel" for="identityBaseImage">Target image · required</label>
+<input accept="image/*" aria-describedby="identityBaseHelp" id="identityBaseImage" type="file"/>
+<small class="identity-input-hint" id="identityBaseHelp">The image whose face will be replaced. The rest of the picture is kept.</small>
+<div class="identity-preview" data-empty-text="No base image selected." id="identityBasePreview"><span class="muted">No base image selected.</span></div>
+</div>
+<div class="identity-input-slot" id="identityReferenceWrap">
+<label for="identityReferences">Subject's face · required</label>
+<input accept="image/*" aria-describedby="identityReferenceHelp" id="identityReferences" multiple="" type="file"/>
+<small class="identity-input-hint" id="identityReferenceHelp">Use a clear face photo. Only the first reference supplies the identity for Face Swap.</small>
+<div class="identity-reference-preview" data-empty-text="No face references selected." id="identityReferencePreview"><span class="muted">No face references selected.</span></div>
+</div>
+<div class="identity-input-slot hidden" id="identityPoseWrap">
+<label for="identityPoseImage">Face pose · optional</label>
+<input accept="image/*" aria-describedby="identityPoseHelp" id="identityPoseImage" type="file"/>
+<small class="identity-input-hint" id="identityPoseHelp">Face landmarks only, not identity or full-body pose. Overrides the base image; without either, landmarks come from the primary face reference.</small>
+<div class="identity-preview" data-empty-text="No pose reference selected; the primary face reference will provide landmarks." id="identityPosePreview"><span class="muted">No pose reference selected; the primary face reference will provide landmarks.</span></div>
+</div>
+</div>
+<div class="info-box" id="identityModeHelp">True Face Swap replaces the largest face in the base image using the first reference. It does not regenerate the whole picture.</div>
+</div>
+<div class="controls-card">
+<div class="section-head compact"><div><span class="eyebrow">2 · CREATE</span><h3 id="identityParamTitle">True Face Swap</h3></div></div>
+<div id="identityInstantidModelSlot"></div>
+<div class="hidden" id="identitySdxlModelPanel">
+<div class="identity-sdxl-heading"><b id="identitySdxlPanelTitle">SDXL generation model</b><small id="identitySdxlPanelHelp">InstantID generates through the selected SDXL checkpoint.</small></div>
+<label>Base SDXL checkpoint
+          <select aria-describedby="identityCheckpointHelp identityCheckpointPath" data-no-i18n="" id="identityBaseModel"><option value="">—</option></select>
+</label>
+<small class="identity-input-hint" id="identityCheckpointHelp">Choose an available SDXL checkpoint. This choice does not change the default in Models.</small>
+<small class="identity-checkpoint-path" data-no-i18n="" id="identityCheckpointPath" hidden=""></small>
+<div class="info-box">This checkpoint drives InstantID and, when enabled, the optional SDXL post-refine after True Face Swap. Changing checkpoint reloads the diffusion pipeline.</div>
+<div class="identity-lora-panel">
+<label>Optional SDXL LoRA
+            <select id="identityLoraSelect"><option value="">No LoRA</option></select>
+</label>
+<div class="control-grid">
+<label><span class="field-label">LoRA strength</span><input id="identityLoraStrength" max="2" min="-2" step="0.05" type="number" value="0.80"/></label>
+<label> <button class="ghost" id="identityLoraAdd" type="button">Add LoRA</button></label>
+</div>
+<div class="lora-stack" id="identityLoraStack"><div class="empty-mini">No Identity LoRAs selected.</div></div>
+<small class="muted">Up to 4 SDXL-compatible adapters can be stacked. The same stack is used by InstantID or optional Face Swap SDXL refine.</small>
+</div>
+<label>Prompt<textarea id="identityPrompt" placeholder="realistic portrait, natural skin texture, cinematic lighting"></textarea></label>
+<label>Negative prompt<textarea class="small-textarea" id="identityNegative" placeholder="painting, wax skin, deformed face, blurry, low quality, text, watermark"></textarea></label>
+</div>
+<div class="hidden" id="identityGenerativeControls">
+<label>InstantID generation mode
+          <select id="identityGenerationMode">
+<option value="txt2img">New image · Text to Image</option>
+<option value="img2img">Preserve base/composition · Img2Img</option>
+</select>
+</label>
+<div class="info-box hidden" id="identityImg2ImgNote">Img2Img uses the Base image as the starting image. Denoise/strength controls how far the result may move away from it: lower preserves more, higher changes more.</div>
+<div class="control-grid">
+<label><span class="field-label">Identity preset
+            </span><select id="identitySinglePreset">
+<option value="max_fidelity">Maximum Fidelity · closest to source</option>
+<option value="fidelity_soft">Fidelity Soft · close, slightly looser</option>
+<option value="photogenic_faithful">Photogenic Faithful · very similar, a bit cleaner</option>
+<option value="expression_freedom">Expression Freedom · identity strong, expression freer</option>
+<option value="natural_reinterpretation">Natural Reinterpretation · similar but less locked</option>
+<option value="cinematic">Cinematic · more photographic styling</option>
+<option value="cinematic_strong">Cinematic Strong · strongest cinematic push</option>
+<option selected="" value="custom">Custom / manual</option>
+</select>
+</label>
+<label> <button class="ghost" id="identityApplyPreset" type="button">Apply preset</button></label>
+</div>
+<div class="info-box" id="identityPresetInfo">Choose a preset to auto-fill the main InstantID controls based on your tested sweet spots. Prompt, checkpoint, LoRA stack, seed and resolution stay untouched unless the preset explicitly needs Img2Img denoise.</div>
+<div class="control-grid identity-quick-controls">
+<label><span class="field-label">Identity</span><input id="identityStrength" max="1.5" min="0" step="0.05" type="number" value="0.85"/></label>
+<label><span class="field-label">Pose control</span><input id="identityPoseStrength" max="1.5" min="0" step="0.05" type="number" value="0.80"/></label>
+<label><span class="field-label">Width <small>0 = auto</small></span><input id="identityWidth" inputmode="numeric" min="0" step="64" type="number" value="0"/></label>
+<label><span class="field-label">Height <small>0 = auto</small></span><input id="identityHeight" inputmode="numeric" min="0" step="64" type="number" value="0"/></label>
+</div>
+<details class="release-advanced identity-tech-details"><summary><span><b>Advanced</b><small>Sampling, seed and control guidance</small></span></summary><div class="control-grid">
+<label><span class="field-label">Denoise / Img2Img strength</span><input id="identityDenoise" max="1" min="0" step="0.05" type="number" value="0.35"/></label>
+<label><span class="field-label">Control start</span><input id="identityControlStart" max="1" min="0" step="0.05" type="number" value="0.00"/></label>
+<label><span class="field-label">Control end</span><input id="identityControlEnd" max="1" min="0" step="0.05" type="number" value="1.00"/></label>
+<label><span class="field-label">Steps</span><input id="identitySteps" min="1" type="number" value="30"/></label>
+<label><span class="field-label">CFG</span><input id="identityGuidance" min="1" step="0.1" type="number" value="5.0"/></label>
+<label><span class="field-label">Scheduler</span><select id="identityScheduler"><option value="default">Model default</option><option value="dpmpp_2m_karras">DPM++ 2M Karras</option><option value="euler">Euler</option><option value="euler_a">Euler A</option><option value="unipc">UniPC</option><option value="ddim">DDIM</option></select></label>
+<label><span class="field-label">ETA</span><input id="identityEta" max="1" min="0" step="0.05" type="number" value="0.0"/></label>
+<label><span class="field-label">CLIP skip</span><input id="identityClipSkip" max="4" min="0" step="1" type="number" value="0"/></label>
+<label><span class="field-label">Seed</span><input id="identitySeed" type="number" value="-1"/></label>
+<label class="check-row"><input id="identityEnhanceFaceRegion" type="checkbox"/> Face region mask · experimental</label>
+<label><span class="field-label">Face padding</span><input disabled="" id="identityFaceMaskPadding" max="0.8" min="0" step="0.02" type="number" value="0.18"/></label>
+<label class="check-row"><input id="identityGuessMode" type="checkbox"/> Guess mode</label>
+</div></details>
+<details class="identity-auto-test" id="identityAutoTestPanel">
+<summary><span><b>Auto Test</b><small>Compare controlled variants</small></span></summary>
+<div class="info-box">Keeps your main setup fixed and varies only the selected identity parameters.</div>
+<div class="control-grid">
+<label><span class="field-label">Preset
+              </span><select id="identitySweepPreset">
+<option value="max_fidelity_map">Max Fidelity Map · 9 variants</option>
+<option value="fidelity_vs_photogenic">Fidelity vs Photogenic · 8 variants</option>
+<option value="cinematic_range">Cinematic Range · 9 variants</option>
+<option value="img2img">Img2Img denoise · 12 variants</option>
+<option value="custom">Custom lists</option>
+</select>
+</label>
+<label><span class="field-label">Batch name</span><input id="identitySweepName" placeholder="King portrait fidelity test"/></label>
+<label><span class="field-label">Identity values</span><input id="identitySweepIdentity" value="0.85, 0.95, 1.00"/></label>
+<label><span class="field-label">Pose values</span><input id="identitySweepPose" value="0.60, 0.75, 0.85"/></label>
+<label><span class="field-label">CFG values</span><input id="identitySweepCfg" value="3.5, 4.0, 4.5"/></label>
+<label><span class="field-label">Denoise values · Img2Img</span><input id="identitySweepDenoise" value="0.25, 0.35, 0.45"/></label>
+<label><span class="field-label">Control end values</span><input id="identitySweepControlEnd" value="1.0"/></label>
+<label><span class="field-label">Max jobs</span><input id="identitySweepMax" max="48" min="1" type="number" value="24"/></label>
+<label class="check-row"><input id="identitySweepVarySeed" type="checkbox"/> Vary seed per result</label>
+<label class="check-row"><input checked="" id="identitySweepAutoLibrary" type="checkbox"/> Auto-save completed variants to project Library</label>
+</div>
+<div class="identity-sweep-actions"><span class="status-pill" id="identitySweepCount">9 variants</span><button class="primary" id="identityAutoTestRun" type="button">Queue Auto Test</button></div>
+</details>
+</div>
+<div id="identitySwapInfo">
+<div class="info-box compact-info identity-pure-swap-note">Pure Face Swap uses InsightFace/ONNX and does not use an SDXL checkpoint. Enable the optional SDXL refine below only if you want an additional Img2Img finishing pass.</div>
+<div class="control-grid identity-swap-controls">
+<label><span class="field-label">Target face</span><select id="identityTargetFace"><option value="largest">Largest</option><option value="leftmost">Leftmost</option><option value="rightmost">Rightmost</option><option value="center">Closest to center</option></select></label>
+<label class="check-row"><input id="identitySwapAll" type="checkbox"/> Swap all target faces</label>
+</div>
+<details class="release-advanced"><summary><span><b>Advanced</b><small>Detection and source selection</small></span></summary><div class="control-grid">
+<label><span class="field-label">Detection size</span><select id="identityDetectionSize"><option value="320">320</option><option selected="" value="640">640</option><option value="1024">1024</option></select></label>
+<label><span class="field-label">Source face</span><select id="identitySourceFace"><option value="largest">Largest</option><option value="leftmost">Leftmost</option><option value="rightmost">Rightmost</option><option value="center">Closest to center</option></select></label>
+</div></details>
+<div class="identity-refine-box">
+<label class="check-row"><input id="identitySwapRefine" type="checkbox"/> Optional SDXL refinement after Face Swap</label>
+<small class="muted">Off = pure Face Swap, no SDXL checkpoint is used. On = the swapped image receives a low-denoise Img2Img finishing pass using the checkpoint, LoRA and prompt below.</small>
+<div id="identitySwapRefineModelSlot"></div>
+<div class="control-grid hidden" id="identitySwapRefineControls">
+<label><span class="field-label">Refine denoise</span><input id="identitySwapRefineDenoise" max="1" min="0.01" step="0.01" type="number" value="0.18"/></label>
+<label><span class="field-label">Refine steps</span><input id="identitySwapRefineSteps" min="1" type="number" value="24"/></label>
+<label><span class="field-label">Refine CFG</span><input id="identitySwapRefineGuidance" min="1" step="0.1" type="number" value="4.5"/></label>
+<label><span class="field-label">Refine scheduler</span><select id="identitySwapRefineScheduler"><option value="dpmpp_2m_karras">DPM++ 2M Karras</option><option value="default">Model default</option><option value="euler">Euler</option><option value="euler_a">Euler A</option><option value="unipc">UniPC</option><option value="ddim">DDIM</option></select></label>
+<label><span class="field-label">Refine seed</span><input id="identitySwapRefineSeed" type="number" value="-1"/></label>
+</div>
+</div>
+</div>
+<button class="primary generate-btn" id="identityGenerate">Run True Face Swap</button>
+<small class="muted identity-license-note">InstantID/InsightFace and face-swap model weights have separate licensing terms; use only weights licensed for your intended use.</small>
+</div>
+</div>
+<details class="release-fold identity-history-fold"><summary><span><b>Queue &amp; history</b><small>Running jobs and previous Identity outputs</small></span></summary><div class="history-fold-body">
+<div class="section-head compact"><div><span class="eyebrow">QUEUE</span><h3>Identity jobs</h3></div><button class="ghost" id="identityRefresh">Refresh</button></div>
+<div class="identity-queue" id="identityQueue"><div class="empty-mini">Queue empty.</div></div>
+<div class="identity-batches" id="identityBatches"></div>
+<div class="section-head compact"><div><span class="eyebrow">HISTORY</span><h3>Previous outputs</h3></div></div>
+<div class="identity-jobs" id="identityJobs"><div class="empty-state">No Identity jobs yet.</div></div></div></details>
+<div class="training-log-panel hidden" id="identityLogPanel">
+<div class="section-head compact"><div><span class="eyebrow">IDENTITY LOG</span><h3 id="identityLogTitle">Job log</h3></div><button class="ghost" id="identityLogClose">Close</button></div>
+<pre class="training-log-text" id="identityLogText"></pre>
+</div>
+</section>
+<section class="view" id="view-training">
+<header class="hub-title"><div><span class="eyebrow">DATASET STUDIO · SDXL</span><h2>Prepare. Caption. Train.</h2><p>From your images to a LoRA, in this workspace.</p></div><button class="ghost" id="dsRefresh" type="button">Refresh</button></header>
+<nav aria-label="Training workflow" class="ds-steps" role="tablist">
+<button aria-controls="trainingPageDataset" aria-selected="true" data-training-page="dataset" id="dsTabDataset" role="tab" type="button"><span class="ds-step-number">1</span><span>Dataset</span></button>
+<button aria-controls="trainingPageTrain" aria-selected="false" data-training-page="train" id="dsTabTrain" role="tab" type="button"><span class="ds-step-number">2</span><span>Train SDXL</span></button>
+<button aria-controls="trainingPageResults" aria-selected="false" data-training-page="results" id="dsTabResults" role="tab" type="button"><span class="ds-step-number">3</span><span>Results</span></button></nav>
+<p class="ds-notice" hidden="" id="dsStatus" role="status"></p>
+<section aria-labelledby="dsTabDataset" class="ds-page" id="trainingPageDataset" role="tabpanel">
+<div class="ds-toolbar"><label class="ds-select-label">Dataset<select data-no-i18n="" id="trainingDatasetSelect"></select></label><div class="ds-toolbar-actions"><button class="primary" id="trainingCreateDataset" type="button">New dataset</button><details class="ds-menu"><summary>Import / export</summary><div><label class="ghost button-link">Import dataset ZIP<input accept=".zip" hidden="" id="datasetZipImport" type="file"/></label><button class="ghost" id="datasetZipExport" type="button">Export dataset ZIP</button><button class="ghost danger" id="dsDeleteDataset" type="button">Delete dataset</button><details><summary>Standalone app</summary><p>Dataset Studio is optional. ZIP files work in both apps.</p><button class="ghost" id="trainingOpenDatasetStudio" type="button">Open Dataset Studio</button></details></div></details></div></div>
+<div class="ds-empty" id="dsEmpty"><h3>Create your first dataset</h3><p>Add images and captions here. Vision is optional; no other app is required.</p><button class="ghost" id="dsEmptyCreate" type="button">New dataset</button></div>
+<div hidden="" id="dsWorkspace">
+<details class="ds-settings"><summary>Dataset settings</summary><div class="ds-settings-body"><div class="ds-settings-fields"><label><span class="field-label">Name</span><input id="trainingDatasetName" maxlength="120"/></label><label><span class="field-label">Trigger word</span><input data-no-i18n="" id="trainingTrigger" maxlength="256" placeholder="mycharacter"/></label><label><span class="field-label">Trigger placement</span><select id="trainingTriggerPosition"><option value="context">Inside caption</option><option value="prefix">Beginning</option><option value="suffix">End</option></select></label></div><label class="ds-common">Common caption · new images only<input data-no-i18n="" id="trainingCommonCaption" maxlength="16384"/></label><div class="ds-actions"><button class="ghost" id="dsSaveSettings" type="button">Save settings</button><button class="ghost" id="dsApplyTrigger" type="button">Apply trigger where missing</button></div><p class="ds-hint">Existing triggers are never duplicated or moved. Context mode asks Vision to include the trigger in the sentence.</p></div></details>
+<div class="ds-counts" data-no-i18n="" id="trainingDatasetSummary"></div>
+<section class="ds-caption-bar"><div><h3>Automatic captions</h3><p class="ds-hint">Optional. Use a configured local Vision model or API.</p></div><label>Vision model<select data-no-i18n="" id="trainingVisionModel"></select></label><div class="ds-actions"><button class="ghost" id="trainingManageVision" type="button">Manage models</button><button class="primary" id="trainingAutoCaption" type="button">Caption missing images</button><button class="ghost danger" hidden="" id="trainingCancelCaption" type="button">Stop captioning</button></div><div hidden="" id="dsCaptionCurrent"><div data-no-i18n="" id="trainingVisionJobs" role="status"></div><progress id="dsCaptionProgress" max="1" value="0"></progress></div><details class="ds-job-history" hidden="" id="dsCaptionHistory"><summary>Previous caption jobs</summary><div data-no-i18n="" id="dsCaptionHistoryBody"></div></details></section>
+<div class="ds-images-toolbar"><h3>Images &amp; captions</h3><label class="upload-btn">Add images + TXT<input accept="image/*,.txt" hidden="" id="trainingUploadImages" multiple="" type="file"/></label><label class="ds-filter-label">Show<select id="dsFilter"><option value="all">All images</option><option value="missing">Needs caption</option><option value="review">Needs review</option></select></label></div>
+<p class="ds-notice" hidden="" id="dsBusyNote"></p>
+<div class="ds-workbench"><section class="ds-gallery-panel"><div aria-label="Dataset images" class="ds-gallery" data-no-i18n="" id="dsGallery"></div><div class="ds-pager"><button aria-label="Previous page" class="ghost" id="dsPagePrevious" type="button">‹</button><span data-no-i18n="" id="dsPageLabel"></span><button aria-label="Next page" class="ghost" id="dsPageNext" type="button">›</button></div></section>
+<section class="ds-editor" hidden="" id="dsEditor"><div class="ds-editor-head"><b data-no-i18n="" id="dsImageName"></b><button class="ghost danger" id="dsRemoveImage" type="button">Remove image</button></div><img alt="Selected image" decoding="async" id="dsImagePreview"/><div class="ds-hint" data-no-i18n="" id="dsImageMeta"></div><label>Caption<textarea id="dsCaption" maxlength="16384" placeholder="Describe only what is visible" rows="5"></textarea></label><div class="ds-actions ds-caption-actions"><button class="ghost" id="dsPrevious" type="button">Previous</button><button class="primary" id="trainingSaveCaptions" type="button">Save caption</button><button class="ghost" id="dsNext" type="button">Next</button></div><p class="ds-hint" id="dsSaveState" role="status"></p><p class="ds-hint" data-no-i18n="" id="dsCaptionHints"></p><button class="ghost" hidden="" id="dsReloadCaption" type="button">Reload saved caption</button></section></div>
+<details class="ds-checks" id="dsChecks"><summary>Caption checks</summary><button class="ghost" id="datasetCaptionCheck" type="button">Check captions</button><p data-no-i18n="" id="dsReportSummary"></p><div data-no-i18n="" id="dsReportItems"></div><p class="ds-hint">Word count is not token count. Training uses saved captions; a trigger at the end of a long caption may be truncated.</p></details>
+<div class="ds-handoff"><div><b>Ready for training?</b><p>No ZIP, no copy, no second application.</p></div><button class="primary" id="dsUseForTraining" type="button">Use for training</button></div>
+</div></section>
+<section aria-labelledby="dsTabTrain" class="ds-page" hidden="" id="trainingPageTrain" role="tabpanel">
+<div class="ds-selected-training"><div><span class="eyebrow">DATASET</span><b data-no-i18n="" id="dsTrainName"></b><p data-no-i18n="" id="dsTrainSummary"></p></div><button class="ghost" id="dsBackToDataset" type="button">Edit dataset</button></div>
+<div class="ds-notice" hidden="" id="dsTrainBusy"></div>
+<div class="ds-training-config"><div class="controls-card">
+<div class="section-head compact"><div><span class="eyebrow">2 · SDXL TRAINING</span><h3>LoRA / Full SDXL</h3></div></div>
+<label>Base SDXL checkpoint<input data-no-i18n="" id="trainingBaseModel" value=""/></label>
+<div class="control-grid training-quick-controls">
+<label><span class="field-label">Mode</span><select id="trainingMode"><option value="lora">LoRA · Recommended</option><option value="full">Full SDXL · Advanced</option></select></label>
+<label><span class="field-label">Profile</span><select id="trainingProfile"><option value="local">Local 24 GB</option><option value="server">Server 96 GB</option><option value="custom">Custom</option></select></label>
+<label><span class="field-label">Resolution</span><select id="trainingResolution"><option>512</option><option selected="">768</option><option>1024</option></select></label>
+<label><span class="field-label">Steps</span><input id="trainingSteps" min="1" type="number" value="300"/></label>
+</div>
+<details class="release-advanced training-advanced"><summary><span><b>Advanced</b><small>Learning rate, rank, checkpointing and seed</small></span></summary><div class="control-grid">
+<label><span class="field-label">Save every</span><input id="trainingSaveEvery" min="1" type="number" value="100"/></label>
+<label><span class="field-label">Learning rate</span><input id="trainingLR" value="0.0001"/></label>
+<label id="trainingRankWrap"><span class="field-label">LoRA rank</span><input id="trainingRank" min="1" type="number" value="16"/></label>
+<label id="trainingAlphaWrap"><span class="field-label">LoRA alpha</span><input id="trainingAlpha" min="1" type="number" value="16"/></label>
+<label><span class="field-label">Gradient accumulation</span><input id="trainingGradAccum" min="1" type="number" value="1"/></label>
+<label><span class="field-label">Seed</span><input id="trainingSeed" type="number" value="42"/></label>
+<label class="check-row"><input checked="" id="trainingGradCheckpoint" type="checkbox"/> Gradient checkpointing</label>
+</div></details>
+<div class="info-box" id="trainingModeHelp"></div>
+<button class="primary generate-btn" id="trainingStart">Start SDXL training</button>
+</div></div>
+<details class="compact-runtime"><summary>Runtime status</summary><span class="status-pill" id="trainingRuntimeState">Training runtime · ?</span><div class="training-runtime-details" id="trainingRuntimeDetails"><b>Training worker</b></div></details>
+</section>
+<section aria-labelledby="dsTabResults" class="ds-page" hidden="" id="trainingPageResults" role="tabpanel">
+<div class="section-head"><h3>Training jobs</h3><button class="ghost" id="trainingRefresh" type="button">Refresh</button></div>
+<div class="training-jobs" id="trainingJobs"><div class="empty-state">No training jobs yet.</div></div>
+<div class="training-log-panel hidden" id="trainingLogPanel">
+<div class="section-head compact">
+<div><span class="eyebrow">LIVE / PERSISTENT LOG</span><h3 id="trainingLogTitle">Training log</h3><small class="muted" id="trainingLogMeta"></small></div>
+<div class="asset-actions"><button class="ghost" id="trainingLogRefresh">Refresh log</button><button class="ghost" id="trainingLogClose">Close</button></div>
+</div>
+<pre class="training-log-text" id="trainingLogText">No log selected.</pre>
+</div>
+<details class="release-fold training-libraries-fold"><summary><span><b>Saved datasets &amp; models</b><small>Libraries and trained outputs</small></span></summary><div class="training-library-grid">
+<div class="controls-card training-library-card">
+<div class="section-head compact"><div><span class="eyebrow">DATASET LIBRARY</span><h3>Saved training datasets</h3><small class="muted">Datasets live in shared/training/datasets and survive Zetalvx Image Lab upgrades.</small></div></div>
+<div class="training-library-list" id="trainingDatasetLibrary"><div class="empty-mini">No datasets.</div></div>
+</div>
+<div class="controls-card training-library-card">
+<div class="section-head compact"><div><span class="eyebrow">LORA LIBRARY</span><h3>SDXL LoRA outputs</h3><small class="muted">Validate, download, recover historical outputs, inspect origin or delete LoRAs.</small></div></div>
+<div class="training-library-list" id="trainingLoraLibrary"><div class="empty-mini">No SDXL LoRAs.</div></div>
+</div>
+<div class="controls-card training-library-card">
+<div class="section-head compact"><div><span class="eyebrow">FULL UNET LIBRARY</span><h3>Fine-tuned SDXL UNets</h3><small class="muted">Inference-ready UNet component produced by Full SDXL training. Validate, download or delete independently.</small></div></div>
+<div class="training-library-list" id="trainingFullUnetLibrary"><div class="empty-mini">No full UNet outputs.</div></div>
+</div>
+<div class="controls-card training-library-card">
+<div class="section-head compact"><div><span class="eyebrow">FULL SDXL MODEL LIBRARY</span><h3>Complete trained SDXL models</h3><small class="muted">Complete Diffusers model: trained UNet + frozen base VAE, text encoders and tokenizers. Stored under models/SDXL/trained.</small></div></div>
+<div class="training-library-list" id="trainingFullModelLibrary"><div class="empty-mini">No complete SDXL models.</div></div>
+</div>
+</div></details>
+</section>
+<dialog class="ds-dialog" id="dsCreateDialog"><form id="dsCreateForm"><div class="section-head"><h3>New dataset</h3><button class="ghost" id="dsCancelCreate" type="button">Close</button></div><label>Name<input id="dsCreateName" maxlength="120" required="" value="My SDXL Dataset"/></label><label>Trigger word<input data-no-i18n="" id="dsCreateTrigger" maxlength="256" placeholder="mycharacter"/></label><label>Trigger placement<select id="dsCreatePosition"><option value="context">Inside caption</option><option value="prefix">Beginning</option><option value="suffix">End</option></select></label><p class="ds-hint">Optional trigger; start, end or within the caption.</p><button class="primary" type="submit">Create dataset</button><p id="dsCreateStatus" role="status"></p></form></dialog>
+</section>
+<section class="view" id="view-media-tools">
+<div class="section-head"><div><span class="eyebrow">TOOLS</span><h2>Strumenti per immagini</h2><small class="muted">Resize or convert images, or grab a frame from a video.</small></div></div><details class="hub-details video-frame-panel" id="videoPickerPanel">
+<summary><span><b>Video · fotogrammi</b><small>Primo, ultimo o un istante scelto</small></span></summary>
+<div class="hub-details-body">
+<p class="hub-note">Carica una volta, scegli dal player o inserisci un istante. Salva il PNG esatto mostrato nell’anteprima.</p>
+<div class="video-upload-row"><label class="upload-btn"><span>Scegli video</span><input accept=".mp4,.mov,.mkv,.webm,.avi" hidden="" id="pickerFile" type="file"/></label><span class="muted" data-no-i18n="" id="pickerFilename">Nessun file</span><button class="primary" disabled="" id="pickerLoad" type="button">Carica video</button></div>
+<p class="hub-note video-limits">Massimo 120 MiB · 1 ora. Elaborazione locale sul server con FFmpeg, senza servizi esterni.</p>
+<div hidden="" id="pickerWorkspace">
+<div class="video-frame-layout">
+<section class="video-player-card"><h4>Player video</h4><video aria-label="Player video" controls="" id="pickerVideo" playsinline="" preload="metadata"></video><p class="hub-note" hidden="" id="pickerPlaybackWarning">Il browser non riproduce questo formato. Puoi comunque scegliere l’istante e vedere i fotogrammi tramite FFmpeg.</p></section>
+<section class="video-preview-card"><h4>PNG da salvare</h4><div class="frame-preview-stage"><img alt="Anteprima del fotogramma selezionato" class="frame-preview" hidden="" id="pickerPreview"/><p class="hub-note" id="pickerPreviewEmpty">Scegli un fotogramma per vedere l’anteprima.</p></div><small class="muted" data-no-i18n="" id="pickerFrameInfo"></small></section>
+</div>
+<label class="video-position">Posizione<input aria-label="Posizione nel video" id="pickerRange" max="1" min="0" step="0.001" type="range" value="0"/></label>
+<div class="video-selection-row"><label>Istante · secondi o HH:MM:SS<input autocomplete="off" data-no-i18n="" id="pickerSeconds" inputmode="decimal" type="text" value="0"/></label><div class="video-frame-actions"><button class="ghost" id="pickerFirst" type="button">Primo frame</button><button class="ghost" id="pickerLast" type="button">Ultimo frame</button><button class="ghost" id="pickerRefresh" type="button">Anteprima istante</button></div></div>
+<div class="video-save-row"><button class="primary" disabled="" id="pickerSave" type="button">Salva PNG in libreria</button><button class="ghost" id="pickerRemove" type="button">Chiudi video</button></div>
+</div><p aria-live="polite" class="ui-status" id="pickerStatus" role="status"></p>
+</div></details><details class="hub-details image-tools-panel" id="imageToolsPanel"><summary><span><b>Images · edit</b><small>Resize, convert, crop, rotate or flip</small></span></summary><div class="hub-details-body"><div class="image-tools-content"><div class="controls-card">
+<div class="media-tool-source-head">
+<div><span class="eyebrow">SOURCE</span><b>Immagini · ridimensiona, converti o modifica</b></div>
+<label class="upload-btn">Upload files<input accept="image/*" hidden="" id="mtUpload" multiple="" type="file"/></label>
+<button class="ghost" id="mtUseActive" type="button">Use active asset</button>
+</div>
+<label>Source assets · multiple selection supported
+      <select id="mtSource" multiple="" size="8"></select>
+<small class="muted" id="mtSourceHelp">Immagini dalla libreria del progetto attivo.</small>
+</label>
+<div class="media-tool-preview" id="mtSourcePreview"></div>
+<label>Operation<select id="mtOperation"><option value="resize_image">Ridimensiona</option><option value="convert_image">Converti formato</option><option value="crop_image">Ritaglia</option><option value="rotate_image">Ruota</option><option value="flip_image">Rifletti orizzontalmente</option></select></label>
+<div class="control-grid" id="mtFields"></div>
+<button class="primary generate-btn" id="mtRunBtn" type="button">Run media tool</button>
+<small class="muted">I risultati vengono salvati nella libreria del progetto attivo.</small>
+</div></div></div></details>
+</section>
+<section class="view" id="view-library">
+<div class="section-head library-head"><div><span class="eyebrow">PROJECT LIBRARY</span><h2>Assets</h2></div><label class="library-project-label">Progetto<select aria-label="Progetto della libreria" data-no-i18n="" id="libraryProjectSelect"></select></label></div>
+<div class="asset-grid" id="libraryGrid"></div>
+</section>
+<section class="view" id="view-projects">
+<div class="section-head"><div><span class="eyebrow">WORKSPACES</span><h2>Projects</h2></div><button class="primary" id="newProjectBtn">+ New Project</button></div>
+<p aria-live="polite" class="ui-status" id="projectSwitchStatus" role="status"></p><div class="projects-list" id="projectsList"></div>
+</section>
+<section class="view" id="view-jobs">
+<div class="section-head"><div><span class="eyebrow">QUEUE</span><h2>Jobs</h2></div><div class="modal-actions"><button aria-describedby="jobsCleanupHelp" class="ghost danger" id="cleanupJobs" type="button">Ripristina coda</button><button class="ghost" id="refreshJobs">Refresh</button></div></div><p class="hub-note" id="jobsCleanupHelp">Solo per lavori bloccati: annulla i lavori in coda o in esecuzione e riavvia i worker. Richiede conferma.</p><p aria-live="polite" class="ui-status" id="jobsActionStatus" role="status"></p>
+<div class="table-list" id="jobsList"></div><section class="hub-surface jobs-download-manager" id="jobsDownloadPanel" hidden><div class="section-head compact"><div><span class="eyebrow">DOWNLOADS</span><h3>Model downloads</h3><small class="muted">Server-side jobs continue when the browser is closed.</small></div><button class="ghost" data-goto="models" type="button">Open Download Manager</button></div><div id="jobsDownloadList"></div></section>
+</section>
+<section class="view" id="view-models">
+<header class="hub-title"><div><span class="eyebrow">LA TUA LIBRERIA AI</span><h2>Modelli</h2><p>Installa, importa o usa i file che hai già.</p></div><button class="ghost" id="hubRefresh" type="button">Aggiorna</button></header>
+<nav aria-label="Gestione modelli" class="hub-tabs"><button aria-pressed="true" class="active" data-hub-tab="installed" type="button">I miei modelli</button><button aria-pressed="false" data-hub-tab="add" type="button">+ Aggiungi</button><button aria-pressed="false" data-hub-tab="vision" type="button">Vision / Caption</button><button aria-pressed="false" data-hub-tab="downloads" type="button">Downloads <span class="download-tab-count" id="downloadTabCount"></span></button><button aria-pressed="false" data-hub-tab="accounts" type="button">Account</button></nav>
+<p aria-live="polite" class="hub-feedback" id="hubMessage" role="status"></p>
+<div data-hub-panel="installed">
+<section class="hub-surface">
+<div class="hub-row hub-sdxl-main-row"><div class="hub-mark">XL</div><div class="hub-row-title"><h3>SDXL</h3><span class="muted" id="hubSdxlState">Controllo dei file…</span></div><div class="hub-inline hub-sdxl-actions"><button class="ghost" id="hubCheckBase" type="button">Controlla file</button><button class="primary" id="hubInstallBase" type="button">Scarica mancanti</button></div></div>
+<div class="hub-sdxl-check" id="hubSdxlCheckPanel">
+<div class="hub-sdxl-component"><span>Checkpoint SDXL</span><b id="hubSdxlCheckpointState">—</b></div>
+<div class="hub-sdxl-component"><span>Config / tokenizer SDXL</span><b id="hubSdxlBaseConfigState">—</b></div>
+<div class="hub-sdxl-component"><span>Config / tokenizer inpaint</span><b id="hubSdxlInpaintConfigState">—</b></div>
+<progress id="hubSdxlInstallProgress" max="3" value="0"></progress>
+<p class="hub-feedback" id="hubSdxlInstallMessage" role="status"></p>
+</div>
+<label class="hub-select-label">Checkpoint attivo<select data-no-i18n="" id="hubCheckpoint"><option value="">Nessun checkpoint</option></select></label>
+<div class="hub-inline"><button class="ghost" id="hubUseCheckpoint" type="button">Usa selezionato</button></div>
+<details class="hub-details" id="hubSdxlPaths"><summary>Percorsi usati e opzioni SDXL</summary><div class="hub-details-body" id="hubSdxlFields"><label>SDXL checkpoint<div class="path-row"><input id="setupCheckpoint" placeholder="/percorso/modello.safetensors"/><button class="ghost" data-browse="setupCheckpoint">Sfoglia</button></div></label><label>Checkpoint folder<div class="path-row"><input id="setupCheckpointRoot"/><button class="ghost" data-browse="setupCheckpointRoot">Sfoglia</button></div></label><label>LoRA folder<div class="path-row"><input id="setupLoraRoot"/><button class="ghost" data-browse="setupLoraRoot">Sfoglia</button></div></label><details class="hub-details"><summary>Inpainting e VAE opzionali</summary><div class="hub-details-body" id="optionalSdxl"><label>Dedicated inpainting checkpoint · optional<div class="path-row"><input id="setupInpaint"/><button class="ghost" data-browse="setupInpaint">Browse</button></div></label><label>Custom VAE · optional<div class="path-row"><input id="setupVae"/><button class="ghost" data-browse="setupVae">Browse</button></div></label><p class="hub-note">Lascia vuoto per usare il checkpoint principale e il VAE incluso. Un modello inpainting o un VAE esterno non è obbligatorio.</p></div></details><button class="primary" id="hubSaveSdxl" type="button">Salva percorsi SDXL</button><p class="hub-feedback" id="hubSdxlSaveStatus" role="status"></p></div></details><details class="hub-details" id="localSourcesPanel"><summary>Cartelle e collegamenti</summary><p class="hub-note">I file restano dove sono. Rimuovere un collegamento non elimina i pesi.</p><small>Cartella LoRA principale</small><code class="hub-path" id="hubLoraFolder"></code><div id="localSources"></div><p class="hub-note">I file nelle cartelle predefinite, nelle cartelle personalizzate o selezionati come checkpoint attivo possono rimanere visibili anche dopo aver rimosso un collegamento.</p></details><section class="local-library" data-local-kind="checkpoint">
+<div class="local-library-head"><h4>Checkpoint locali</h4><small id="localCheckpointCount"></small></div>
+<div class="local-library-actions compact-add-row"><button class="primary local-add-main" data-local-add-menu="checkpoint" type="button">+ Aggiungi checkpoint</button></div>
+<details class="local-standard-path compact-path"><summary>Cartella app</summary><code data-model-default-path="checkpoint" data-no-i18n="">—</code></details>
+<label class="local-search-label"><span class="sr-only">Cerca checkpoint</span><input autocomplete="off" id="localCheckpointSearch" placeholder="Cerca checkpoint" type="search"/></label>
+<div aria-live="polite" class="local-model-list" id="localCheckpointList"></div><div class="local-pager" id="localCheckpointPages"></div>
+</section>
+<section class="local-library" data-local-kind="lora">
+<div class="local-library-head"><h3>LoRA</h3><span class="muted" id="hubLoraCount"></span></div>
+<div class="local-library-actions compact-add-row"><button class="primary local-add-main" data-local-add-menu="lora" type="button">+ Aggiungi LoRA</button></div>
+<details class="local-standard-path compact-path"><summary>Cartella app</summary><code data-model-default-path="lora" data-no-i18n="">—</code></details>
+<label class="local-search-label"><span class="sr-only">Cerca LoRA</span><input autocomplete="off" id="localLoraSearch" placeholder="Cerca LoRA" type="search"/></label>
+<div aria-live="polite" class="local-model-list" id="hubLoraFiles"></div><div class="local-pager" id="localLoraPages"></div>
+</section>
+<p class="hub-feedback" id="localCatalogMessage" role="status"></p>
+</section>
+<section class="hub-surface hub-optional">
+<div class="hub-row"><div class="hub-row-title"><h3>InstantID</h3><span class="muted">Coerenza del volto · pesi esterni</span></div><span class="status-pill" id="hubInstantState">—</span><button class="ghost" data-hub-open="hubIdentityPaths" type="button">Configura</button></div>
+<div class="hub-divider"></div>
+<div class="hub-row"><div class="hub-row-title"><h3>Face Swap</h3><span class="muted">Sostituzione del volto · pesi esterni</span></div><span class="status-pill" id="hubSwapState">—</span><button class="ghost" data-hub-open="hubIdentityPaths" type="button">Configura</button></div>
+<details class="hub-details" id="hubIdentityPaths"><summary>File Identity, sorgenti e istruzioni</summary><div class="hub-details-body">
+<p class="hub-note">Il codice può essere installato. I pesi hanno termini separati: procurati quelli autorizzati per il tuo utilizzo, poi usa le cartelle indicate o collega i file esistenti.</p>
+<div class="hub-inline"><label class="check-row"><input id="hubInstantEnabled" type="checkbox"/>InstantID abilitato</label><label class="check-row"><input id="hubSwapEnabled" type="checkbox"/>Face Swap abilitato</label></div>
+<section class="code-install-panel"><div class="hub-row"><div class="hub-row-title"><b>Codice InstantID</b><small id="hubCodeState">—</small></div><button class="ghost" id="hubPrepareCode" type="button">Installa solo il codice</button></div><p aria-live="polite" class="hub-feedback" id="hubCodeInstallStatus" role="status"></p><progress hidden="" id="hubCodeProgress" max="6" value="0"></progress><details><summary>Code path and installation details</summary><code class="hub-path" data-no-i18n="" id="hubCodeCurrentPath"></code><p class="hint" id="hubCodePathWarning"></p><pre data-no-i18n="" id="hubCodeInstallDetail"></pre></details></section>
+<details class="vision-path-report" id="identityResolvedPanel"><summary>Exact Identity paths</summary><p>Code and weights are separate. This report uses the same resolver as the worker.</p><div class="vision-path"><input id="identityParentProbe" placeholder="/home/user/CreatorStudio/models/Identity"/><button class="ghost" id="identityResolve" type="button">Read structure</button></div><button class="ghost" id="identityUseResolved" type="button">Use these weight paths</button><button class="ghost" id="identityReloadWorker" type="button">Apply to worker</button><div id="identityResolvedReport"></div></details><div class="hub-guide" id="hubIdentityGuide"></div>
+<div class="hub-inline"><button class="ghost" id="hubCreateFolders" type="button">Crea le cartelle previste</button><button class="ghost" id="hubCheckFiles" type="button">Verifica file</button></div>
+<details class="hub-details"><summary>I file sono in un’altra cartella</summary><div class="hub-details-body" id="hubIdentityFields"><label>Cartella modelli Identity<div class="path-row"><input id="setupIdentityRoot"/><button class="ghost" data-browse="setupIdentityRoot">Sfoglia</button></div></label><label>Cartella codice upstream InstantID<div class="path-row"><input id="setupIdentityVendor"/><button class="ghost" data-browse="setupIdentityVendor">Sfoglia</button></div></label><label>Cartella pesi InstantID<div class="path-row"><input id="hubInstantRoot"/><button class="ghost" data-browse="hubInstantRoot" type="button">Sfoglia</button></div></label><label>Radice InsightFace <small>contiene la cartella models/</small><div class="path-row"><input id="hubInsightRoot"/><button class="ghost" data-browse="hubInsightRoot" type="button">Sfoglia</button></div></label><label>File Face Swap (.onnx)<div class="path-row"><input id="hubSwapperFile"/><button class="ghost" data-browse="hubSwapperFile" type="button">Sfoglia</button></div></label><div class="hub-two"><label>Cartella antelopev2 già estratta<div class="path-row"><input id="hubAntelopeFolder"/><button class="ghost" data-browse="hubAntelopeFolder" type="button">Sfoglia</button></div><button class="text-button" data-link-pack="antelopev2" type="button">Collega cartella</button></label><label>Cartella buffalo_l già estratta<div class="path-row"><input id="hubBuffaloFolder"/><button class="ghost" data-browse="hubBuffaloFolder" type="button">Sfoglia</button></div><button class="text-button" data-link-pack="buffalo_l" type="button">Collega cartella</button></label></div></div></details>
+<div id="hubIdentityAckField"><label class="check-row"><input id="setupIdentityAck" type="checkbox"/>Ho verificato i termini dei modelli e dispongo dei diritti per l'uso previsto.</label></div><small class="muted">La conferma non concede una licenza e non abilita download dei pesi esterni.</small>
+<button class="primary" id="hubSaveIdentity" type="button">Salva Identity</button><p class="hub-feedback" id="hubIdentitySaveStatus" role="status"></p>
+</div></details>
+</section>
+<details class="hub-details hub-runtime"><summary>Diagnostica e configurazione runtime</summary><div class="model-grid" id="modelsGrid"></div></details>
+</div>
+<div data-hub-panel="vision" hidden=""><div id="visionHub"></div></div>
+<div data-hub-panel="downloads" hidden=""><section class="hub-surface download-manager-surface"><div class="section-head"><div><span class="eyebrow">DOWNLOADS</span><h3>Download Manager</h3><small class="muted">Downloads continue on the server when you close the popup, change page or close the browser.</small></div><button class="ghost" id="downloadManagerRefresh" type="button">Refresh</button></div><div class="download-queue-controls"><div><b>Download queue</b><small class="muted" id="downloadQueueSummary">Queued downloads run one after another by default; you can allow 2 or 3 simultaneous transfers.</small></div><label>Simultaneous downloads<select id="downloadConcurrency"><option value="1">1 · Recommended</option><option value="2">2</option><option value="3">3</option></select></label></div><p class="hub-note">You can add Checkpoints, LoRAs, VAE, Vision GGUF/mmproj and Transformers repositories while other downloads are running. Extra jobs stay queued on the server.</p><div class="download-manager-filters"><button class="ghost active" data-download-filter="all" type="button">All</button><button class="ghost" data-download-filter="active" type="button">Active</button><button class="ghost" data-download-filter="finished" type="button">Finished</button></div><div aria-live="polite" id="downloadManagerList"></div><section class="hub-downloads legacy-download-actions" hidden id="hubDownloadsPanel"><div class="hub-row"><h4>SDXL download actions</h4><span class="muted">Shown when file type confirmation is required</span></div><div id="hubDownloads"></div></section></section></div>
+<div data-hub-panel="add" hidden="">
+<section class="hub-surface"><h3>Importa un modello</h3><p class="hub-note">Incolla il link di un file Hugging Face, Civitai o di un download HTTPS diretto. L’importazione guidata accetta file <code>.safetensors</code>.</p>
+<label>Link del file<input autocomplete="off" id="hubUrl" placeholder="https://huggingface.co/autore/repo/blob/main/modello.safetensors" spellcheck="false" type="url"/></label>
+<div class="hub-two"><label>Tipo<select id="hubKind"><option value="auto">Rileva automaticamente</option><option value="checkpoint">Checkpoint SDXL</option><option value="lora">LoRA SDXL</option><option value="vae">VAE</option></select></label><label>Nome file <span class="muted">opzionale</span><input autocomplete="off" id="hubFilename" placeholder="nome.safetensors"/></label></div>
+<div class="hub-inline"><button class="primary" id="hubInspect" type="button">Analizza link</button><button class="text-button" id="hubBaseShortcut" type="button">Oppure installa SDXL Base 1.0</button></div>
+<div class="hub-preview" hidden="" id="hubPreview"><h4 id="hubPreviewName"></h4><p id="hubPreviewMeta"></p><a id="hubPreviewSource" rel="noopener noreferrer" target="_blank">Apri la fonte e i termini</a><label class="check-row"><input id="hubAcceptTerms" type="checkbox"/>Ho verificato che i termini della fonte consentano il mio utilizzo.</label><button class="primary" id="hubStartDownload" type="button">Scarica e aggiungi</button></div>
+<p class="hub-note">Account personale ≠ licenza commerciale. Il token abilita solo i download già autorizzati dalla piattaforma. Nessun aggiramento di accessi o paywall.</p>
+</section>
+</div>
+<div data-hub-panel="accounts" hidden="">
+<section class="hub-surface"><h3>Account per i download</h3><p class="hub-note">Non chiediamo la password della piattaforma. Usa un token personale in sola lettura, con i soli permessi necessari.</p>
+<div class="hub-account"><div class="hub-row"><div class="hub-row-title"><b>Hugging Face</b><small id="hubHfState">Non collegato</small></div><a class="text-button" href="https://huggingface.co/settings/tokens" rel="noopener noreferrer" target="_blank">Crea token ↗</a></div><label>Token<input autocomplete="new-password" id="hubHfToken" placeholder="hf_…" spellcheck="false" type="password"/></label><div class="hub-inline"><button class="primary" data-account-save="huggingface" type="button">Verifica e salva</button><button class="ghost" data-account-delete="huggingface" type="button">Scollega</button></div></div>
+<div class="hub-account"><div class="hub-row"><div class="hub-row-title"><b>Civitai</b><small id="hubCivitaiState">Non collegato</small></div><a class="text-button" href="https://civitai.com/user/account" rel="noopener noreferrer" target="_blank">API key ↗</a></div><label>API key<input autocomplete="new-password" id="hubCivitaiToken" placeholder="La tua API key" spellcheck="false" type="password"/></label><div class="hub-inline"><button class="primary" data-account-save="civitai" type="button">Verifica e salva</button><button class="ghost" data-account-delete="civitai" type="button">Scollega</button></div></div>
+<details class="hub-details"><summary>Archiviazione e opzioni</summary><div class="hub-details-body"><p class="hub-note">I token restano sul server Linux, in un file locale non cifrato con permessi 0600 e cartella 0700, fuori da progetti e preset. Non vengono restituiti alla GUI, scritti nei log o inoltrati ai CDN. Escludi la cartella <code>secrets/</code> dai backup che condividi.</p><label class="check-row"><input id="hubSkipTokenTest" type="checkbox"/>Salva senza verifica online (l’accesso sarà verificato al download)</label></div></details>
+</section>
+</div>
+
+</section>
+<section class="view" id="view-settings"><section class="hub-surface" id="appearanceSettings"><h3>Interface colors</h3><p class="muted">Saved in this browser. Images and generation settings are unchanged.</p><div aria-label="Interface colors" class="theme-options" id="themeOptions" role="group"></div></section>
+<div class="section-head"><div><span class="eyebrow">PREFERENZE</span><h2>Impostazioni</h2></div><button class="ghost" id="setupRefresh" type="button">Aggiorna stato</button></div><section class="hub-surface" id="networkSettings"><h3>Rete e accesso</h3><div id="networkField"><label>Web access<select id="setupNetwork"><option value="local">This PC only</option><option value="lan">Local network (LAN)</option></select></label></div><p class="hub-note">HTTPS resta attivo. Dopo una modifica alla rete riavvia l’app; l’account rimane lo stesso.</p><button class="primary" id="setupSave" type="button">Salva accesso</button><p class="hub-feedback" id="setupStatus" role="status"></p><p class="hub-note" data-no-i18n="" id="networkLiveStatus"></p><div class="network-firewall-card" hidden id="networkFirewallCard"><div><b>Windows Firewall</b><small class="muted" data-no-i18n="" id="networkFirewallStatus"></small></div><button class="ghost" id="networkFirewallFix" type="button">Configura Windows Firewall</button></div><button class="text-button" data-goto="models" type="button">Modelli e percorsi →</button></section><section class="hub-surface" id="desktopShortcutPanel"><div class="section-head compact"><div><span class="eyebrow">APP</span><h3>Collegamento Desktop</h3><small class="muted">Crea una sola icona che avvia Zetalvx Image Lab usando la modalità Locale/LAN salvata.</small></div></div><div class="desktop-shortcut-actions"><button class="primary" id="desktopShortcutAdd" type="button">Aggiungi al Desktop</button><button class="ghost" hidden id="desktopShortcutRemove" type="button">Rimuovi dal Desktop</button></div><p class="ui-status" data-no-i18n="" id="desktopShortcutStatus" role="status"></p></section><div class="settings-card account-settings-card">
+<div class="section-head compact"><div><span class="eyebrow">ACCOUNT</span><h3>Accesso locale</h3><small class="muted">Modifica utente o password senza usare il terminale.</small></div></div>
+<label>Nome utente<input autocomplete="username" id="accountUsername"/></label>
+<label>Password attuale<input autocomplete="current-password" id="accountCurrentPassword" type="password"/></label>
+<div class="control-grid"><label><span class="field-label">Nuova password</span><input autocomplete="new-password" id="accountNewPassword" minlength="10" placeholder="Lascia vuoto per non cambiarla" type="password"/></label><label><span class="field-label">Conferma nuova password</span><input autocomplete="new-password" id="accountConfirmPassword" minlength="10" type="password"/></label></div>
+<button class="primary" id="accountSave">Aggiorna account</button><pre id="accountStatus">—</pre>
+</div>
+<section class="hub-surface app-updates" id="appUpdatesPanel">
+<div class="section-head"><div><span class="eyebrow">APP</span><h3>Updates</h3></div><button class="ghost" id="appUpdateRefresh" type="button">Refresh</button></div>
+<p class="hub-note">Import the complete ZIP for your operating system. Models, accounts and projects stay in this installation. No automatic download of releases.</p>
+<p class="hub-note" data-no-i18n="" id="appUpdateCurrent"></p>
+<div id="appUpdateImportFields"><label>Update ZIP<input accept=".zip,application/zip" id="appUpdateFile" type="file"/></label>
+<label>Published SHA-256 (optional)<input autocomplete="off" data-no-i18n="" id="appUpdateExpectedHash" maxlength="64" placeholder="64 hexadecimal characters" spellcheck="false"/></label>
+<button class="primary" id="appUpdateImport" type="button">Import and check</button>
+<p class="hub-note">Import checks structure and checksums without executing the uploaded code. A checksum is not a publisher signature: use only a ZIP from the official release channel.</p></div>
+<div hidden="" id="appUpdateReview">
+<div class="lab-info" data-no-i18n="" id="appUpdateInfo"></div>
+<p class="hub-note">Installation runs code from the package. Only continue with an update you trust. Finish or cancel jobs and downloads first.</p>
+<label class="check-row"><input id="appUpdateTrust" type="checkbox"/> I trust the source of this ZIP and authorise its installation.</label>
+<label>Password for this app<input autocomplete="current-password" id="appUpdatePassword" maxlength="1024" type="password"/></label>
+<label class="check-row"><input id="appUpdateAllowRuntime" type="checkbox"/> Allow new separate runtimes if the update requires them (downloads and extra disk space).</label>
+<p class="hub-note">Unchecked: reuse validated runtimes only, otherwise stop. Existing environments are never upgraded in place.</p>
+<div class="lab-actions"><button class="primary" disabled="" id="appUpdateStart" type="button">Install update and restart</button><button class="ghost" id="appUpdateDiscard" type="button">Discard ZIP</button></div>
+</div>
+<p aria-live="polite" class="ui-status" data-no-i18n="" id="appUpdateStatus" role="status"></p>
+<p class="hub-note" hidden="" id="appUpdateRunningHelp">The update continues on the host if you close this page. During restart the connection can briefly drop. Do not turn off the host or start another installer.</p>
+<details class="hub-details" hidden="" id="appUpdateLogPanel"><summary>Update log</summary><pre class="update-log" data-no-i18n="" id="appUpdateLog"></pre></details>
+<button class="ghost" hidden="" id="appUpdateReload" type="button">Reload the app</button>
+<div class="app-rollback-panel" hidden="" id="appRollbackPanel">
+<p class="hub-note" data-no-i18n="" id="appRollbackInfo"></p>
+<p class="hub-note">Rollback keeps models, projects, accounts and data. The app will restart.</p>
+<label>Password for this app<input autocomplete="current-password" id="appRollbackPassword" maxlength="1024" type="password"/></label>
+<button class="ghost danger" id="appRollbackStart" type="button">Rollback to previous version</button>
+<p aria-live="polite" class="ui-status" data-no-i18n="" id="appRollbackStatus" role="status"></p>
+</div>
+<button class="text-button" data-guide-topic="updates" type="button">Installation and updates guide</button>
+</section>
+<section class="hub-surface" id="appLifecyclePanel"><div class="section-head compact"><div><span class="eyebrow">APP</span><h3>Controlli app</h3><small class="muted">Riavvia per applicare modifiche di rete oppure chiudi tutti i processi dell’app.</small></div></div><div class="app-lifecycle-actions"><button class="primary" id="appRestart" type="button">Riavvia app</button><button class="ghost danger" id="appStop" type="button">Chiudi app</button></div><p aria-live="polite" class="ui-status" data-no-i18n="" id="appControlStatus" role="status"></p></section>
+<section class="settings-remove-app" id="appUninstallPanel">
+<div class="settings-remove-head"><h3>Uninstall Zetalvx Image Lab</h3></div>
+<label class="check-row settings-remove-data"><input id="uninstallPurge" type="checkbox"/> Also permanently delete data in the default app folder</label>
+<button class="ghost danger settings-remove-button" id="uninstallPrepare" type="button">Uninstall…</button>
+<p hidden="" data-no-i18n="" id="uninstallScope"></p>
+<p class="ui-status" data-no-i18n="" id="uninstallStatus" role="status"></p>
+</section>
+</section>
+<section class="view" id="view-user-presets"><div class="section-head"><div><span class="eyebrow">PRESETS</span><h2>User presets</h2><p class="muted">Edit your presets without changing the generation form. Built-ins become personal copies.</p></div><button class="primary" id="pmNew" type="button">New from current form</button></div>
+<p aria-live="polite" class="ui-status" id="pmStatus" role="status"></p>
+<div class="preset-manager-layout"><aside class="pm-catalog">
+<label>Search presets<input id="pmSearch" type="search"/></label>
+<label>Preset collection<select id="pmFilter"><option value="all">All presets</option><option value="user">My presets</option><option value="technical">Built-in · technical settings</option><option value="recipe">Built-in · guided recipes</option></select></label>
+<div class="pm-list" id="pmList"></div>
+<label class="ghost pm-import">Import JSON<input accept="application/json,.json" hidden="" id="pmImport" type="file"/></label>
+</aside><div class="pm-editor-area"><p class="empty-state" id="pmEmpty">Choose a preset to edit, or create one from the current form.</p>
+<form hidden="" id="pmEditor" novalidate=""><div class="section-head compact"><h3 id="pmTitle">Preset editor</h3><button class="ghost" id="pmClose" type="button">Close</button></div>
+<p class="muted" id="pmHint"></p>
+<label><span>Name</span><input data-no-i18n="" id="pmName" maxlength="120" required="" type="text"/></label><label><span>Description</span><input data-no-i18n="" id="pmDescription" maxlength="500" type="text"/></label>
+<div class="control-grid"><label>Preset type<select id="pmType"><option value="complete">Complete</option><option value="technical">Technical</option><option value="style">Style</option></select></label><label>Task<select id="pmTask"><option value="generate">Generate</option><option value="edit">Edit</option><option value="inpaint">Inpaint</option><option value="reference">Reference</option><option value="multi_image">Multi-image</option></select></label></div>
+<fieldset class="pm-includes"><legend>Fields to apply</legend><label class="check-row"><input id="pmInclude_task" type="checkbox"/>Task</label><label class="check-row"><input id="pmInclude_model" type="checkbox"/>Model / checkpoint</label><label class="check-row"><input id="pmInclude_loras" type="checkbox"/>LoRA stack + weights</label><label class="check-row"><input id="pmInclude_params" type="checkbox"/>Parameters and seed</label><label class="check-row"><input id="pmInclude_style" type="checkbox"/>Style / recipe</label><label class="check-row"><input id="pmInclude_prompt" type="checkbox"/>Prompt + negative prompt</label></fieldset>
+<details open=""><summary>Parameters and seed</summary><p class="muted">Empty numeric fields keep the current generation value.</p><div class="control-grid"><label><span>Steps</span><input id="pm_steps" max="150" min="1" step="1" type="number"/></label><label><span>CFG</span><input id="pm_cfg" max="30" min="0" step="0.1" type="number"/></label><label><span>Seed</span><input id="pm_seed" max="9007199254740991" min="-1" step="1" type="number"/></label><label><span>Denoise</span><input id="pm_strength" max="1" min="0.01" step="0.01" type="number"/></label><label><span>Width</span><input id="pm_width" max="4096" min="64" step="8" type="number"/></label><label><span>Height</span><input id="pm_height" max="4096" min="64" step="8" type="number"/></label><label><span>Batch</span><input id="pm_batch" max="8" min="1" step="1" type="number"/></label>
+<label>Quality<select id="pm_quality"><option value="">Keep current</option><option value="Fast">Fast</option><option value="Balanced">Balanced</option><option value="Maximum">Maximum</option></select></label><label>Scheduler<select id="pm_scheduler"><option value="">Keep current</option><option value="default">Default checkpoint</option><option value="dpmpp_2m_karras">DPM++ 2M Karras</option><option value="dpmpp_2m">DPM++ 2M</option><option value="euler">Euler</option><option value="euler_a">Euler a</option><option value="unipc">UniPC</option><option value="ddim">DDIM</option></select></label></div></details>
+<details><summary>Prompt + negative prompt</summary><label>Prompt<textarea data-no-i18n="" id="pmPrompt"></textarea></label><label>Negative prompt<textarea data-no-i18n="" id="pmNegative"></textarea></label></details>
+<details><summary>Model / checkpoint</summary><label>Model<select data-no-i18n="" id="pmModel"></select></label><label>Checkpoint override<select data-no-i18n="" id="pmCheckpoint"></select></label><label>Inpaint checkpoint<select data-no-i18n="" id="pmInpaint"></select></label></details>
+<details><summary>LoRA stack + weights</summary><div id="pmLoras"></div><button class="ghost" id="pmAddLora" type="button">+ Add LoRA</button></details>
+<details><summary>Style / recipe</summary><p class="muted">Recipe instructions are inherited. Add your own instructions in the prompt.</p><label>Look<select id="pmLook"><option value="clean">Clean</option><option value="realistic">Realistic</option><option value="cinematic">Cinematic</option><option value="anime">Anime</option><option value="cartoon">Cartoon</option><option value="product">Product</option><option value="logo">Logo / Text</option></select></label><label>Recipe<select id="pmRecipe"></select></label><label>Prompt handling<select id="pmRecipeMode"><option value="append">Keep my prompt + add recipe guidance</option><option value="replace">Replace prompt with recipe guidance</option><option value="params_only">Parameters only</option></select></label><label class="check-row"><input id="pmRecipeParams" type="checkbox"/>Also apply recommended parameters</label></details>
+<div class="pm-actions"><button class="primary" id="pmSave" type="submit">Save changes</button><button class="ghost" id="pmCopy" type="button">Save as new</button><button class="ghost" id="pmUse" type="button">Use in Create</button><button class="ghost" id="pmExport" type="button">Export</button><button class="ghost danger" id="pmDelete" type="button">Delete</button></div>
+</form></div></div></section>
+<section class="view" id="view-guide"><div class="section-head"><div><span class="eyebrow">HELP</span><h2 id="guideTitle">Guide</h2><p class="lab-note" id="guideIntro">Instructions for this version, available offline.</p></div></div><label class="guide-search-label"><span id="guideSearchLabel">Search the guide</span><input id="guideSearch" placeholder="e.g. presets, seed, training" type="search"/></label><p hidden="" id="guideNoResults">No matching topics.</p><details class="guide27-topic" data-guide-key="start" id="guide-start"><summary><b data-guide-lang="it" data-no-i18n="">Primi passi</b><b data-guide-lang="en" data-no-i18n="">First steps</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><ol><li>Apri <strong>Modelli</strong>, collega un checkpoint SDXL già sul server oppure aggiungilo dal dispositivo o da un link. Verifica il checkpoint attivo.</li><li>Apri o crea un <strong>Progetto</strong>. Scegli <strong>Crea</strong>, scrivi il prompt e imposta proporzioni e qualità.</li><li>Premi il pulsante di generazione. Segui il lavoro nella <strong>Coda</strong> e trova l’immagine in <strong>Libreria</strong>.</li></ol><p>I pulsanti del logo in alto e Home tornano all’app. I link esterni restano nel footer. I percorsi di file indicati dall’app appartengono al <strong>server</strong>, non al telefono.</p></div><div data-guide-lang="en" data-no-i18n=""><ol><li>Open <strong>Models</strong>, link a checkpoint already on the server or add one from your device or a link. Check the active checkpoint.</li><li>Open or create a <strong>Project</strong>. Choose <strong>Create</strong>, enter a prompt and set the aspect ratio and quality.</li><li>Press the generation button. Follow the job in <strong>Jobs</strong> and find the result in <strong>Library</strong>.</li></ol><p>The header logo and Home button stay inside the app. External links are in the footer. Paths shown by the app belong to the <strong>server</strong>, not your phone.</p></div><button class="ghost" data-guide-view="home" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="create" id="guide-create"><summary><b data-guide-lang="it" data-no-i18n="">Crea, modifica e maschere</b><b data-guide-lang="en" data-no-i18n="">Create, edit and masks</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p><strong>Crea</strong> parte dal testo. <strong>Modifica</strong> parte da un’immagine: un denoise basso preserva maggiormente l’input. <strong>Inpaint</strong> richiede immagine e maschera: l’area bianca/dipinta è quella da rigenerare; puoi invertire la maschera.</p><p>Le modalità Reference e Multi-image della versione SDXL usano gli adattatori dichiarati dall’app: non equivalgono automaticamente a InstantID. Leggi la nota di compatibilità vicino alla generazione.</p><h4>Semplice o Avanzata?</h4><p><strong>Semplice</strong>: prompt, input, look, LoRA, checkpoint, formato, qualità e applicazione dei preset. <strong>Avanzata</strong>: aggiunge salvataggio/gestione preset, opzioni delle ricette, confronti automatici/personalizzati e parametri manuali (seed, CFG, step, batch, scheduler). Il cambio di modalità nasconde o mostra controlli: non azzera i valori già impostati. Il riepilogo del prompt effettivo rimane disponibile.</p><p>Su desktop largo il pulsante <strong>Anteprima: sinistra/destra</strong> scambia solo immagine e configurazione. Coda e immagini recenti restano sotto a tutta larghezza. La preferenza è memorizzata nel browser; su mobile l’ordine resta invariato.</p></div><div data-guide-lang="en" data-no-i18n=""><p><strong>Create</strong> starts from text. <strong>Edit</strong> starts from an image; lower denoise preserves more of the input. <strong>Inpaint</strong> needs an image and a mask: white/painted areas are regenerated; the mask can be inverted.</p><p>Reference and Multi-image in the SDXL edition use the adapters described by the app, not automatically InstantID. Read the compatibility note next to generation.</p><h4>Simple or Advanced?</h4><p><strong>Simple</strong>: prompt, input, looks, LoRA, checkpoint, format, quality and applying presets. <strong>Advanced</strong>: adds saving/managing presets, recipe options, automatic/custom comparisons and manual seed, CFG, steps, batch and scheduler. Switching modes only changes visible controls; it does not reset values. Effective prompt inspection remains available.</p><p>On wide desktops <strong>Preview: left/right</strong> swaps only the preview and configuration. Queue and history stay below at full width. The browser remembers the preference; mobile order does not change.</p></div><button class="ghost" data-guide-view="image" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="presets" id="guide-presets"><summary><b data-guide-lang="it" data-no-i18n="">Preset: scegli, applica, salva</b><b data-guide-lang="en" data-no-i18n="">Presets: choose, apply, save</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p>Un solo pannello <strong>Preset</strong> contiene tre schede.</p><ol><li><strong>Usa:</strong> scegli dal catalogo base o dai tuoi salvataggi. La selezione mostra una descrizione, ma non modifica il modulo. Premi <strong>Applica preset selezionato</strong> per caricarlo.</li><li><strong>Salva:</strong> salva i valori attuali del modulo con nome e descrizione. Non salva il preset soltanto evidenziato nel selettore.</li><li><strong>Gestisci:</strong> duplica, rinomina, esporta/importa JSON, elimina oppure sostituisci un preset utente. La sostituzione richiede conferma.</li></ol><p>I preset base sono di sola lettura: applicane uno, personalizzalo e salva una tua copia. Rimuovere ricetta/stile disattiva le indicazioni aggiuntive, ma <strong>non annulla</strong> prompt, numeri e LoRA già impostati.</p></div><div data-guide-lang="en" data-no-i18n=""><p>One <strong>Presets</strong> panel has three tabs.</p><ol><li><strong>Use:</strong> choose a built-in or saved setup. Selection shows a description but changes nothing in the form. Press <strong>Apply selected preset</strong> to load it.</li><li><strong>Save:</strong> store the current form with a name and description, not the preset merely highlighted in the selector.</li><li><strong>Manage:</strong> duplicate, rename, export/import JSON, delete or replace your presets. Replacement requires confirmation.</li></ol><p>Built-ins are read-only: apply one, customize it and save your own copy. Removing recipe/style disables extra guidance but <strong>does not undo</strong> prompt text, numeric values or LoRAs already applied.</p></div><button class="ghost" data-guide-view="image" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="scope" id="guide-scope"><summary><b data-guide-lang="it" data-no-i18n="">Cosa include un preset</b><b data-guide-lang="en" data-no-i18n="">What a preset includes</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p><strong>Configurazione completa</strong> può ripristinare anche l’operazione (Crea/Modifica/Inpaint), i parametri, il seed, il modello, le LoRA e il prompt. <strong>Solo impostazioni tecniche</strong> conserva operazione e stile correnti. <strong>Solo stile e ricetta</strong> conserva i parametri correnti salvo le opzioni incluse esplicitamente.</p><p>Apri <strong>Scegli cosa includere</strong> per personalizzare i campi salvati. Il riepilogo sotto mostra l’ambito effettivo. Le immagini sorgente e i file dei modelli non sono copiati nel JSON: un preset che passa a Inpaint richiede comunque una sorgente e una maschera valide.</p><p>I preset vecchi restano leggibili. Se non contengono un seed, viene conservato quello attuale. Un file modello o LoRA mancante viene segnalato: verifica i percorsi prima di generare.</p></div><div data-guide-lang="en" data-no-i18n=""><p><strong>Complete setup</strong> can restore the task, parameters, seed, model, LoRAs and prompt. <strong>Technical settings only</strong> keeps the current task and look. <strong>Style and recipe only</strong> keeps current numeric settings unless explicitly included.</p><p>Open <strong>Choose what to include</strong> to customize saved fields; the summary shows the actual scope. Source images and model files are not copied into JSON. A preset switching to Inpaint still needs a valid source and mask.</p><p>Older presets remain readable; when no seed was saved, the current seed is kept. Missing model or LoRA paths are reported: review them before generating.</p></div><button class="ghost" data-guide-view="image" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="recipes" id="guide-recipes"><summary><b data-guide-lang="it" data-no-i18n="">Ricette, prompt effettivo e scorciatoie</b><b data-guide-lang="en" data-no-i18n="">Recipes, effective prompt and shortcuts</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p>Le <strong>ricette guidate</strong> sono configurazioni base già definite, non una chat con un assistente. Possono aggiungere istruzioni al prompt effettivo oppure usare solo parametri.</p><p>Dopo aver scelto una ricetta, controlla la gestione del prompt: aggiungi alle tue parole, sostituisci il prompt effettivo o applica solo parametri. L’opzione dei parametri raccomandati è separata. <strong>Mostra prompt e parametri effettivi</strong> rivela cosa sarà inviato.</p><p>In Gestisci → Avanzate puoi collegare un modello e una pila di LoRA a un pulsante Stile. È una scorciatoia opzionale; non è un nuovo tipo di modello.</p></div><div data-guide-lang="en" data-no-i18n=""><p><strong>Guided recipes</strong> are predefined built-in configurations, not an assistant chat. They can add guidance to the effective prompt or apply parameters only.</p><p>After choosing a recipe, review prompt handling: append to your text, replace the effective prompt or use parameters only. Recommended parameters have a separate toggle. <strong>Show effective prompt and parameters</strong> reveals what will be sent.</p><p>Manage → Advanced can bind a model and LoRA stack to a Look button. This is an optional shortcut, not another model type.</p></div><button class="ghost" data-guide-view="image" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="tests" id="guide-tests"><summary><b data-guide-lang="it" data-no-i18n="">Confronta varianti: automatico o personalizzato</b><b data-guide-lang="en" data-no-i18n="">Compare variations: automatic or custom</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p><strong>Automatica:</strong> scegli un profilo. L’app propone valori vicini a quelli correnti, per esempio CFG o step.</p><p><strong>Personalizzata:</strong> abilita CFG, step, denoise quando disponibile e/o seed. Per ciascuno imposta minimo, massimo e numero di valori. Gli estremi sono inclusi; con un solo valore si usa il minimo. Per step e seed i valori sono interi distinti.</p><p>Si combinano <strong>tutti</strong> i valori abilitati: 3 CFG × 2 step × 2 denoise = <strong>12 immagini</strong>. Il limite è 24 per test. I parametri non selezionati, prompt, checkpoint, LoRA, sorgenti e dimensioni restano fissi. Il Batch normale non viene moltiplicato: ogni lavoro produce una sola immagine.</p><p><strong>Anteprima test</strong> apre la tabella completa, compresi i seed effettivi. Nessun lavoro viene accodato finché non premi <strong>Avvia N test</strong>. Chiudere o tornare indietro non avvia nulla.</p></div><div data-guide-lang="en" data-no-i18n=""><p><strong>Automatic:</strong> select a profile; the app proposes values around the current CFG or steps.</p><p><strong>Custom:</strong> enable CFG, steps, denoise where available and/or seed. Set minimum, maximum and value count for each. Both ends are included; one value uses the minimum. Steps and seeds are distinct whole numbers.</p><p><strong>All</strong> enabled values are combined: 3 CFG × 2 steps × 2 denoise = <strong>12 images</strong>. Limit: 24 per test. Unselected parameters, prompt, checkpoint, LoRAs, sources and dimensions stay fixed. The regular Batch is not multiplied: each job produces one image.</p><p><strong>Preview tests</strong> opens the full table, including actual seeds. Nothing is queued until <strong>Start N tests</strong>. Closing or going back queues nothing.</p></div><button class="ghost" data-guide-view="image" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="seed" id="guide-seed"><summary><b data-guide-lang="it" data-no-i18n="">Seed, step, CFG e denoise</b><b data-guide-lang="en" data-no-i18n="">Seed, steps, CFG and denoise</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p><strong>Seed</strong> controlla l’inizializzazione casuale. Nel confronto, -1 viene risolto in un seed concreto all’anteprima. Per un confronto dei parametri lascia disattivato “Seed diverso”: tutte le combinazioni useranno lo stesso seed. L’opzione diversa lo incrementa per combinazione. Un intervallo seed personalizzato è invece un asse aggiuntivo, quindi moltiplica il totale.</p><p><strong>Step</strong> è il numero di passaggi; <strong>CFG</strong> regola la guida del prompt; <strong>denoise</strong> l’intensità della modifica nelle operazioni con immagine. Il denoise non compare come asse utile in Crea da testo. Lo scheduler resta quello del modulo per l’intero confronto.</p><p>Per ripetere un risultato conserva anche checkpoint, LoRA, dimensioni, scheduler e ambiente: il solo seed non riassume tutta la configurazione.</p></div><div data-guide-lang="en" data-no-i18n=""><p><strong>Seed</strong> controls random initialization. In comparisons, -1 is resolved to a concrete seed at preview. Leave “Different seed” off to use one seed across all parameter combinations; enabling it increments the seed per combination. A custom seed range is an extra axis and multiplies the total.</p><p><strong>Steps</strong> is the number of passes; <strong>CFG</strong> controls prompt guidance; <strong>denoise</strong> controls change strength in image-based tasks. Denoise is not a text-to-image comparison axis. The scheduler stays fixed for a comparison.</p><p>For repeatable experiments, also keep the checkpoint, LoRAs, dimensions, scheduler and environment: seed alone is not the whole configuration.</p></div><button class="ghost" data-guide-view="image" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="models" id="guide-models"><summary><b data-guide-lang="it" data-no-i18n="">Modelli, checkpoint, LoRA e percorsi</b><b data-guide-lang="en" data-no-i18n="">Models, checkpoints, LoRAs and paths</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p>Il checkpoint attivo è il predefinito globale. In Crea puoi scegliere un checkpoint diverso per il singolo lavoro senza cambiare quel predefinito. Le LoRA si aggiungono alla pila con un peso ciascuna.</p><p>La sezione Percorsi precede gli elenchi. <strong>File/cartella server</strong> collega file esistenti senza copiarli; <strong>Da questo dispositivo</strong> carica i file dal telefono o PC nel server. Per upload grandi lascia aperta la pagina fino al termine; i download già avviati lato server sono mostrati nella loro coda.</p><p>Account di download, Vision/Caption e Identità hanno configurazioni dedicate. Non condividere cartelle di segreti o backup di account.</p></div><div data-guide-lang="en" data-no-i18n=""><p>The active checkpoint is the global default. Create can override it for one job without changing that default. LoRAs are added as a stack with individual weights.</p><p>Paths appear before the lists. <strong>Server file/folder</strong> links existing files without copying; <strong>From this device</strong> uploads from the phone or computer to the server. Keep the page open for large uploads; server downloads are tracked in their own queue.</p><p>Download accounts, Vision/Caption and Identity have dedicated configuration. Do not share secrets directories or account backups.</p></div><button class="ghost" data-guide-view="models" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="identity" id="guide-identity"><summary><b data-guide-lang="it" data-no-i18n="">Identità: riferimento e face swap</b><b data-guide-lang="en" data-no-i18n="">Identity: reference and face swap</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p><strong>Face swap</strong> usa un’immagine base e uno o più riferimenti volto. <strong>InstantID / Coerenza del volto</strong> genera immagini con una guida d’identità. Verifica prima lo stato del worker e i componenti richiesti in Modelli.</p><p>Reference, posa e intensità hanno ruoli diversi. I test della pagina Identità restano quelli dedicati a InstantID e non sono sostituiti dal confronto CFG/step della pagina Crea. Controlla sempre immagine, impostazioni e output.</p></div><div data-guide-lang="en" data-no-i18n=""><p><strong>Face swap</strong> uses a base image and face references. <strong>InstantID / Face Consistency</strong> generates with identity guidance. First check worker status and required components in Models.</p><p>References, pose and strengths have different roles. Identity-page tests remain specific to InstantID and are not replaced by Create’s CFG/steps comparisons. Always review inputs, settings and outputs.</p></div><button class="ghost" data-guide-view="identity" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="training" id="guide-training"><summary><b data-guide-lang="it" data-no-i18n="">Training: dataset, caption e salvataggi</b><b data-guide-lang="en" data-no-i18n="">Training: datasets, captions and saves</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><ol><li>Nella pagina Dataset crea/importa un dataset e aggiungi le immagini.</li><li>Controlla caption e trigger. La caption automatica richiede un modello Vision configurato; rileggi il testo prima di allenare.</li><li>Passa alla configurazione del training: scegli LoRA o SDXL, checkpoint, risoluzione, step e profilo.</li><li>In Avanzate verifica learning rate, salvataggi, seed e parametri LoRA. Avvia solo dopo il controllo del dataset.</li><li>Segui log e checkpoint nella pagina del lavoro; per continuare usa gli strumenti di ripresa offerti dalla GUI, non spostare i file di un lavoro attivo.</li></ol><p>L’aggiornamento del browser non annulla un training lato server. Usa il comando di annullamento esplicito. Non aggiornare l’app durante generazioni, download o training attivi.</p></div><div data-guide-lang="en" data-no-i18n=""><ol><li>Create/import a dataset and add images.</li><li>Review captions and trigger. Automatic captions require a configured Vision model; review the text before training.</li><li>Open training setup, then select LoRA or SDXL, checkpoint, resolution, steps and profile.</li><li>In Advanced, review learning rate, saves, seed and LoRA parameters. Start after checking the dataset.</li><li>Follow logs and checkpoints in the job page; use the GUI’s resume tools instead of moving files from an active job.</li></ol><p>Refreshing the browser does not cancel server training. Use explicit cancellation. Do not update the app while generation, downloads or training are active.</p></div><button class="ghost" data-guide-view="training" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="library" id="guide-library"><summary><b data-guide-lang="it" data-no-i18n="">Libreria, progetti e coda</b><b data-guide-lang="en" data-no-i18n="">Library, projects and jobs</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p>Ogni progetto mantiene i propri asset e lavori. In Libreria il selettore cambia progetto; la scheda Progetti apre la relativa Libreria. I pulsanti di rinomina, ordine e cestino sono separati.</p><p>Puoi riusare un risultato come input, modifica, inpaint o riferimento. <strong>Dettagli</strong> mostra configurazione, seed e metadati disponibili. Nella pagina Lavori i confronti mostrano indice e valori di ciascuna prova.</p><p><strong>Annulla</strong> riguarda un singolo lavoro. <strong>Ripristina coda</strong> è un intervento per blocchi: annulla lavori in coda/in esecuzione e riavvia worker, con conferma. Non serve per eliminare un preset.</p></div><div data-guide-lang="en" data-no-i18n=""><p>Each project keeps its assets and jobs. Library’s selector changes project; a Projects card opens that project’s Library. Rename, ordering and Trash are separate actions.</p><p>Reuse results as inputs, edits, inpaint or references. <strong>Details</strong> shows available settings, seeds and metadata. In Jobs, comparisons show each test’s index and parameter values.</p><p><strong>Cancel</strong> concerns one job. <strong>Reset queue</strong> is for stuck work: it cancels queued/running jobs and restarts workers, with confirmation. It is unrelated to deleting a preset.</p></div><button class="ghost" data-guide-view="library" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="tools" id="guide-tools"><summary><b data-guide-lang="it" data-no-i18n="">Strumenti: immagini e fotogrammi</b><b data-guide-lang="en" data-no-i18n="">Tools: images and video frames</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p>Le operazioni immagine lavorano sugli asset selezionati e salvano risultati nel progetto. Controlla la selezione multipla prima di avviare un’operazione.</p><p>In <strong>Video · fotogrammi</strong> carica un breve video, usa player, primo/ultimo fotogramma o istante. Il PNG salvato è quello dell’<strong>anteprima FFmpeg</strong>, non uno screenshot del player. Il formato deve essere supportato dal server; se il browser non lo riproduce, puoi ancora tentare l’estrazione per istante.</p></div><div data-guide-lang="en" data-no-i18n=""><p>Image operations process selected assets and save results in the project. Check multi-selection before running an operation.</p><p>In <strong>Video · frames</strong>, upload a short video, then use the player, first/last frame or timestamp. The saved PNG is the <strong>FFmpeg preview</strong>, not a screenshot of the player. The server must support the format; timestamp extraction can still work when the browser cannot play it.</p></div><button class="ghost" data-guide-view="media-tools" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="access" id="guide-access"><summary><b data-guide-lang="it" data-no-i18n="">Accesso, rete e aggiornamenti</b><b data-guide-lang="en" data-no-i18n="">Access, network and updates</b></summary><div class="guide27-body"><div data-guide-lang="it" data-no-i18n=""><p>Impostazioni gestisce account e accesso locale/LAN. Per la prima configurazione da un altro dispositivo serve il codice temporaneo mostrato sull’host. Per rigenerarlo usa <code>creator-sdxl setup-code</code> o lo script SETUP-CODE. Non è un recupero password di un account già configurato.</p><p>L’app usa la propria home persistente: su Linux <code>~/.local/share/CreatorStudioSDXL</code>, su Windows <code>%LOCALAPPDATA%\CreatorStudioSDXL</code>. Aggiornamenti e codice restano separati dai dati.</p><p>Su mobile Altro raccoglie le pagine secondarie, inclusa questa Guida. Se la GUI mostra ancora una vecchia versione dopo un aggiornamento, ricarica la pagina e verifica lo stato del servizio. Non cambiare i collegamenti di versione o i runtime a mano.</p></div><div data-guide-lang="en" data-no-i18n=""><p>Settings manages the account and local/LAN access. First setup from another device needs the temporary code displayed on the host. Regenerate it with <code>creator-sdxl setup-code</code> or SETUP-CODE. This is not password recovery for an existing account.</p><p>The persistent home is <code>~/.local/share/CreatorStudioSDXL</code> on Linux and <code>%LOCALAPPDATA%\CreatorStudioSDXL</code> on Windows. Versioned code stays separate from data.</p><p>On mobile, More contains secondary pages, including this Guide. If the UI still shows an old version after updating, reload the page and check service status. Do not change version pointers or runtime directories manually.</p></div><button class="ghost" data-guide-view="settings" type="button">Open page</button></div></details><details class="guide27-topic" data-guide-key="updates" id="guide-updates">
+<summary><span data-guide-lang="it" data-no-i18n="">Installazione pulita e aggiornamenti</span><span data-guide-lang="en" data-no-i18n="" hidden="">Fresh install and updates</span></summary>
+<div class="guide27-body" data-guide-lang="it" data-no-i18n="">
+<p><strong>Le ZIP complete servono sia a installare sia ad aggiornare.</strong> Non contengono modelli o runtime: la prima installazione richiede Internet. Linux: estrai e avvia <code>bash install.sh</code>. Windows: estrai tutta la ZIP e apri <code>INSTALL.cmd</code>.</p>
+<p>La home persistente è <code>~/.local/share/CreatorStudioSDXL</code> su Linux e <code>%LOCALAPPDATA%\CreatorStudioSDXL</code> su Windows. Su un PC con una home già presente l’installer conserva i dati: non è una prova da zero. Per una prova davvero pulita usa un altro account del sistema o un’altra macchina. Non cancellare l’installazione funzionante e non avviare due istanze sulle stesse porte.</p>
+<h4>Aggiorna dalla GUI (dalla 0.1.0.38)</h4><ol><li>Scarica una ZIP più recente per lo stesso sistema dal canale ufficiale, poi apri <strong>Impostazioni → Aggiornamenti</strong>.</li><li>Carica la ZIP completa. Il controllo verifica struttura, prodotto, sistema, versione e manifest senza eseguire il codice caricato. Puoi confrontare anche lo SHA-256 pubblicato.</li><li>Leggi il riepilogo, conferma che ti fidi della provenienza e inserisci la password dell’app. Un manifest valido non prova l’identità dell’autore: queste RC non sono firmate.</li><li>Per default si riusano solo i runtime compatibili. Consenti nuovi ambienti soltanto quando previsti dall’aggiornamento e con spazio sufficiente.</li><li>Installa: il processo sul server esegue i controlli dell’installer, ferma l’app solo per l’attivazione, salva il backup e prova il riavvio. In caso di errore tenta il ripristino. Il browser può perdere brevemente la connessione; l’aggiornamento continua anche se chiudi la pagina.</li></ol>
+<p>La prima migrazione da una versione senza questa pagina usa ancora <code>update.sh</code> o <code>UPDATE.cmd</code>. Per ripristinare una versione dopo averla provata: comando <code>creator-sdxl rollback</code>. Non condividere <code>secrets/</code> né i backup di attivazione: contengono credenziali.</p></div>
+<div class="guide27-body" data-guide-lang="en" data-no-i18n="" hidden="">
+<p><strong>The full ZIP installs or updates the app.</strong> Models and runtimes are not bundled; a fresh install needs Internet. Linux: extract and run <code>bash install.sh</code>. Windows: extract the entire ZIP and open <code>INSTALL.cmd</code>.</p>
+<p>Persistent home: <code>~/.local/share/CreatorStudioSDXL</code> on Linux or <code>%LOCALAPPDATA%\CreatorStudioSDXL</code> on Windows. An existing home is preserved, not reset. Use a different operating-system account or another machine for a genuinely fresh test. Do not delete the working installation or run two instances on the same ports.</p>
+<h4>Update in the GUI (from 0.1.0.38)</h4><ol><li>Download a newer ZIP for the same operating system from the official channel. Open <strong>Settings → Updates</strong>.</li><li>Import the entire ZIP. Structure, product, platform, version and checksums are checked without executing its code. You may also supply the published SHA-256.</li><li>Review the package, confirm trust in its source and enter the app password. A checksum does not identify the publisher: these RC packages are unsigned.</li><li>By default only compatible existing runtimes can be reused. Allow new separate environments only when required and with enough disk space.</li><li>The detached host process runs installer checks, stops the app only for activation, backs up settings and tests restart, attempting rollback on failure. The page can briefly disconnect; closing it does not cancel the update.</li></ol><p>Upgrading from a version without this page still requires <code>update.sh</code> or <code>UPDATE.cmd</code>. Later rollback: <code>creator-sdxl rollback</code>. Never share <code>secrets/</code> or activation backups.</p></div></details></section>
+<footer aria-label="Zetalvx links" class="creator-footer"><a class="creator-footer-brand" href="https://zetalvx.com/" rel="noopener noreferrer" target="_blank"><span class="creator-footer-logo"><img alt="" src="/static/zetalvx-logo.png?v=1.0.18-source"/></span><span><b>Zetalvx</b><small data-no-i18n="">Zetalvx Labs · SDXL Edition</small></span></a><nav><a href="https://zetalvx.com/" rel="noopener noreferrer" target="_blank">zetalvx.com</a><a href="https://youtube.com/@zetalvx" rel="noopener noreferrer" target="_blank">YouTube · @zetalvx</a><a href="https://github.com/ZETALVX" rel="noopener noreferrer" target="_blank">GitHub · ZETALVX</a><a href="/static/legal.html" rel="noopener" target="_blank">Licenze · Open source</a></nav></footer>
+</main>
+</div>
+<div class="modal hidden" id="projectRenameModal"><div class="modal-card"><div class="section-head"><h3>Rinomina progetto</h3><button class="ghost" id="cancelProjectRename" type="button">Chiudi</button></div><label>Nome<input id="projectRenameName" maxlength="120"/></label><label>Descrizione<textarea class="small-textarea" id="projectRenameDescription" maxlength="500"></textarea></label><div class="modal-actions"><button class="primary" id="saveProjectRename" type="button">Salva</button></div></div></div>
+<div class="modal hidden" id="projectModal"><div class="modal-card"><h3>New project</h3><label>Name<input id="newProjectName"/></label><label>Description<textarea class="small-textarea" id="newProjectDescription"></textarea></label><div class="modal-actions"><button class="ghost" id="cancelProject">Cancel</button><button class="primary" id="createProject">Create</button></div></div></div>
+<div class="modal hidden" id="loraModal"><div class="modal-card wide model-choice-modal"><div class="section-head"><div><span class="eyebrow">LORA</span><h3 id="loraModalTitle">Select LoRA</h3></div><button class="ghost" id="closeLora">Close</button></div><label class="model-choice-search"><span class="sr-only">Search LoRAs</span><input id="loraSearch" placeholder="Search LoRAs..."/></label><div class="lora-browser model-choice-list" id="loraList"></div></div></div>
+<div class="modal hidden" id="detailsModal"><div class="modal-card wide">
+<div class="section-head"><div><span class="eyebrow">DETAILS</span><h3 id="detailsTitle">Configuration</h3></div><button class="ghost" id="closeDetails">Close</button></div>
+<pre class="details-json" id="detailsBody"></pre>
+</div></div>
+<div class="modal hidden" id="modelModal"><div class="modal-card wide">
+<div class="section-head"><div><span class="eyebrow">MODEL RUNTIME</span><h3 id="modelModalTitle">Configure</h3></div><button class="ghost" id="closeModel">Close</button></div>
+<div class="validation-box" id="modelValidation"></div>
+<div class="control-grid">
+<label><span class="field-label">Runtime</span><select id="mc_runtime"><option value="native_worker">native_worker</option></select></label>
+<label><span class="field-label">Device</span><select id="mc_device"><option value="cuda">cuda</option><option value="cpu">cpu</option></select></label>
+<label><span class="field-label">dtype</span><select id="mc_dtype"><option>float16</option><option>bfloat16</option><option>float32</option></select></label>
+<label><span class="field-label">Memory mode</span><select id="mc_memory"><option value="full_gpu">Device memory</option><option value="cpu_offload">CPU offload (requires GPU)</option><option value="balanced">Bilanciato</option></select></label>
+<label><span class="field-label">Enabled</span><select id="mc_enabled"><option value="1">Yes</option><option value="0">No</option></select></label>
+</div>
+<div class="capability-list" id="modelCapabilities"></div>
+<div id="modelPathFields"></div>
+<div class="control-grid"><label><span class="field-label">Default steps</span><input id="mc_steps" type="number"/></label><label><span class="field-label">Default CFG</span><input id="mc_cfg" step=".1" type="number"/></label></div>
+<div class="modal-actions"><button class="ghost" id="probeModel">Probe runtime</button><button class="ghost" id="validateModel">Validate files</button><button class="primary" id="saveModel">Save</button></div>
+</div></div>
+<div class="modal hidden" id="effectivePromptModal"><div class="modal-card wide">
+<div class="section-head"><div><span class="eyebrow">EFFECTIVE GENERATION</span><h3>What will actually be sent</h3></div><button class="ghost" id="closeEffectivePrompt" type="button">Close</button></div>
+<div class="effective-settings-grid" id="effectiveSettingsBody"></div>
+<label>Effective prompt<textarea class="effective-textarea" id="effectivePromptText" readonly=""></textarea></label>
+<label>Effective negative prompt<textarea class="effective-textarea small-textarea" id="effectiveNegativeText" readonly=""></textarea></label>
+</div></div>
+<div aria-label="Image preview" aria-modal="true" class="image-viewer hidden" id="imageViewer" role="dialog"><button aria-label="Close image" id="imageViewerClose" title="Close image" type="button">×</button><figure><img alt="" id="imageViewerImage"/><figcaption data-no-i18n="" id="imageViewerCaption"></figcaption></figure></div><script src="/static/request-recovery.js?v=1.0.18-source"></script>
+<script src="/static/identity-live-dom.js?v=1.0.18-source"></script><script src="/static/identity-submit.js?v=1.0.18-source"></script><script src="/static/app.js?v=1.0.18-source"></script>
+<div aria-labelledby="localModelTitle" aria-modal="true" class="modal hidden" id="localModelModal" role="dialog"><div class="modal-card model-add-modal">
+<div class="section-head"><div><span class="eyebrow">MODELS</span><h3 id="localModelTitle">Aggiungi modello</h3></div><button class="ghost" id="localModelClose" type="button">Chiudi</button></div>
+<p class="hub-note model-add-intro" id="localModelHelp">Scegli come aggiungere il modello. I collegamenti server non copiano i pesi; l'upload salva il file nella cartella modelli dell'app.</p>
+<nav aria-label="Metodo di aggiunta" class="model-add-methods">
+<button class="active" data-local-method="upload" type="button"><b>Da questo dispositivo</b><small>Carica un .safetensors</small></button>
+<button data-local-method="server" type="button"><b>File sul server</b><small>Collega senza copiare</small></button>
+<button data-local-method="folder" type="button"><b>Cartella server</b><small>Scansiona una cartella</small></button>
+<button data-local-method="link" type="button"><b>Da link</b><small>Hugging Face / Civitai / HTTPS</small></button>
+</nav>
+<section class="model-add-pane" data-local-pane="upload">
+<label>File .safetensors dal dispositivo<input accept=".safetensors,application/octet-stream" id="localModelUploadFile" multiple="" type="file"/></label>
+<p class="hub-note">Puoi selezionare uno o più file. Verranno copiati nella cartella standard dell'app; per file grandi mantieni questa pagina aperta fino al completamento.</p>
+<progress hidden="" id="localModelUploadProgress" max="100" value="0"></progress><p class="hub-feedback" id="localModelUploadStatus" role="status"></p>
+<div class="hub-inline"><button class="primary" id="localModelUploadStart" type="button">Carica e aggiungi</button><button class="ghost" hidden="" id="localModelUploadCancel" type="button">Annulla upload</button></div>
+</section>
+<section class="model-add-pane" data-local-pane="server" hidden="">
+<label>Percorso file sul server<div class="path-row"><input autocomplete="off" data-no-i18n="" id="localModelPath" spellcheck="false"/><button class="ghost" data-browse="localModelPath" type="button">Sfoglia</button></div></label>
+<p class="hub-note">Collega un singolo .safetensors già presente sul server. Il file resta dov'è e non viene copiato.</p><div class="hub-inline"><button class="primary" id="localModelSave" type="button">Collega file</button></div>
+</section>
+<section class="model-add-pane" data-local-pane="folder" hidden="">
+<label>Cartella sul server<div class="path-row"><input autocomplete="off" data-no-i18n="" id="localModelFolder" spellcheck="false"/><button class="ghost" data-browse="localModelFolder" type="button">Sfoglia</button></div></label>
+<p class="hub-note">La cartella viene scansionata. Verranno mostrati solo modelli compatibili, non file di configurazione o cartelle incomplete.</p><div class="hub-inline"><button class="primary" id="localModelFolderSave" type="button">Aggiungi cartella</button></div>
+</section>
+<section class="model-add-pane" data-local-pane="link" hidden="">
+<p class="hub-note">Usa il downloader già integrato per un file da Hugging Face, Civitai o un URL HTTPS diretto.</p><div class="hub-inline"><button class="primary" id="localModelOpenLink" type="button">Apri import da link</button></div>
+</section>
+<p class="hub-feedback" id="localModelError" role="status"></p>
+</div></div>
+<div class="modal hidden" id="fileBrowser"><div class="modal-card wide"><div class="section-head"><h3>Percorsi sul server</h3><button class="ghost" id="browserClose">Chiudi</button></div><div class="path-row"><input id="browserPath"/><button class="ghost" id="browserGo">Apri</button><button class="ghost" id="browserUp">↑</button></div><button class="primary" id="browserSelectDir">Usa questa cartella</button><div class="lora-browser" id="browserEntries"></div></div></div><script src="/static/edition.js?v=1.0.18-source"></script><script src="/static/studio-additions.js?v=1.0.18-source"></script><script src="/static/vision-ui.js?v=1.0.18-source"></script><script src="/static/vision-sdxl.js?v=1.0.18-source"></script><script src="/static/training-workspace.js?v=1.0.18-source"></script><script src="/static/local-models.js?v=1.0.18-source"></script><script src="/static/ui-refinement.js?v=1.0.18-source"></script><div aria-labelledby="testPreviewTitle" aria-modal="true" class="modal hidden" id="imageTestPreview" role="dialog">
+<div class="modal-card wide lab-preview-card"><div class="section-head"><h3 id="testPreviewTitle">Review the test</h3><button class="ghost" id="testPreviewClose" type="button">Close</button></div>
+<p class="lab-preview-total" data-no-i18n="" id="testPreviewTotal"></p><p class="lab-note" data-no-i18n="" id="testPreviewContext"></p>
+<div aria-label="Test combinations" class="lab-table-wrap" role="region" tabindex="0"><table class="lab-test-table"><thead><tr><th>#</th><th>CFG</th><th>Steps</th><th>Denoise</th><th>Seed</th></tr></thead><tbody data-no-i18n="" id="testPreviewRows"></tbody></table></div>
+<details class="lab-inner"><summary>Fixed settings and prompt</summary><div class="lab-note" data-no-i18n="" id="testPreviewFixed"></div><pre data-no-i18n="" id="testPreviewPrompt"></pre></details>
+<p class="lab-note">Nothing is queued until you confirm. Closing this window changes nothing in the queue.</p>
+<div class="lab-actions"><button class="ghost" id="testPreviewCancel" type="button">Back to settings</button><button class="primary" data-no-i18n="" id="testPreviewConfirm" type="button"></button></div><p class="ui-status" data-no-i18n="" id="testPreviewError" role="alert"></p></div></div><script src="/static/preset-lab.js?v=1.0.18-source"></script><script src="/static/guide.js?v=1.0.18-source"></script><script src="/static/workspace.js?v=1.0.18-source"></script><script src="/static/app-updates.js?v=1.0.18-source"></script><script src="/static/product-ui.js?v=1.0.18-source"></script><script src="/static/preset-manager.js?v=1.0.18-source"></script>
+<div aria-labelledby="uninstallTitle" aria-modal="true" class="modal hidden uninstall-modal" id="uninstallModal" role="dialog">
+<div class="modal-card wide">
+<div class="section-head"><h3 id="uninstallTitle">Confirm uninstall</h3><button class="ghost" id="uninstallClose" type="button">Cancel</button></div>
+<div class="uninstall-warning" data-no-i18n="" id="uninstallWarning" role="alert"></div>
+<p>Zetalvx Image Lab will stop and this page will disconnect. Finish all work first. This action cannot be undone.</p>
+<code class="uninstall-path" data-no-i18n="" id="uninstallPath"></code>
+<form autocomplete="off" id="uninstallForm">
+<label>Type this random word to confirm<code class="uninstall-word" data-no-i18n="" id="uninstallWord"></code><input autocapitalize="characters" autocomplete="off" data-no-i18n="" id="uninstallWordInput" required="" spellcheck="false"/></label>
+<div class="control-grid"><label>Current app password<input autocomplete="current-password" id="uninstallPassword" maxlength="1024" required="" type="password"/></label><label>Repeat the current app password<input autocomplete="current-password" id="uninstallPasswordRepeat" maxlength="1024" required="" type="password"/></label></div>
+<label class="check-row"><input id="uninstallUnderstand" required="" type="checkbox"/> I have read the warning and understand what will be removed.</label>
+<p>The word expires in five minutes and can be used once. Your password is not stored in the uninstall log.</p>
+<button class="ghost danger" disabled="" id="uninstallConfirm" type="submit">Uninstall now</button>
+<p class="ui-status" data-no-i18n="" id="uninstallConfirmError" role="alert"></p>
+</form></div></div>
+<div class="uninstall-banner" data-no-i18n="" hidden="" id="uninstallBanner" role="alert"></div>
+<script src="/static/maintenance-ui.js?v=1.0.18-source"></script><script src="/static/download-manager.js?v=1.0.18-source"></script><script src="/static/file-downloads.js?v=1.0.18-source"></script>
+</body></html>

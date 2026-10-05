@@ -1,0 +1,142 @@
+/* .34: full card actions (including Home), compact Create, explicit removal UI. */
+/* Constrain the tracks, not the text. Works inside narrow history panels too. */
+.asset-grid .asset-card{min-width:0;height:auto;display:flex;flex-direction:column;overflow:hidden}
+.asset-grid .asset-info{min-width:0;overflow:visible;flex:1 1 auto}
+.asset-grid .asset-info>b,.asset-grid .asset-info>small{overflow-wrap:anywhere;max-width:100%}
+.asset-grid .asset-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px;width:100%;min-width:0;align-items:stretch}
+.asset-grid .asset-actions>button,.asset-grid .asset-actions>a{box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-width:0;max-width:100%;width:100%;height:auto;min-height:38px;margin:0;padding:8px 6px;white-space:normal;overflow-wrap:anywhere;word-break:normal;line-height:1.35;font-size:12px;text-align:center}
+@media(min-width:901px){
+ #homeRecent,#imageHistoryGrid,#libraryGrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr))!important;align-items:start}
+ #homeRecent>.empty-state,#imageHistoryGrid>.empty-state,#libraryGrid>.empty-state{grid-column:1/-1}
+}
+.create-heading-actions{display:flex;align-items:center;gap:10px;min-width:0;flex-wrap:wrap;justify-content:flex-end}
+@media(min-width:1101px){
+ #view-image>.section-head{align-items:center;margin-bottom:10px;min-height:42px;gap:8px}
+ #view-image>.section-head h2{margin:0}
+ #view-image .create-heading-actions .image-layout-toolbar{display:flex;margin:0;padding:0}
+ #view-image .task-tabs{margin:0}
+ #view-image .task-tabs button{min-height:36px;padding:7px 10px}
+ #imageStartPanel{margin-bottom:12px;padding:10px 12px 6px;min-height:0;height:auto}
+ #imageStartPanel .image-start-grid{grid-template-columns:auto minmax(0,1fr);gap:10px 16px;align-items:start}
+ #imageStartPanel .start-block{gap:4px}
+ #imageStartPanel .quick-style-grid{gap:6px}
+ #imageStartPanel .quick-style-grid button,#imageStartPanel .compact-toggle button{min-height:34px;padding:6px 10px}
+ #imageStartPanel .prompt-inspect{margin:4px 0 0}
+ #imageStartPanel .prompt-inspect>summary{min-height:30px;padding:4px 0!important}
+ #promptInspectBody .ui-mode-help{margin:0 0 6px;max-width:none}
+ #promptInspectBody .compact-state-line{margin:0 0 8px;padding:0}
+ #imageCreatorLayout .dropzone{height:clamp(260px,calc(100dvh - 260px),580px);min-height:0;aspect-ratio:auto;overflow:hidden}
+ #imageCreatorLayout .dropzone img{width:100%;height:100%;max-height:100%;object-fit:contain;min-height:0}
+}
+@media(max-width:900px){
+ .asset-grid .asset-actions>button,.asset-grid .asset-actions>a{min-height:44px;font-size:12px}
+ .create-heading-actions{width:100%;justify-content:flex-start}
+}
+.uninstall-panel{margin-top:24px;max-width:1000px}
+.uninstall-panel>summary{cursor:pointer;display:flex;align-items:center;min-height:54px;padding:12px 0}
+.uninstall-panel>summary>span{display:grid;gap:5px}.uninstall-panel>summary small{color:var(--muted);font-size:13px}
+.uninstall-panel p,.uninstall-modal p{line-height:1.6;color:var(--muted)}
+.uninstall-warning{padding:14px;border:1px solid #86515a;border-radius:10px;background:#301f25!important;color:#f3b3bc!important;line-height:1.55;white-space:pre-wrap}
+.uninstall-panel .check-row,.uninstall-modal .check-row{display:flex;flex-direction:row;gap:10px;align-items:flex-start;line-height:1.5}
+.uninstall-modal{z-index:1600}.uninstall-modal input{font-size:16px}.uninstall-modal .modal-card{max-height:90dvh}
+.uninstall-word{font-size:22px;letter-spacing:.06em;font-weight:700;user-select:text}
+.uninstall-path{display:block;margin:12px 0 16px;overflow-wrap:anywhere;white-space:normal;font-size:12px}
+#uninstallConfirm{width:100%;min-height:46px}#uninstallConfirm:disabled{opacity:.45;cursor:not-allowed}
+.uninstall-banner{position:fixed;inset:0;z-index:1700;background:#10151df2;color:#f3dce1;display:flex;align-items:center;justify-content:center;padding:5vw;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7;font-size:17px}
+.uninstall-banner[hidden]{display:none}
+@media(min-width:1101px){
+ #view-image .preview-card:has(#mainPreview>.preview-empty){display:block}
+ #imageCreatorLayout #mainPreview{height:clamp(240px,calc(100dvh - 295px),560px)!important;min-height:0;aspect-ratio:auto;max-height:none}
+ #imageCreatorLayout #mainPreview>img.main-image{max-height:100%!important;max-width:100%!important;object-fit:contain!important}
+ #imageStartPanel{padding:8px 12px 4px;margin-bottom:10px}
+ #view-image>.section-head{margin-bottom:6px}
+ #view-image .create-heading-actions .task-tabs{padding:3px}
+}
+
+
+/* 0.1.0.41 — targeted settings cleanup and consistent desktop image cards. */
+.settings-remove-app{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap;max-width:1000px}
+.settings-remove-head{flex:1 1 220px}.settings-remove-head h3{margin:0}
+.settings-remove-data{margin:0!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:9px!important;min-height:44px}
+.settings-remove-button{min-width:150px}
+#appUninstallPanel #uninstallStatus{flex-basis:100%;margin-top:0}
+@media(min-width:901px){
+  #homeRecent,#imageHistoryGrid,#libraryGrid{grid-template-columns:repeat(auto-fill,minmax(240px,260px))!important;justify-content:start;align-items:stretch!important;grid-auto-flow:row}
+  #homeRecent .asset-card,#imageHistoryGrid .asset-card,#libraryGrid .asset-card{height:100%!important;min-height:0;width:100%;display:flex;flex-direction:column}
+  #homeRecent .asset-card>img,#imageHistoryGrid .asset-card>img,#libraryGrid .asset-card>img{aspect-ratio:1/1!important;object-fit:contain!important;flex:0 0 auto}
+  #homeRecent .asset-info,#imageHistoryGrid .asset-info,#libraryGrid .asset-info{display:grid!important;grid-template-rows:auto auto auto;align-content:start;gap:6px;min-height:0;flex:1 1 auto}
+  #homeRecent .asset-info>b,#imageHistoryGrid .asset-info>b,#libraryGrid .asset-info>b{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;line-height:1.3;min-height:2.6em;max-height:2.6em}
+  #homeRecent .asset-info>small,#imageHistoryGrid .asset-info>small,#libraryGrid .asset-info>small{display:block;line-height:1.35;min-height:2.7em;max-height:2.7em;overflow:hidden}
+  #homeRecent .asset-actions,#imageHistoryGrid .asset-actions,#libraryGrid .asset-actions{margin-top:2px;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-self:stretch}
+  #homeRecent .asset-actions>button,#homeRecent .asset-actions>a,#imageHistoryGrid .asset-actions>button,#imageHistoryGrid .asset-actions>a,#libraryGrid .asset-actions>button,#libraryGrid .asset-actions>a{min-height:40px!important;height:40px!important;padding:6px 7px!important;line-height:1.2!important}
+}
+@media(max-width:900px){.settings-remove-app{display:grid;grid-template-columns:1fr;margin-top:22px}.settings-remove-button{width:100%}}
+
+
+/* 0.1.0.41 — settings-only layout normalization. */
+#view-settings{max-width:none!important}
+#view-settings > :is(#appearanceSettings,#networkSettings,.account-settings-card,#appUpdatesPanel,#appLifecyclePanel,#appUninstallPanel){width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box}
+#view-settings .account-settings-card{display:block!important;padding:22px!important}
+#view-settings .account-settings-card > label{width:100%}
+#view-settings .account-settings-card .control-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
+#view-settings #accountSave{width:100%;margin-top:8px}
+#view-settings #accountStatus{max-width:100%;overflow-wrap:anywhere}
+#appLifecyclePanel{margin-top:18px}
+.app-lifecycle-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.app-lifecycle-actions button{min-width:150px}
+#networkLiveStatus{margin-top:10px;line-height:1.55;overflow-wrap:anywhere}
+@media(max-width:900px){#view-settings .account-settings-card .control-grid{grid-template-columns:1fr}.app-lifecycle-actions{display:grid;grid-template-columns:1fr}.app-lifecycle-actions button{width:100%}}
+
+/* 0.1.0.41 — Desktop shortcut and explicit LAN firewall assistance. */
+#desktopShortcutPanel .section-head{margin-bottom:12px}.desktop-shortcut-actions{display:flex;gap:10px;flex-wrap:wrap}.network-firewall-card{margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#0f151e;display:flex;align-items:center;justify-content:space-between;gap:14px}.network-firewall-card>div{display:grid;gap:4px}.network-firewall-card small{display:block;line-height:1.45}.network-firewall-card button{flex:0 0 auto}@media(max-width:700px){.network-firewall-card{align-items:stretch;flex-direction:column}.network-firewall-card button{width:100%}.desktop-shortcut-actions>button{width:100%}}
+
+/* 0.1.0.44 — mobile Image Studio heading containment. */
+@media(max-width:900px){
+ #view-image>.section-head{flex-wrap:wrap!important;min-width:0!important;max-width:100%!important}
+ #view-image>.section-head>div,#view-image .create-heading-actions{min-width:0!important;max-width:100%!important}
+ #view-image .create-heading-actions{width:100%!important}
+ #view-image .create-heading-actions .task-tabs{width:100%!important;min-width:0!important;max-width:100%!important}
+}
+
+
+/* 0.1.0.48 — targeted Create/Identity layout correction only. */
+/* Mobile Create: every real content track may shrink; only the task tab strip scrolls internally. */
+@media(max-width:900px){
+  #view-image{width:100%;max-width:100%;min-width:0;overflow-x:clip}
+  #view-image > *,
+  #view-image :is(#imageStartPanel,#imageCreatorLayout,#imagePreviewColumn,#imageControlsColumn,.preview-card,.controls-card,.simple-basics-panel,.control-grid,.start-block,.grow-block,.lora-head,.lora-stack,.advanced-group,.hub-details){min-width:0;max-width:100%}
+  #view-image :is(input,textarea,select){min-width:0;max-width:100%}
+  #view-image .task-tabs{max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
+  #view-image .create-heading-actions{min-width:0;max-width:100%;overflow:hidden}
+  #view-image #checkpointWrap,#view-image #inpaintCheckpointWrap{min-width:0;max-width:100%}
+}
+/* Desktop Create: preview and controls share the same grid row height; the image grows inside its card. */
+@media(min-width:1101px){
+  #imageCreatorLayout{align-items:stretch!important}
+  #imagePreviewColumn{height:100%;min-height:0}
+  #imagePreviewColumn>.preview-card{display:flex;flex-direction:column;flex:1 1 auto;height:100%;min-height:0}
+  #imageCreatorLayout #mainPreview{flex:1 1 auto;height:auto!important;min-height:360px!important;max-height:none!important}
+  #imageCreatorLayout #mainPreview>img.main-image{width:100%!important;height:100%!important;max-height:100%!important;object-fit:contain!important}
+}
+/* Identity desktop stays balanced; this does not change Identity inference. */
+@media(min-width:901px){
+  #view-identity .identity-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;align-items:start}
+}
+.identity-sdxl-heading{display:grid;gap:4px;margin:2px 0 12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.identity-sdxl-heading b{font-size:14px}.identity-sdxl-heading small{color:var(--muted);line-height:1.45}
+#identitySwapRefineModelSlot:empty,#identityInstantidModelSlot:empty{display:none}
+#identitySwapRefineModelSlot:not(:empty){margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.identity-pure-swap-note{margin:0 0 12px}
+
+/* 1.0.18: Identity inputs and checkpoint information only. */
+
+
+#identityInputSlots{display:grid;gap:12px;min-width:0}
+#identityInputSlots>.identity-input-slot{min-width:0;padding:12px;border:1px solid var(--line);border-radius:12px}
+#identityInputSlots label{display:block;margin:0 0 7px}
+#identityInputSlots input[type=file]{width:100%;min-width:0;max-width:100%;font-size:12px}
+#identityInputSlots .identity-preview,#identityInputSlots .identity-reference-preview{margin-bottom:0}
+#view-identity .identity-input-hint{display:block;font-size:11px;line-height:1.45;color:var(--muted);margin:6px 0 3px;overflow-wrap:anywhere}
+#identityBaseModel{width:100%;min-width:0;max-width:100%}
+#view-identity .identity-checkpoint-path{display:block;font-size:11px;line-height:1.4;color:var(--muted);margin:4px 0 10px;overflow-wrap:anywhere;direction:ltr;text-align:start}
+#identityCheckpointPath[hidden]{display:none}

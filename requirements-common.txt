@@ -1,0 +1,12 @@
+# Direct pins validated during the 0.1.0.23 -> 0.1.0.24 migration test.
+# The full installed environment is re-audited before activation.
+Flask==3.1.3
+Werkzeug==3.1.8
+Jinja2==3.1.6
+itsdangerous==2.2.0
+click==8.5.0
+blinker==1.9.0
+Pillow==12.3.0
+requests==2.34.2
+cryptography==50.0.1
+psutil==7.2.2

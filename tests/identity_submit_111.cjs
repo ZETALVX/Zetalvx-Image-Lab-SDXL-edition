@@ -1,0 +1,42 @@
+'use strict';
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict'),path=require('path');
+const source=fs.readFileSync(path.join(__dirname,'../static/identity-submit.js'),'utf8');
+const tests=[];function ok(name,value){assert.ok(value,name);tests.push(name)}
+const context={Blob,File,FormData,TextEncoder,AbortController,console,WeakMap,Error,Promise,setTimeout:(fn,ms)=>setTimeout(fn,ms===30000?80:ms),clearTimeout};
+vm.createContext(context);vm.runInContext(source,context);const api=context.ZetalvxIdentitySubmit;
+async function rejects(name,f,code){let err;try{await f()}catch(e){err=e}ok(name,err?.code===code)}
+(async()=>{
+ const bytes=Buffer.from([0,1,2,13,10,255,0,128]),f=new File([bytes],'volto è.png',{type:'image/png'});let reads=0;
+ const read=f.arrayBuffer.bind(f);f.arrayBuffer=()=>{reads++;return read()};
+ const fd=new FormData();fd.append('references',f);fd.append('base_image',f);fd.append('pose_image',f);fd.append('prompt','è una prova, 日本語 & <scene>');fd.append('guidance','5');
+ const result=await api.prepare(fd);
+ ok('file bytes preserved',Buffer.from(await result.get('references').arrayBuffer()).equals(bytes));
+ ok('filename preserved',result.get('references').name==='volto è.png');
+ ok('mime preserved',result.get('references').type==='image/png');
+ ok('same file snapshot read once per File',reads===1);
+ ok('text parameters preserved',result.get('prompt')===fd.get('prompt')&&result.get('guidance')==='5');
+ ok('original file input object not replaced',fd.get('references')===f);
+ await api.prepare(fd);ok('consecutive submissions reuse verified bytes',reads===1);
+ const duplicate=new File([bytes],'volto è.png',{type:'image/png'});const d=new FormData();d.append('references',f);d.append('references',duplicate);
+ ok('multiple reference ordering preserved',(await api.prepare(d)).getAll('references').length===2);
+ const empty=new FormData();empty.append('references',new File([],'empty.png'));
+ await rejects('empty image rejected',()=>api.prepare(empty),'identity_file_incomplete');
+ const bad=new File([bytes],'bad.png');bad.arrayBuffer=()=>Promise.reject(Error('read failed'));const badForm=new FormData();badForm.append('references',bad);
+ await rejects('unreadable image rejected',()=>api.prepare(badForm),'identity_file_unreadable');
+ bad.arrayBuffer=()=>Promise.resolve(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.length));
+ ok('failed read can be retried after reselect/recovery',(await api.prepare(badForm)).get('references').size===bytes.length);
+ const wrong=new File([bytes],'wrong.png');wrong.arrayBuffer=()=>Promise.resolve(new ArrayBuffer(1));const wf=new FormData();wf.append('references',wrong);
+ await rejects('partial read rejected',()=>api.prepare(wf),'identity_file_incomplete');
+ const hanging=new File([bytes],'hanging.png');hanging.arrayBuffer=()=>new Promise(()=>{});const hf=new FormData();hf.append('references',hanging);
+ await rejects('file read has a deadline',()=>api.prepare(hf),'identity_file_unreadable');
+ const huge=new File([bytes],'large.png');Object.defineProperty(huge,'size',{value:128*1024*1024});const big=new FormData();big.append('references',huge);
+ await rejects('upload bound includes multipart overhead',()=>api.prepare(big),'identity_upload_too_large');
+ const evolving=new FormData();evolving.append('references',f);evolving.append('mode','face_swap');const promise=api.prepare(evolving);evolving.set('mode','instantid');
+ ok('mode captured before async reads',(await promise).get('mode')==='face_swap');
+ ok('HTTP400 has definite rejection',api.nonJsonError(400).submissionUncertain===false);
+ ok('HTTP413 keeps rejection status',api.nonJsonError(413).status===413);
+ ok('unexpected HTML success remains uncertain',api.nonJsonError(200).submissionUncertain===true);
+ ok('server error remains uncertain',api.nonJsonError(500).submissionUncertain===true);
+ ok('no HTML leak in HTTP400 message',!api.nonJsonError(400).message.includes('<'));
+ console.log(JSON.stringify({passed:tests.length,tests}));
+})().catch(e=>{console.error(e);process.exit(1)});

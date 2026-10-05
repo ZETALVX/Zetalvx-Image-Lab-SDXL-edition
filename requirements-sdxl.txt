@@ -1,0 +1,13 @@
+# SDXL candidate runtime validated on RTX 3090 / CUDA 12.6 during migration testing.
+# Torch/torchvision are installed first from the official PyTorch CUDA/CPU index.
+-r requirements-common.txt
+torch==2.14.0
+torchvision==0.29.0
+numpy==2.2.6
+diffusers==0.40.0
+transformers==5.17.0
+huggingface-hub>=1.0,<2
+accelerate>=1.10,<2
+peft>=0.17,<0.19
+safetensors>=0.6,<1
+tokenizers>=0.23,<0.24

@@ -1,0 +1,20 @@
+Zetalvx Image Lab — SDXL Edition
+Software family: Zetalvx Labs
+
+Copyright 2026 Zetalvx for original contributions owned by Zetalvx.
+Copyright 2026 Creator Studio contributors for their respective contributions.
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This NOTICE preserves attribution applicable to the application source. It does
+not change or replace the licenses of third-party software, model weights,
+datasets, media or services used with the application.
+
+No AI model weights, user datasets, credentials, FFmpeg binaries, NVIDIA
+drivers/CUDA runtimes or prebuilt Python environments are included in this
+source distribution.
+
+Third-party components retain their own copyright notices and license terms.
+See THIRD_PARTY_NOTICES.md and docs/MODELS_AND_LICENSES.md.
+
+Project information: https://github.com/ZETALVX

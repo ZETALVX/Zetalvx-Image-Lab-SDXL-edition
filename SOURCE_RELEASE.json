@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "product": "Zetalvx Image Lab — SDXL Edition",
+  "distribution": "source",
+  "application_code_version": "1.0.18",
+  "automatic_app_installer_included": false,
+  "model_weights_included": false,
+  "prebuilt_runtime_included": false,
+  "packaged_update_payload": false,
+  "runtime_dependencies_changed": false
+}

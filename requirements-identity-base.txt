@@ -1,0 +1,7 @@
+# Source manual setup: exact non-InsightFace pins from requirements-identity.txt.
+onnx==1.22.0
+opencv-python-headless==4.12.0.88
+tqdm==4.67.1
+scipy==1.14.1
+scikit-image==0.24.0
+einops==0.8.0
